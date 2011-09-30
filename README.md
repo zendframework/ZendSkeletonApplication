@@ -34,6 +34,7 @@ provides several benefits:
   after a cloning the project.
 
 There are a couple of mild caveats to be aware of:
+
 * Be sure to always run `git submodule update` after pulling, as merge/rebase
   does not automatically update the checked out commit in submodules if it has
   been changed.
