@@ -209,7 +209,7 @@ class Listener implements ListenerAggregate
                 break;
         }
 
-        $content = $this->view->render('error.phtml', $vars);
+        $content = $this->view->render('error/index.phtml', $vars);
 
         $e->setResult($content);
 
