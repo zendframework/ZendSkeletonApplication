@@ -13,7 +13,7 @@ class Url extends AbstractHelper
         $this->router = $router;
     }
 
-    public function direct($params = array(), $options = array())
+    public function __invoke($params = array(), $options = array())
     {
         if (null === $this->router) {
             return '';
