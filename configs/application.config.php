@@ -7,7 +7,7 @@ return new Zend\Config\Config(array(
         'Application',
     ),
     'module_manager_options' => array( 
-        'cache_config'  => false,
-        'cache_dir'     => realpath(__DIR__ . '/../data/cache'),
+        'enable_config_cache' => false,
+        'cache_dir'           => realpath(__DIR__ . '/../data/cache'),
     ),
 ));
