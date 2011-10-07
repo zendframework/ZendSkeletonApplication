@@ -4,7 +4,8 @@ namespace Application;
 use Zend\Config\Config,
     Zend\Di\Configuration,
     Zend\Di\Definition,
-    Zend\Di\DependencyInjector,
+    Zend\Di\DefinitionList,
+    Zend\Di\Di,
     Zend\EventManager\StaticEventManager,
     Zend\Module\Manager as ModuleManager,
     Zend\Mvc\Application;
@@ -29,15 +30,10 @@ class Bootstrap
 
     protected function setupLocator(Application $app)
     {
-        $definition = new Definition\AggregateDefinition;
-        $definition->addDefinition(new Definition\RuntimeDefinition);
-
-        $di = new DependencyInjector;
-        $di->setDefinition($definition);
-
-        $config = new Configuration($this->config->di);
-        $config->configure($di);
-
+        $definition = new Definition\RuntimeDefinition;
+        $definition->getIntrospectionStrategy()->setUseAnnotations(false);
+        $di = new Di(new DefinitionList($definition), null, new Configuration($this->config->di));
+        $di->instanceManager()->addTypePreference('Zend\Di\Locator', $di);
         $app->setLocator($di);
     }
 

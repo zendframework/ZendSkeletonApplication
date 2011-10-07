@@ -25,17 +25,13 @@ return array(
             ),
 
             'Zend\View\PhpRenderer' => array(
-                'methods' => array(
-                    'setResolver' => array(
+                'parameters' => array(
                         'resolver' => 'Zend\View\TemplatePathStack',
                         'options'  => array(
                             'script_paths' => array(
                                 'application' => __DIR__ . '/../views',
                             ),
                         ),
-                    ),
-                ),
-                'parameters' => array(
                     'broker' => 'Zend\View\HelperBroker',
                 ),
             ),
