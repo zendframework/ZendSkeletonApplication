@@ -2,7 +2,7 @@
 namespace Application;
 
 use Zend\Config\Config,
-    Zend\Di\Configuration,
+    Zend\Di\Configuration as DiConfiguration,
     Zend\Di\Definition,
     Zend\Di\DefinitionList,
     Zend\Di\Di,
@@ -33,7 +33,7 @@ class Bootstrap
         $di = new Di;
         $di->instanceManager()->addTypePreference('Zend\Di\Locator', $di);
 
-        $config = new Configuration($this->config->di);
+        $config = new DiConfiguration($this->config->di);
         $config->configure($di);
 
         $app->setLocator($di);
