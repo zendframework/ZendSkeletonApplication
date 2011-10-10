@@ -30,10 +30,12 @@ class Bootstrap
 
     protected function setupLocator(Application $app)
     {
-        $definition = new Definition\RuntimeDefinition;
-        $definition->getIntrospectionStrategy()->setUseAnnotations(false);
-        $di = new Di(new DefinitionList($definition), null, new Configuration($this->config->di));
+        $di = new Di;
         $di->instanceManager()->addTypePreference('Zend\Di\Locator', $di);
+
+        $config = new Configuration($this->config->di);
+        $config->configure($di);
+
         $app->setLocator($di);
     }
 
