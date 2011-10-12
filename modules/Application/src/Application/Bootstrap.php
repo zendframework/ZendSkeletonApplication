@@ -42,12 +42,7 @@ class Bootstrap
     protected function setupRoutes(Application $app)
     {
         $router = $app->getLocator()->get('Zend\Mvc\Router\SimpleRouteStack');
-        foreach ($this->config->routes as $name => $config) {
-            $class   = $config->type;
-            $options = $config->options;
-            $route   = new $class($options);
-            $router->addRoute($name, $route);
-        }
+        $router->addRoutes($this->config->routes->toArray());
         $app->setRouter($router);
     }
 
