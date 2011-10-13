@@ -25,7 +25,7 @@ class Module
         require __DIR__ . '/autoload_register.php';
     }
 
-    public static function getConfig()
+    public function getConfig()
     {
         return new Config(include __DIR__ . '/configs/module.config.php');
     }
