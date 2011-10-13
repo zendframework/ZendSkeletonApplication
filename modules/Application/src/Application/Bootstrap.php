@@ -3,8 +3,6 @@ namespace Application;
 
 use Zend\Config\Config,
     Zend\Di\Configuration as DiConfiguration,
-    Zend\Di\Definition,
-    Zend\Di\DefinitionList,
     Zend\Di\Di,
     Zend\EventManager\StaticEventManager,
     Zend\Module\Manager as ModuleManager,
