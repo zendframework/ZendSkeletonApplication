@@ -14,19 +14,17 @@ Zend\Loader\AutoloaderFactory::factory(array('Zend\Loader\StandardAutoloader' =>
 
 $appConfig = include __DIR__ . '/../configs/application.config.php';
 
-$moduleLoader = new Zend\Loader\ModuleAutoloader($appConfig->module_paths);
+$moduleLoader = new Zend\Loader\ModuleAutoloader($appConfig['module_paths']);
 $moduleLoader->register();
 
 $moduleManager = new Zend\Module\Manager(
-    $appConfig->modules,
-    new Zend\Module\ManagerOptions($appConfig->module_manager_options)
+    $appConfig['modules'],
+    new Zend\Module\ManagerOptions($appConfig['module_manager_options'])
 );
 
-// Get the merged config object
-$config = $moduleManager->getMergedConfig();
-
 // Create application, bootstrap, and run
-$bootstrap = new $config->bootstrap_class($config, $moduleManager);
-$application = new Zend\Mvc\Application;
+$bootstrapClass = $appConfig['bootstrap_class'];
+$bootstrap      = new $bootstrapClass($moduleManager);
+$application    = new Zend\Mvc\Application;
 $bootstrap->bootstrap($application);
 $application->run()->send();

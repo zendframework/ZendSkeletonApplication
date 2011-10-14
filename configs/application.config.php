@@ -1,5 +1,6 @@
 <?php
 return new Zend\Config\Config(array(
+    'bootstrap_class' => 'Application\Bootstrap',
     'module_paths' => array(
         realpath(__DIR__ . '/../modules'),
     ),

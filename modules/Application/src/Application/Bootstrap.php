@@ -1,22 +1,29 @@
 <?php
 namespace Application;
 
-use Zend\Config\Config,
-    Zend\Di\Configuration as DiConfiguration,
+use Zend\Di\Configuration as DiConfiguration,
     Zend\Di\Di,
     Zend\EventManager\StaticEventManager,
     Zend\Module\Manager as ModuleManager,
-    Zend\Mvc\Application;
+    Zend\Mvc\Application,
+    Zend\Mvc\Router\Http\TreeRouteStack as Router;
 
 class Bootstrap
 {
+    /**
+     * @var \Zend\Config\Config
+     */
     protected $config;
+
+    /**
+     * @var ModuleManager
+     */
     protected $modules;
 
-    public function __construct(Config $config, ModuleManager $modules)
+    public function __construct(ModuleManager $modules)
     {
-        $this->config  = $config;
         $this->modules = $modules; 
+        $this->config  = $modules->getMergedConfig();
     }
 
     public function bootstrap(Application $app)
@@ -39,8 +46,8 @@ class Bootstrap
 
     protected function setupRoutes(Application $app)
     {
-        $router = $app->getLocator()->get('Zend\Mvc\Router\SimpleRouteStack');
-        $router->addRoutes($this->config->routes->toArray());
+        $router = new Router();
+        $router->addRoutes($this->config->routes);
         $app->setRouter($router);
     }
 
