@@ -5,19 +5,18 @@ namespace Application;
 use InvalidArgumentException,
     Zend\Module\Manager,
     Zend\Config\Config,
-    Zend\Di\Locator,
-    Zend\EventManager\EventCollection,
-    Zend\EventManager\StaticEventCollection;
+    Zend\EventManager\StaticEventManager;
 
 class Module
 {
-    protected $appListeners    = array();
-    protected $staticListeners = array();
+    protected $view;
     protected $viewListener;
 
     public function init(Manager $moduleManager)
     {
         $this->initAutoloader($moduleManager->getOptions()->getApplicationEnv());
+        $events = StaticEventManager::getInstance();
+        $events->attach('bootstrap', 'bootstrap', array($this, 'initializeView'), 100);
     }
 
     protected function initAutoloader($env = null)
@@ -30,18 +29,15 @@ class Module
         return new Config(include __DIR__ . '/configs/module.config.php');
     }
     
-    public function registerApplicationListeners(EventCollection $events, Locator $locator, Config $config)
+    public function initializeView($e)
     {
-        $view          = $locator->get('view');
-        $viewListener  = $this->getViewListener($view, $config);
-        $events->attachAggregate($viewListener);
-    }
-
-    public function registerStaticListeners(StaticEventCollection $events, Locator $locator, Config $config)
-    {
-        $view         = $locator->get('view');
+        $app          = $e->getParam('application');
+        $locator      = $app->getLocator();
+        $config       = $e->getParam('modules')->getMergedConfig();
+        $view         = $this->getView($app);
         $viewListener = $this->getViewListener($view, $config);
-
+        $app->events()->attachAggregate($viewListener);
+        $events       = StaticEventManager::getInstance();
         $viewListener->registerStaticListeners($events, $locator);
     }
 
@@ -56,5 +52,23 @@ class Module
 
         $this->viewListener = $viewListener;
         return $viewListener;
+    }
+
+    protected function getView($app)
+    {
+        if ($this->view) {
+            return $this->view;
+        }
+
+        $di     = $app->getLocator();
+        $view   = $di->get('view');
+        $url    = $view->plugin('url');
+        $url->setRouter($app->getRouter());
+
+        $view->plugin('headTitle')->setSeparator(' - ')
+                                  ->setAutoEscape(false)
+                                  ->append('Application');
+        $this->view = $view;
+        return $view;
     }
 }

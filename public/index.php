@@ -23,8 +23,7 @@ $moduleManager = new Zend\Module\Manager(
 );
 
 // Create application, bootstrap, and run
-$bootstrapClass = $appConfig['bootstrap_class'];
-$bootstrap      = new $bootstrapClass($moduleManager);
+$bootstrap      = new Zend\Mvc\Bootstrap($moduleManager);
 $application    = new Zend\Mvc\Application;
 $bootstrap->bootstrap($application);
 $application->run()->send();
