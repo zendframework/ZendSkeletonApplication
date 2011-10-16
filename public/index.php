@@ -5,6 +5,7 @@ defined('APPLICATION_ENV')
 
 // Ensure ZF is on the include path
 set_include_path(implode(PATH_SEPARATOR, array(
+    realpath(__DIR__ . '/../library'),
     realpath(__DIR__ . '/../library/ZendFramework/library'),
     get_include_path(),
 )));
