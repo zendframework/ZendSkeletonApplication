@@ -2,10 +2,10 @@
 
 namespace Application;
 
-use InvalidArgumentException,
-    Zend\Module\Manager,
+use Zend\Module\Manager,
     Zend\Config\Config,
-    Zend\EventManager\StaticEventManager;
+    Zend\EventManager\StaticEventManager,
+    Zend\Loader\AutoloaderFactory;
 
 class Module
 {
@@ -21,7 +21,16 @@ class Module
 
     protected function initAutoloader($env = null)
     {
-        require __DIR__ . '/autoload_register.php';
+        AutoloaderFactory::factory(array(
+            'Zend\Loader\ClassMapAutoloader' => array(
+                __DIR__ . '/autoload_classmap.php',
+            ),
+            'Zend\Loader\StandardAutoloader' => array(
+                'namespaces' => array(
+                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                ),
+            ),
+        ));
     }
 
     public function getConfig()

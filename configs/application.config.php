@@ -1,5 +1,5 @@
 <?php
-return new Zend\Config\Config(array(
+return array(
     'module_paths' => array(
         realpath(__DIR__ . '/../modules'),
     ),
@@ -13,4 +13,4 @@ return new Zend\Config\Config(array(
         'enable_auto_installation' => false,
         'manifest_dir'             => realpath(__DIR__ . '/../data'),
     ),
-));
+);

@@ -13,7 +13,7 @@ set_include_path(implode(PATH_SEPARATOR, array(
 require_once 'Zend/Loader/AutoloaderFactory.php';
 Zend\Loader\AutoloaderFactory::factory(array('Zend\Loader\StandardAutoloader' => array()));
 
-$appConfig = include __DIR__ . '/../configs/application.config.php';
+$appConfig = new Zend\Config\Config(include __DIR__ . '/../configs/application.config.php');
 
 $moduleLoader = new Zend\Loader\ModuleAutoloader($appConfig['module_paths']);
 $moduleLoader->register();
