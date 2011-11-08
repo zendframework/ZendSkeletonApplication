@@ -9,21 +9,6 @@ return array(
                 'error' => 'Application\Controller\ErrorController',
                 'view'  => 'Zend\View\PhpRenderer',
             ),
-
-            'Zend\View\HelperLoader' => array(
-                'parameters' => array(
-                    'map' => array(
-                        'url' => 'Application\View\Helper\Url',
-                    ),
-                ),
-            ),
-
-            'Zend\View\HelperBroker' => array(
-                'parameters' => array(
-                    'loader' => 'Zend\View\HelperLoader',
-                ),
-            ),
-
             'Zend\View\PhpRenderer' => array(
                 'parameters' => array(
                     'resolver' => 'Zend\View\TemplatePathStack',
@@ -32,20 +17,21 @@ return array(
                             'application' => __DIR__ . '/../views',
                         ),
                     ),
-                    'broker' => 'Zend\View\HelperBroker',
                 ),
             ),
         ),
     ),
-
     'routes' => array(
         'default' => array(
-            'type'    => 'Zend\Mvc\Router\Http\Regex',
+            'type'    => 'Zend\Mvc\Router\Http\Segment',
             'options' => array(
-                'regex'    => '/(?P<controller>[^/]+)(/(?P<action>[^/]+)?)?',
-                'spec'     => '/%controller%/%action%',
+                'route'    => '/[:controller[/:action]]',
+                'constraints' => array(
+                    'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                    'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                ),
                 'defaults' => array(
-                    'controller' => 'error',
+                    'controller' => 'index',
                     'action'     => 'index',
                 ),
             ),
