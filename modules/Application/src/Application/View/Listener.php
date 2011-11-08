@@ -7,7 +7,7 @@ use ArrayAccess,
     Zend\EventManager\EventCollection,
     Zend\EventManager\ListenerAggregate,
     Zend\EventManager\StaticEventCollection,
-    Zend\Http\Response,
+    Zend\Http\PhpEnvironment\Response,
     Zend\Mvc\Application,
     Zend\Mvc\MvcEvent,
     Zend\View\Renderer;
