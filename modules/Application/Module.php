@@ -13,12 +13,12 @@ class Module
 
     public function init(Manager $moduleManager)
     {
-        $this->initAutoloader($moduleManager->getOptions()->getApplicationEnv());
+        $this->initAutoloader();
         $events = StaticEventManager::getInstance();
         $events->attach('bootstrap', 'bootstrap', array($this, 'initializeView'), 100);
     }
 
-    protected function initAutoloader($env = null)
+    protected function initAutoloader()
     {
         AutoloaderFactory::factory(array(
             'Zend\Loader\ClassMapAutoloader' => array(
@@ -32,7 +32,7 @@ class Module
         ));
     }
 
-    public function getConfig()
+    public function getConfig($env = null)
     {
         return include __DIR__ . '/configs/module.config.php';
     }
