@@ -4,7 +4,8 @@ namespace Application;
 
 use Zend\Module\Manager,
     Zend\EventManager\StaticEventManager,
-    Zend\Loader\AutoloaderFactory;
+    Zend\Loader\AutoloaderFactory,
+    Zend\Config\Config;
 
 class Module
 {
@@ -34,7 +35,7 @@ class Module
 
     public function getConfig($env = null)
     {
-        return include __DIR__ . '/configs/module.config.php';
+        return new Config(include __DIR__ . '/configs/module.config.php');
     }
     
     public function initializeView($e)
