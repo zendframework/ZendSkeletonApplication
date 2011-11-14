@@ -13,18 +13,18 @@ set_include_path(implode(PATH_SEPARATOR, array(
 require_once 'Zend/Loader/AutoloaderFactory.php';
 Zend\Loader\AutoloaderFactory::factory(array('Zend\Loader\StandardAutoloader' => array()));
 
-$appConfig = new Zend\Config\Config(include __DIR__ . '/../configs/application.config.php');
+$appConfig = include __DIR__ . '/../configs/application.config.php';
 
 $moduleLoader = new Zend\Loader\ModuleAutoloader($appConfig['module_paths']);
 $moduleLoader->register();
 
-$moduleManager = new Zend\Module\Manager(
-    $appConfig['modules'],
-    new Zend\Module\ManagerOptions($appConfig['module_manager_options'])
-);
+$moduleManager = new Zend\Module\Manager($appConfig['modules']);
+$listenerOptions = new Zend\Module\Listener\ListenerOptions($appConfig['module_listener_options']);
+$moduleManager->setDefaultListenerOptions($listenerOptions);
+$moduleManager->loadModules();
 
 // Create application, bootstrap, and run
-$bootstrap      = new Zend\Mvc\Bootstrap($moduleManager);
+$bootstrap      = new Zend\Mvc\Bootstrap($moduleManager->getMergedConfig());
 $application    = new Zend\Mvc\Application;
 $bootstrap->bootstrap($application);
 $application->run()->send();

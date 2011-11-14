@@ -7,11 +7,8 @@ return array(
     'modules' => array(
         'Application',
     ),
-    'module_manager_options' => array( 
-        'enable_config_cache'      => false,
+    'module_listener_options' => array( 
+        'config_cache_enabled'     => false,
         'cache_dir'                => realpath(__DIR__ . '/../data/cache'),
-        'enable_dependency_check'  => false,
-        'enable_auto_installation' => false,
-        'manifest_dir'             => realpath(__DIR__ . '/../data'),
     ),
 );
