@@ -192,7 +192,9 @@ class Listener implements ListenerAggregate
             case Application::ERROR_CONTROLLER_NOT_FOUND:
             case Application::ERROR_CONTROLLER_INVALID:
                 $vars = array(
-                    'message' => 'Page not found.',
+                    'message'            => 'Page not found.',
+                    'exception'          => $e->getParam('exception'),
+                    'display_exceptions' => $this->displayExceptions(),
                 );
                 $response->setStatusCode(404);
                 break;
