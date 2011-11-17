@@ -169,7 +169,11 @@ class Listener implements ListenerAggregate
             return;
         }
 
-        $vars = array('message' => 'Page not found.');
+        $vars = array(
+            'message'            => 'Page not found.',
+            'exception'          => $e->getParam('exception'),
+            'display_exceptions' => $this->displayExceptions(),
+        );
 
         $content = $this->view->render('pages/404.phtml', $vars);
 
