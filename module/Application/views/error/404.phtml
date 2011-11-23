@@ -1,14 +1,20 @@
-<h1>An 404 error occurred</h1>
+<h1>A 404 error occurred</h1>
 <h2><?php echo $this->message ?></h2>
 
-<?php if (isset($this->exception)): ?>
+<?php if (isset($this->display_exceptions) && $this->display_exceptions): ?>
+
+<?php if(isset($this->exception) && $this->exception instanceof Exception): ?>
 
 <h3>Exception information:</h3>
 <p>
-    <b>Message:</b> <?php echo $this->exception->getMessage() ?>
+    <h3>Stack trace:</h3>
+    <pre><?php echo $this->exception->getTraceAsString() ?></pre>
 </p>
 
-<h3>Stack trace:</h3>
-<pre><?php echo $this->exception->getTraceAsString() ?></pre>
+<?php else: ?>
+
+<h3>No Exception available</h3>
+
+<?php endif ?>
 
 <?php endif ?>
