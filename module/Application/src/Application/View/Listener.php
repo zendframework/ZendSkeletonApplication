@@ -97,7 +97,7 @@ class Listener implements ListenerAggregate
             $response->setStatusCode(404);
         }
 
-        $script     = 'pages/' . $page . '.phtml';
+        $script     = 'error/' . $page . '.phtml';
 
         // Action content
         $content    = $this->view->render($script);
@@ -175,7 +175,7 @@ class Listener implements ListenerAggregate
             'display_exceptions' => $this->displayExceptions(),
         );
 
-        $content = $this->view->render('pages/404.phtml', $vars);
+        $content = $this->view->render('error/404.phtml', $vars);
 
         $e->setResult($content);
 
