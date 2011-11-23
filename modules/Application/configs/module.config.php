@@ -1,8 +1,9 @@
 <?php
 return array(
-    'bootstrap_class' => 'Application\Bootstrap',
-    'layout'          => 'layouts/layout.phtml',
-    'di'              => array(
+    'bootstrap_class'       => 'Application\Bootstrap',
+    'layout'                => 'layouts/layout.phtml',
+    'display_exceptions'    => false,
+    'di'                    => array(
         'instance' => array(
             'alias' => array(
                 'index' => 'Application\Controller\IndexController',
