@@ -40,8 +40,8 @@ class Listener implements ListenerAggregate
     public function attach(EventCollection $events)
     {
         $this->listeners[] = $events->attach('dispatch.error', array($this, 'renderError'));
-        $this->listeners[] = $events->attach('dispatch', array($this, 'render404'), -80);
-        $this->listeners[] = $events->attach('dispatch', array($this, 'renderLayout'), -1000);
+        $this->listeners[] = $events->attach('dispatch', array($this, 'render404'), -1000);
+        $this->listeners[] = $events->attach('dispatch', array($this, 'renderLayout'), -80);
     }
 
     public function detach(EventCollection $events)
