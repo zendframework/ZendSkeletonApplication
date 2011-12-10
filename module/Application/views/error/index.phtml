@@ -7,7 +7,9 @@
 
 <h3>Exception information:</h3>
 <p>
-    <h3>Stack trace:</h3>
+    <h4>Message:</h4>
+    <pre><?php echo $this->exception->getMessage() ?></pre>
+    <h4>Stack trace:</h4>
     <pre><?php echo $this->exception->getTraceAsString() ?></pre>
 </p>
 
