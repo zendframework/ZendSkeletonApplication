@@ -127,7 +127,7 @@ class Listener implements ListenerAggregate
 
         $content    = $this->view->render($script, $vars);
 
-        $e->setResult($content);
+        $e->setParam('content', $content);
         return $content;
     }
 
@@ -142,13 +142,15 @@ class Listener implements ListenerAggregate
             return $response;
         }
 
-        $footer   = $e->getParam('footer', false);
-        $vars     = array('footer' => $footer);
+        $vars = $e->getResult();
+        if (is_scalar($vars)) {
+            $vars = array('content' => $vars);
+        } elseif (is_object($vars) && !$vars instanceof ArrayAccess) {
+            $vars = (array) $vars;
+        }
 
         if (false !== ($contentParam = $e->getParam('content', false))) {
             $vars['content'] = $contentParam;
-        } else {
-            $vars['content'] = $e->getResult();
         }
 
         $layout   = $this->view->render($this->layout, $vars);

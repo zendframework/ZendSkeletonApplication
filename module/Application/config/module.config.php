@@ -1,7 +1,7 @@
 <?php
 return array(
     'layout'                => 'layouts/layout.phtml',
-    'display_exceptions'    => false,
+    'display_exceptions'    => true,
     'di'                    => array(
         'instance' => array(
             'alias' => array(
