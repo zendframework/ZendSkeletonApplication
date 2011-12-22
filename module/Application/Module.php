@@ -67,9 +67,9 @@ class Module implements AutoloaderProvider
             return $this->view;
         }
 
-        $di     = $app->getLocator();
-        $view   = $di->get('view');
-        $url    = $view->plugin('url');
+        $location   = $app->getLocator();
+        $view       = $di->get('view');
+        $url        = $view->plugin('url');
         $url->setRouter($app->getRouter());
 
         $view->plugin('headTitle')->setSeparator(' - ')
