@@ -76,13 +76,13 @@ class Module implements AutoloaderProvider
                                   ->setAutoEscape(false)
                                   ->append('ZF2 Skeleton Application');
 
-        $basePath = $app->getRequest()->detectBaseUrl();
+        $basePath = $app->getRequest()->getBaseUrl();
 
-        $view->plugin('headLink')->appendStylesheet($basePath . 'css/bootstrap.min.css');
+        $view->plugin('headLink')->appendStylesheet($basePath . '/css/bootstrap.min.css');
 
-        $html5js = '<script src="' . $basePath . 'js/html5.js"></script>';
+        $html5js = '<script src="' . $basePath . '/js/html5.js"></script>';
         $view->plugin('placeHolder')->__invoke('html5js')->set($html5js);
-        $favicon = '<link rel="shortcut icon" href="' . $basePath . 'images/favicon.ico">';
+        $favicon = '<link rel="shortcut icon" href="' . $basePath . '/images/favicon.ico">';
         $view->plugin('placeHolder')->__invoke('favicon')->set($favicon);
 
         $this->view = $view;
