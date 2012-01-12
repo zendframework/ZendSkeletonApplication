@@ -1,6 +1,6 @@
 <?php
 return array(
-    'layout'                => 'layouts/layout.phtml',
+    'layout'                => 'layout/layout.phtml',
     'display_exceptions'    => true,
     'di'                    => array(
         'instance' => array(
@@ -14,7 +14,7 @@ return array(
                     'resolver' => 'Zend\View\TemplatePathStack',
                     'options'  => array(
                         'script_paths' => array(
-                            'application' => __DIR__ . '/../views',
+                            'application' => __DIR__ . '/../view',
                         ),
                     ),
                 ),
