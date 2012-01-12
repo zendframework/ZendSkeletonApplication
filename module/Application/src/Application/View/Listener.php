@@ -150,7 +150,6 @@ class Listener implements ListenerAggregate
     public function renderError(MvcEvent $e)
     {
         $error    = $e->getError();
-        $app      = $e->getTarget();
         $response = $e->getResponse();
         if (!$response) {
             $response = new Response();
@@ -170,7 +169,6 @@ class Listener implements ListenerAggregate
 
             case Application::ERROR_EXCEPTION:
             default:
-                $exception = $e->getParam('exception');
                 $vars = array(
                     'message'            => 'An error occurred during execution; please try again later.',
                     'exception'          => $e->getParam('exception'),
