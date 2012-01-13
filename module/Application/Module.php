@@ -72,6 +72,8 @@ class Module implements AutoloaderProvider
         $url     = $view->plugin('url');
         $url->setRouter($app->getRouter());
 
+        $view->plugin('doctype')->setDoctype('HTML5');
+
         $view->plugin('headTitle')->setSeparator(' - ')
                                   ->setAutoEscape(false)
                                   ->append('ZF2 Skeleton Application');
