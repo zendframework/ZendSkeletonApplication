@@ -9,6 +9,11 @@ return array(
                 'error' => 'Application\Controller\ErrorController',
                 'view'  => 'Zend\View\PhpRenderer',
             ),
+            'Zend\Mvc\Controller\ActionController' => array(
+                'parameters' => array(
+                    'broker'       => 'Zend\Mvc\Controller\PluginBroker',
+                ),
+            ),
             'Zend\View\PhpRenderer' => array(
                 'parameters' => array(
                     'resolver' => 'Zend\View\TemplatePathStack',
