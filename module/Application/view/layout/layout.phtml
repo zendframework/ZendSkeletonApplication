@@ -7,14 +7,6 @@
 
     <?php echo $this->headMeta() ?>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <?php echo $this->placeholder('html5js') ?>
-
-    <![endif]-->
-
-    <?php echo $this->headScript() ?>
-
     <!-- Le styles -->
     <?php echo $this->headLink() ?>
     
@@ -23,6 +15,13 @@
         padding-top: 60px;
       }
     </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <?php echo $this->placeholder('html5js') ?>
+    <![endif]-->
+
+    <?php echo $this->headScript() ?>
 
     <!-- Le fav and touch icons -->
     <?php echo $this->placeholder('favicon') ?>
