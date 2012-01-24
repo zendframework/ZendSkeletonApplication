@@ -9,11 +9,22 @@ return array(
                 'error' => 'Application\Controller\ErrorController',
                 'view'  => 'Zend\View\PhpRenderer',
             ),
+
+            // Inject the plugin broker for controller plugins into
+            // the action controller for use by all controllers that
+            // extend it.
             'Zend\Mvc\Controller\ActionController' => array(
                 'parameters' => array(
                     'broker'       => 'Zend\Mvc\Controller\PluginBroker',
                 ),
             ),
+            'Zend\Mvc\Controller\PluginBroker' => array(
+                'parameters' => array(
+                    'loader' => 'Zend\Mvc\Controller\PluginLoader',
+                ),
+            ),
+
+            // Setup the PhpRenderer
             'Zend\View\PhpRenderer' => array(
                 'parameters' => array(
                     'resolver' => 'Zend\View\TemplatePathStack',
