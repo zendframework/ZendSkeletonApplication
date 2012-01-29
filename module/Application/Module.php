@@ -69,23 +69,13 @@ class Module implements AutoloaderProvider
 
         $locator = $app->getLocator();
         $view    = $locator->get('view');
-        $url     = $view->plugin('url');
-        $url->setRouter($app->getRouter());
 
-        $view->plugin('doctype')->setDoctype('HTML5');
-
-        $view->plugin('headTitle')->setSeparator(' - ')
-                                  ->setAutoEscape(false)
-                                  ->append('ZF2 Skeleton Application');
+        // Set up view helpers        
+        $view->plugin('url')->setRouter($app->getRouter());
+        $view->doctype()->setDoctype('HTML5');
 
         $basePath = $app->getRequest()->getBaseUrl();
-
-        $view->plugin('headLink')->appendStylesheet($basePath . '/css/bootstrap.min.css');
-
-        $html5js = '<script src="' . $basePath . '/js/html5.js"></script>';
-        $view->plugin('placeHolder')->__invoke('html5js')->set($html5js);
-        $favicon = '<link rel="shortcut icon" href="' . $basePath . '/images/favicon.ico">';
-        $view->plugin('placeHolder')->__invoke('favicon')->set($favicon);
+        $view->plugin('basePath')->setBasePath($basePath);
 
         $this->view = $view;
         return $view;
