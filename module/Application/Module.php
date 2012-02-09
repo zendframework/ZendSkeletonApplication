@@ -74,7 +74,7 @@ class Module implements AutoloaderProvider
         $view->plugin('url')->setRouter($app->getRouter());
         $view->doctype()->setDoctype('HTML5');
 
-        $basePath = $app->getRequest()->getBaseUrl();
+        $basePath = $app->getRequest()->getBasePath();
         $view->plugin('basePath')->setBasePath($basePath);
 
         $this->view = $view;
