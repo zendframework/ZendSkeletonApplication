@@ -3,7 +3,9 @@ $this->headTitle()->setSeparator(' - ')
                   ->setAutoEscape(false);
 
 $basePath = $this->basePath();
-$this->headLink()->appendStylesheet($basePath . '/css/bootstrap.min.css');
+$this->headLink()->appendStylesheet($basePath . '/css/bootstrap.min.css')
+                 ->appendStylesheet($basePath . '/css/style.css')
+                 ->appendStylesheet($basePath . '/css/bootstrap-responsive.min.css');
 
 $this->headLink(array(
             'rel'  => 'shortcut icon',
@@ -28,12 +30,6 @@ echo $this->doctype();
     <!-- Le styles -->
     <?php echo $this->headLink() ?>
     
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-      }
-    </style>
-
     <!-- Scripts -->
     <?php echo $this->headScript() ?>
 
@@ -41,21 +37,30 @@ echo $this->doctype();
 
   <body>
 
-    <div class="topbar">
-      <div class="fill">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="<?php echo $this->url('home') ?>">ZF2 Skeleton Application</a>
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 
-          <ul class="nav">
-            <li class="active"><a href="<?php echo $this->url('home') ?>">Home</a></li>
-          </ul>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="<?php echo $this->url('home') ?>">ZF2 Skeleton Application</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="<?php echo $this->url('home') ?>">Home</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
       </div>
-
     </div>
 
     <div class="container">
+
       <?php echo $this->raw('content'); ?>
+
+      <hr>
 
       <footer>
         <p>&copy; 2006 - <?php echo date('Y') ?> by Zend Technologies Ltd. All rights reserved.</p>
