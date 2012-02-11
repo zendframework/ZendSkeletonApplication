@@ -18,6 +18,18 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
 }
 
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #57a900;
+}
+
+.btn-success:active, .btn-success.active {
+  background-color: #57a900 \9;
+}
+
 div.container a.brand {
     background: url("../images/zf2-logo.png") no-repeat scroll 0 10px transparent;
     margin-left: 0;
