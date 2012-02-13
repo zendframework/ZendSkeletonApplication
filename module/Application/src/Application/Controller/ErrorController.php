@@ -2,7 +2,8 @@
 
 namespace Application\Controller;
 
-use Zend\Mvc\Controller\ActionController;
+use Zend\Mvc\Controller\ActionController,
+    Zend\View\Model\ViewModel;
 
 class ErrorController extends ActionController
 {
@@ -28,6 +29,6 @@ class ErrorController extends ActionController
                 break;
         }
         
-        return array('message' => $error['message']);
+        return new ViewModel(array('message' => $error['message']));
     }
 }
