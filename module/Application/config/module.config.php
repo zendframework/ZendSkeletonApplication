@@ -49,18 +49,18 @@ return array(
             ),
             'Zend\Mvc\View\DefaultRenderingStrategy' => array(
                 'parameters' => array(
-                    'baseTemplate' => 'layout/layout.phtml',
+                    'baseTemplate' => 'layout/layout',
                 ),
             ),
             'Zend\Mvc\View\ExceptionStrategy' => array(
                 'parameters' => array(
                     'displayExceptions' => true,
-                    'errorTemplate'     => 'error/index.phtml',
+                    'template'          => 'error/index',
                 ),
             ),
             'Zend\Mvc\View\RouteNotFoundStrategy' => array(
                 'parameters' => array(
-                    'notFoundTemplate' => 'error/404.phtml',
+                    'notFoundTemplate' => 'error/404',
                 ),
             ),
 
