@@ -17,6 +17,11 @@ return array(
             ),
 
             // Setup the View layer
+            'Zend\View\Resolver\AggregateResolver' => array(
+                'injections' => array(
+                    'Zend\View\Resolver\TemplatePathStack',
+                ),
+            ),
             'Zend\View\Resolver\TemplatePathStack' => array(
                 'parameters' => array(
                     'paths'  => array(
@@ -26,7 +31,7 @@ return array(
             ),
             'Zend\View\Renderer\PhpRenderer' => array(
                 'parameters' => array(
-                    'resolver' => 'Zend\View\Resolver\TemplatePathStack',
+                    'resolver' => 'Zend\View\Resolver\AggregateResolver',
                 ),
             ),
             'Zend\Mvc\View\DefaultRenderingStrategy' => array(
