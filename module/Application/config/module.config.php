@@ -1,25 +1,7 @@
 <?php
 return array(
     'di' => array(
-        'definition' => array(
-            'class' => array(
-                'Zend\View\Renderer\PhpRenderer' => array(
-                    'setResolver' => array(
-                        'resolver' => array(
-                            'required' => false,
-                            'type'     => 'Zend\View\Resolver',
-                        ),
-                    ),
-                ),
-            ),
-        ),
         'instance' => array(
-            'alias' => array(
-                'index' => 'Application\Controller\IndexController',
-                'error' => 'Application\Controller\ErrorController',
-                'view'  => 'Zend\View\Renderer\PhpRenderer',
-            ),
-            
             // Inject the plugin broker for controller plugins into
             // the action controller for use by all controllers that
             // extend it.
@@ -77,7 +59,7 @@ return array(
                                     'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 ),
                                 'defaults' => array(
-                                    'controller' => 'index',
+                                    'controller' => 'Application\Controller\IndexController',
                                     'action'     => 'index',
                                 ),
                             ),
@@ -87,7 +69,7 @@ return array(
                             'options' => array(
                                 'route'    => '/',
                                 'defaults' => array(
-                                    'controller' => 'index',
+                                    'controller' => 'Application\Controller\IndexController',
                                     'action'     => 'index',
                                 ),
                             ),
