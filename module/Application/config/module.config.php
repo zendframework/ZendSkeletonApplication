@@ -37,10 +37,8 @@ return array(
             // Setup the View layer
             'Zend\View\Resolver\TemplatePathStack' => array(
                 'parameters' => array(
-                    'options'  => array(
-                        'script_paths' => array(
-                            'application' => __DIR__ . '/../view',
-                        ),
+                    'paths'  => array(
+                        'application' => __DIR__ . '/../view',
                     ),
                 ),
             ),
