@@ -1,6 +1,16 @@
 <?php
 return array(
     'di' => array(
+        'definition' => array(
+            'class' => array(
+                'Zend\Mvc\Router\RouteStack' => array(
+                    'instantiator' => array(
+                        'Zend\Mvc\Router\Http\TreeRouteStack',
+                        'factory'
+                    ),
+                ),
+            ),
+        ),
         'instance' => array(
             // Inject the plugin broker for controller plugins into
             // the action controller for use by all controllers that
