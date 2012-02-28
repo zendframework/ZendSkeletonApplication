@@ -1,22 +1,33 @@
 <h1>A 404 error occurred</h1>
 <h2><?php echo $this->message ?></h2>
 
-<?php if (isset($this->display_exceptions) && $this->display_exceptions): ?>
+<?php if (isset($this->reason) && $this->reason): ?>
 
-<?php if(isset($this->exception) && $this->exception instanceof Exception): ?>
+<?php
+$reasonMessage= '';
+switch ($this->reason) {
+    case 'error-controller-cannot-dispatch':
+        $reasonMessage = 'The requested controller was unable to dispatch the request.';
+        break;
+    case 'error-controller-not-found':
+        $reasonMessage = 'The requested controller could not be mapped to an existing controller class.';
+        break;
+    case 'error-controller-invalid':
+        $reasonMessage = 'The requested controller was not dispatchable.';
+        break;
+    case 'error-router-no-match':
+        $reasonMessage = 'The requested URL could not be matched by routing.';
+        break;
+    default:
+        $reasonMessage = 'We cannot determine at this time why a 404 was generated.';
+        break;
+}
+?>
 
-<h3>Exception information:</h3>
-<p>
-    <h4>Message:</h4>
-    <pre><?php echo $this->exception->getMessage() ?></pre>
-    <h4>Stack trace:</h4>
-    <pre><?php echo $this->exception->getTraceAsString() ?></pre>
-</p>
+<p><?php echo $reasonMessage ?></p>
 
 <?php else: ?>
 
 <h3>No Exception available</h3>
-
-<?php endif ?>
 
 <?php endif ?>
