@@ -54,19 +54,20 @@ return array(
             ),
             'Zend\Mvc\View\DefaultRenderingStrategy' => array(
                 'parameters' => array(
-                    'baseTemplate' => 'layout/layout',
+                    'layoutTemplate' => 'layout/layout',
                 ),
             ),
             'Zend\Mvc\View\ExceptionStrategy' => array(
                 'parameters' => array(
                     'displayExceptions' => true,
-                    'template'          => 'error/index',
+                    'exceptionTemplate' => 'error/index',
                 ),
             ),
             'Zend\Mvc\View\RouteNotFoundStrategy' => array(
                 'parameters' => array(
-                    'notFoundTemplate' => 'error/404',
                     'displayNotFoundReason' => true,
+                    'displayExceptions'     => true,
+                    'notFoundTemplate'      => 'error/404',
                 ),
             ),
 
