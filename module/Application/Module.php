@@ -8,9 +8,6 @@ use Zend\Module\Manager,
 
 class Module implements AutoloaderProvider
 {
-    protected $view;
-    protected $viewListener;
-
     public function init(Manager $moduleManager)
     {
         $events = StaticEventManager::getInstance();
