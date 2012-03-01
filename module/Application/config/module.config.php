@@ -9,6 +9,11 @@ return array(
                         'factory'
                     ),
                 ),
+                'Zend\View\Resolver\AggregateResolver' => array(
+                    'attach' => array(
+                        'block' => array('type' => 'Zend\View\Resolver', 'required' => true)
+                    ),
+                ),
             ),
         ),
         'instance' => array(
