@@ -11,7 +11,7 @@ $appConfig = include 'config/application.config.php';
 
 $listenerOptions  = new Zend\Module\Listener\ListenerOptions($appConfig['module_listener_options']);
 $defaultListeners = new Zend\Module\Listener\DefaultListenerAggregate($listenerOptions);
-$defaultListeners->getConfigListener()->addConfigGlobPath("config/autoload/*.{global,$env}.php");
+$defaultListeners->getConfigListener()->addConfigGlobPath("config/autoload/*.{global,$env}..configphp");
 
 $moduleManager = new Zend\Module\Manager($appConfig['modules']);
 $moduleManager->events()->attachAggregate($defaultListeners);
