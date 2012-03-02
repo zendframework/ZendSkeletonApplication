@@ -3,11 +3,15 @@ chdir(dirname(__DIR__));
 require_once (getenv('ZF2_PATH') ?: 'vendor/ZendFramework/library') . '/Zend/Loader/AutoloaderFactory.php';
 Zend\Loader\AutoloaderFactory::factory();
 
+if (!($env = getenv('APPLICATION_ENV'))) {
+    $env = 'local';
+}
+
 $appConfig = include 'config/application.config.php';
 
 $listenerOptions  = new Zend\Module\Listener\ListenerOptions($appConfig['module_listener_options']);
 $defaultListeners = new Zend\Module\Listener\DefaultListenerAggregate($listenerOptions);
-$defaultListeners->getConfigListener()->addConfigGlobPath('config/autoload/*.config.php');
+$defaultListeners->getConfigListener()->addConfigGlobPath("config/autoload/*.{global,$env}.php");
 
 $moduleManager = new Zend\Module\Manager($appConfig['modules']);
 $moduleManager->events()->attachAggregate($defaultListeners);
