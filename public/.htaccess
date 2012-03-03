@@ -1,4 +1,5 @@
 SetEnv APPLICATION_ENV development
+SetEnv ZF2_PATH /home/flav/projects/zf2/library
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} -s [OR]

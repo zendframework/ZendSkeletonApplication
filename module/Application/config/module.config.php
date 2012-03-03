@@ -12,6 +12,9 @@ return array(
             ),
         ),
         'instance' => array(
+            'alias' => array(
+                'index' => 'Application\Controller\IndexController',
+            ),
             // Inject the plugin broker for controller plugins into
             // the action controller for use by all controllers that
             // extend it.
@@ -84,7 +87,7 @@ return array(
                                     'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 ),
                                 'defaults' => array(
-                                    'controller' => 'Application\Controller\IndexController',
+                                    'controller' => 'index',
                                     'action'     => 'index',
                                 ),
                             ),
@@ -94,7 +97,7 @@ return array(
                             'options' => array(
                                 'route'    => '/',
                                 'defaults' => array(
-                                    'controller' => 'Application\Controller\IndexController',
+                                    'controller' => 'index',
                                     'action'     => 'index',
                                 ),
                             ),
