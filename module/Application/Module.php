@@ -8,9 +8,6 @@ use Zend\Module\Manager,
 
 class Module implements AutoloaderProvider
 {
-    protected $view;
-    protected $viewListener;
-
     public function init(Manager $moduleManager)
     {
         $events = StaticEventManager::getInstance();
@@ -39,53 +36,11 @@ class Module implements AutoloaderProvider
     public function initializeView($e)
     {
         $app          = $e->getParam('application');
+        $basePath     = $app->getRequest()->getBasePath();
         $locator      = $app->getLocator();
-        $config       = $e->getParam('config');
-        $view         = $this->getView($app);
-        $viewListener = $this->getViewListener($view, $config);
-        $app->events()->attachAggregate($viewListener);
-        $events       = StaticEventManager::getInstance();
-        $viewListener->registerStaticListeners($events, $locator);
-    }
-
-    protected function getViewListener($view, $config)
-    {
-        if ($this->viewListener instanceof View\Listener) {
-            return $this->viewListener;
-        }
-
-        $viewListener       = new View\Listener($view, $config->layout);
-        $viewListener->setDisplayExceptionsFlag($config->display_exceptions);
-
-        $this->viewListener = $viewListener;
-        return $viewListener;
-    }
-
-    protected function getView($app)
-    {
-        if ($this->view) {
-            return $this->view;
-        }
-
-        $locator = $app->getLocator();
-        $view    = $locator->get('view');
-        $url     = $view->plugin('url');
-        $url->setRouter($app->getRouter());
-
-        $view->plugin('headTitle')->setSeparator(' - ')
-                                  ->setAutoEscape(false)
-                                  ->append('ZF2 Skeleton Application');
-
-        $basePath = $app->getRequest()->detectBaseUrl();
-
-        $view->plugin('headLink')->appendStylesheet($basePath . 'css/bootstrap.min.css');
-
-        $html5js = '<script src="' . $basePath . 'js/html5.js"></script>';
-        $view->plugin('placeHolder')->__invoke('html5js')->set($html5js);
-        $favicon = '<link rel="shortcut icon" href="' . $basePath . 'images/favicon.ico">';
-        $view->plugin('placeHolder')->__invoke('favicon')->set($favicon);
-
-        $this->view = $view;
-        return $view;
+        $renderer     = $locator->get('Zend\View\Renderer\PhpRenderer');
+        $renderer->plugin('url')->setRouter($app->getRouter());
+        $renderer->doctype()->setDoctype('HTML5');
+        $renderer->plugin('basePath')->setBasePath($basePath);
     }
 }
