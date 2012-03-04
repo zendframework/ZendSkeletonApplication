@@ -1,24 +1,6 @@
 <?php
 return array(
     'di' => array(
-
-        'definition' => array(
-            'class' => array(
-                // Defining how the router should be instantiated. The minimum
-                // requirement is to implement interface 
-                // Zend\Mvc\Router\RouteStack. Here we are stating that 
-                // Zend\Mvc\Router\Http\TreeRouteStack::factory should generate
-                // an instance of it. This can be changed to instantiate a
-                // custom router
-                'Zend\Mvc\Router\RouteStack' => array(
-                    'instantiator' => array(
-                        'Zend\Mvc\Router\Http\TreeRouteStack',
-                        'factory'
-                    ),
-                ),
-            ),
-        ),
-
         'instance' => array(
 
             // Setup for controllers.
