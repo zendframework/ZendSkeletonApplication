@@ -39,8 +39,6 @@ class Module implements AutoloaderProvider
         $basePath     = $app->getRequest()->getBasePath();
         $locator      = $app->getLocator();
         $renderer     = $locator->get('Zend\View\Renderer\PhpRenderer');
-        $renderer->plugin('url')->setRouter($app->getRouter());
-        $renderer->doctype()->setDoctype('HTML5');
         $renderer->plugin('basePath')->setBasePath($basePath);
     }
 }
