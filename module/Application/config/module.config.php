@@ -2,6 +2,11 @@
 return array(
     'di' => array(
         'instance' => array(
+            // You can specify aliases for controllers here, as the routeStack
+            // uses the DI container to instantiate controllers
+            'alias' => array(
+                'index' => 'Application\Controller\IndexController',
+            ),
 
             // Setup for controllers.
 
@@ -32,7 +37,7 @@ return array(
                                     'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 ),
                                 'defaults' => array(
-                                    'controller' => 'Application\Controller\IndexController',
+                                    'controller' => 'index',
                                     'action'     => 'index',
                                 ),
                             ),
