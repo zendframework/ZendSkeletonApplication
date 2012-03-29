@@ -7,7 +7,8 @@ $appConfig = include 'config/application.config.php';
 
 $listenerOptions  = new Zend\Module\Listener\ListenerOptions($appConfig['module_listener_options']);
 $defaultListeners = new Zend\Module\Listener\DefaultListenerAggregate($listenerOptions);
-$defaultListeners->getConfigListener()->addConfigGlobPath("config/autoload/{,*.}{global,local}.config.php");
+$defaultListeners->getConfigListener()->addConfigGlobPath("config/autoload/*local.config.php");
+$defaultListeners->getConfigListener()->addConfigGlobPath("config/autoload/*global.config.php");
     
 
 $moduleManager = new Zend\Module\Manager($appConfig['modules']);
