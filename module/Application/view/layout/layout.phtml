@@ -15,7 +15,11 @@ $this->headLink(array(
 
 // HTML5 shim, for IE6-8 support of HTML elements
 $this->headScript()->appendFile($basePath . '/js/html5.js', 'text/javascript', 
-    array('conditional' => 'lt IE9',));
+    array('conditional' => 'lt IE9',))
+    // jQuery
+    ->appendFile($basePath . '/js/jquery.min.js', 'text/javascript')
+    // Bootstrap JS
+    ->appendFile($basePath . '/js/bootstrap.min.js', 'text/javascript');
 
 echo $this->doctype();
 ?>
