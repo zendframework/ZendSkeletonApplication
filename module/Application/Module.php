@@ -10,8 +10,9 @@ class Module implements AutoloaderProvider
 {
     public function init(Manager $moduleManager)
     {
-        $events = StaticEventManager::getInstance();
-        $events->attach('bootstrap', 'bootstrap', array($this, 'initializeView'), 100);
+        $events       = $moduleManager->events();
+        $sharedEvents = $events->getSharedCollections();
+        $sharedEvents->attach('bootstrap', 'bootstrap', array($this, 'initializeView'), 100);
     }
 
     public function getAutoloaderConfig()
