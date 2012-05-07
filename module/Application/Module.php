@@ -11,7 +11,7 @@ class Module implements AutoloaderProvider
     public function init(Manager $moduleManager)
     {
         $events       = $moduleManager->events();
-        $sharedEvents = $events->getSharedCollections();
+        $sharedEvents = $events->getSharedManager();
         $sharedEvents->attach('bootstrap', 'bootstrap', array($this, 'initializeView'), 100);
     }
 

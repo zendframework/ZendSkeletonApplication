@@ -13,13 +13,13 @@ $defaultListeners->getConfigListener()->addConfigGlobPath("config/autoload/*.php
 
 $moduleManager = new Zend\Module\Manager($appConfig['modules']);
 $events        = $moduleManager->events();
-$events->setSharedCollections($sharedEvents);
+$events->setSharedManager($sharedEvents);
 $events->attach($defaultListeners);
 $moduleManager->loadModules();
 
 // Create application, bootstrap, and run
 $bootstrap   = new Zend\Mvc\Bootstrap($defaultListeners->getConfigListener()->getMergedConfig());
-$bootstrap->events()->setSharedCollections($sharedEvents);
+$bootstrap->events()->setSharedManager($sharedEvents);
 $application = new Zend\Mvc\Application;
 $bootstrap->bootstrap($application);
 $application->run()->send();
