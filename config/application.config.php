@@ -11,4 +11,9 @@ return array(
             './vendor',
         ),
     ),
+    'service_manager' => array(
+        'use_defaults' => true,
+        'factories' => array(
+        )
+    )
 );
