@@ -28,8 +28,10 @@ return array(
             ),
         ),
     ),
-    'controllers' => array(
-        'IndexController' => 'Application\Controller\IndexController'
+    'controller' => array(
+        'classes' => array(
+            'IndexController' => 'Application\Controller\IndexController'
+        ),
     ),
     'view_manager' => array(
         'display_not_found_reason' => true,
