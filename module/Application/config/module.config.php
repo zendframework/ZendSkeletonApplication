@@ -46,8 +46,4 @@ return array(
             'application' => __DIR__ . '/../view',
         ),
     ),
-    'db' => array(
-        'driver' => 'Pdo-Sqlite',
-        'dbname' => 'path/to/data/database.sqlite'
-    )
 );
