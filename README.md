@@ -16,7 +16,6 @@ and use composer to install dependencies:
     cd my/project/dir
     git clone git://github.com/zendframework/ZendSkeletonApplication.git
     cd ZendSkeletonApplication
-    curl -s http://getcomposer.org/installer | php (windows: download http://getcomposer.org/installer and execute with PHP)
     php composer.phar install
 
 Afterwards, set up a virtual host to point to the public/ directory of the
