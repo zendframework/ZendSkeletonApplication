@@ -1,22 +1,19 @@
 <?php
+use Zend\ServiceManager\ServiceManager,
+    Zend\Mvc\Service\ServiceManagerConfiguration;
+
 chdir(dirname(__DIR__));
+
+// Composer autoloading
 require_once('vendor/autoload.php');
 
-$appConfig        = include 'config/application.config.php';
-$sharedEvents     = new Zend\EventManager\SharedEventManager();
-$listenerOptions  = new Zend\Module\Listener\ListenerOptions($appConfig['module_listener_options']);
-$defaultListeners = new Zend\Module\Listener\DefaultListenerAggregate($listenerOptions);
-$defaultListeners->getConfigListener()->addConfigGlobPath("config/autoload/*.php");
+// Get application stack configuration.
+$configuration = include 'config/application.config.php';
 
-$moduleManager = new Zend\Module\Manager($appConfig['modules']);
-$events        = $moduleManager->events();
-$events->setSharedManager($sharedEvents);
-$events->attach($defaultListeners);
-$moduleManager->loadModules();
+// Setup service manager.
+$serviceManager = new ServiceManager(new ServiceManagerConfiguration($configuration['service_manager']));
+$serviceManager->setService('ApplicationConfiguration', $configuration);
+$serviceManager->get('ModuleManager')->loadModules();
 
-// Create application, bootstrap, and run
-$bootstrap   = new Zend\Mvc\Bootstrap($defaultListeners->getConfigListener()->getMergedConfig());
-$bootstrap->events()->setSharedManager($sharedEvents);
-$application = new Zend\Mvc\Application;
-$bootstrap->bootstrap($application);
-$application->run()->send();
+// Run application.
+$serviceManager->get('Application')->bootstrap()->run()->send();
