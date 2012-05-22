@@ -9,7 +9,7 @@
     "homepage": "http://framework.zend.com/",
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zendframework": "dev-master#5188f29db00222584de2e775dbf7fd004a2600b5"
+        "zendframework/zendframework": "dev-master#96750fd8e6e85ead7ca42e5cb6b890816e67cbcc"
     },
     "autoload": {
         "psr-0": {
