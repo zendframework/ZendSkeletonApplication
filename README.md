@@ -41,7 +41,7 @@ For public/index.php, replace lines 2-13 with:
     // Setup autoloader
     AutoloaderFactory::factory();
 
-For modules/Application/Module.php add:
+Within modules/Application/Module.php add this method to the Application class:
 
     public function getAutoloaderConfig()
     {
