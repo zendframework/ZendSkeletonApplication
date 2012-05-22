@@ -1,2 +1,4 @@
 local.config.php
 *.local.config.php
+local.php
+*.local.php
