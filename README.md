@@ -31,14 +31,14 @@ recommended that you use Composer due to the dependency management it provides.
 You will also need to update public/index.php and modules/Application/Module.php to enable autoloading.
 For public/index.php, replace lines 2-13 with:
 
-    chdir(dirname(__DIR__));
-    require_once (getenv('ZF2_PATH') ?: 'vendor/ZendFramework/library') . '/Zend/Loader/AutoloaderFactory.php';
-
     use Zend\Loader\AutoloaderFactory,
         Zend\ServiceManager\ServiceManager,
         Zend\Mvc\Service\ServiceManagerConfiguration;
 
-    // setup autoloader
+    chdir(dirname(__DIR__));
+    require_once (getenv('ZF2_PATH') ?: 'vendor/ZendFramework/library') . '/Zend/Loader/AutoloaderFactory.php';
+
+    // Setup autoloader
     AutoloaderFactory::factory();
 
 For modules/Application/Module.php add:
