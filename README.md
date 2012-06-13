@@ -23,36 +23,9 @@ and use composer to install dependencies:
 
 Using Git submodules
 --------------------
-Alternatively, you can install using native git submodules. This method works fine but it is
-recommended that you use Composer due to the dependency management it provides.
+Alternatively, you can install using native git submodules:
 
     git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
-
-You will also need to update public/index.php and modules/Application/Module.php to enable autoloading.
-For public/index.php, replace lines 2-13 with:
-
-    use Zend\Loader\AutoloaderFactory,
-        Zend\ServiceManager\ServiceManager,
-        Zend\Mvc\Service\ServiceManagerConfiguration;
-
-    chdir(dirname(__DIR__));
-    require_once (getenv('ZF2_PATH') ?: 'vendor/ZendFramework/library') . '/Zend/Loader/AutoloaderFactory.php';
-
-    // Setup autoloader
-    AutoloaderFactory::factory();
-
-Within modules/Application/Module.php add this method to the Application class:
-
-    public function getAutoloaderConfig()
-    {
-        return array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                ),
-            ),
-        );
-    }
 
 Virtual Host
 ------------
