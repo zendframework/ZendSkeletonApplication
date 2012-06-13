@@ -1,8 +1,15 @@
 <?php
-use Zend\ServiceManager\ServiceManager,
-    Zend\Mvc\Service\ServiceManagerConfiguration;
+use Zend\Loader\AutoloaderFactory;
+use Zend\ServiceManager\ServiceManager;
+use Zend\Mvc\Service\ServiceManagerConfiguration;
 
 chdir(dirname(__DIR__));
+
+// Allow using an alternative copy of ZF2
+if (getenv('ZF2_PATH')) {
+    require_once getenv('ZF2_PATH') . '/Zend/Loader/AutoloaderFactory.php';
+    AutoloaderFactory::factory();
+}
 
 // Composer autoloading
 if (!include_once('vendor/autoload.php')) {
