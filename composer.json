@@ -10,10 +10,5 @@
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "dev-master#6bf5dfff1160e6266d8924ab6fefb678ac56f44d"
-    },
-    "autoload": {
-        "psr-0": {
-            "Application": "module/Application/src"
-        }
     }
 }
