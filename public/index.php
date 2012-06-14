@@ -5,15 +5,23 @@ use Zend\Mvc\Service\ServiceManagerConfiguration;
 
 chdir(dirname(__DIR__));
 
-// Allow using an alternative copy of ZF2
-if (getenv('ZF2_PATH')) {
-    require_once getenv('ZF2_PATH') . '/Zend/Loader/AutoloaderFactory.php';
-    AutoloaderFactory::factory();
+// Composer autoloading
+if (file_exists('vendor/autoload.php')) {
+    $loader = include 'vendor/autoload.php';
 }
 
-// Composer autoloading
-if (!include_once('vendor/autoload.php')) {
-    throw new RuntimeException('vendor/autoload.php could not be found. Did you run `php composer.phar install`?');
+// Support for ZF2_PATH environment variable or git submodule
+if ($zf2Path = getenv('ZF2_PATH') ?: (is_dir('vendor/ZF2/library') ? 'vendor/ZF2/library' : false)) {
+    if (isset($loader)) {
+        $loader->add('Zend', $zf2Path . '/Zend');
+    } else {
+        include $zf2Path . '/Zend/Loader/AutoloaderFactory.php';
+        AutoloaderFactory::factory();
+    }
+}
+
+if (!class_exists('Zend\Loader\AutoloaderFactory')) {
+    throw new RuntimeException('Unable to load ZF2. Run `php composer.phar install` or define a ZF2_PATH environment variable.');
 }
 
 // Get application stack configuration
