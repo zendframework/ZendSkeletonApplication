@@ -16,7 +16,11 @@ if ($zf2Path = getenv('ZF2_PATH') ?: (is_dir('vendor/ZF2/library') ? 'vendor/ZF2
         $loader->add('Zend', $zf2Path . '/Zend');
     } else {
         include $zf2Path . '/Zend/Loader/AutoloaderFactory.php';
-        AutoloaderFactory::factory();
+        AutoloaderFactory::factory(array(
+            'Zend\Loader\StandardAutoloader' => array(
+                'autoregister_zf' => true
+            )
+        ));
     }
 }
 
