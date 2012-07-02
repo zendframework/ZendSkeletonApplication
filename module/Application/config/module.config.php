@@ -44,8 +44,8 @@ return array(
             ),
         ),
     ),
-    'controller' => array(
-        'classes' => array(
+    'controllers' => array(
+        'invokables' => array(
             'Application\Controller\IndexController' => 'Application\Controller\IndexController'
         ),
     ),
