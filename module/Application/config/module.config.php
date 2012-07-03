@@ -28,8 +28,8 @@ return array(
             ),
         ),
     ),
-    'controller' => array(
-        'classes' => array(
+    'controllers' => array(
+        'invokables' => array(
             'index' => 'Application\Controller\IndexController'
         ),
     ),
