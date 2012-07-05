@@ -1,37 +1,21 @@
-<?php
-$this->headTitle()->setSeparator(' - ')
-                  ->setAutoEscape(false);
-
-$basePath = $this->basePath();
-$this->headLink()->appendStylesheet($basePath . '/css/bootstrap.min.css')
-                 ->appendStylesheet($basePath . '/css/style.css')
-                 ->appendStylesheet($basePath . '/css/bootstrap-responsive.min.css');
-
-$this->headLink(array(
-            'rel'  => 'shortcut icon',
-            'type' => 'image/vnd.microsoft.icon',
-            'href' => $basePath . '/images/favicon.ico',
-        ));
-
-// HTML5 shim, for IE6-8 support of HTML elements
-$this->headScript()->appendFile($basePath . '/js/html5.js', 'text/javascript',
-    array('conditional' => 'lt IE 9',));
-
-echo $this->doctype();
-?>
+<?php echo $this->doctype(); ?>
 
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <?php echo $this->headTitle('ZF2 Skeleton Application') ?>
+    <?php echo $this->headTitle('ZF2 Skeleton Application')->setSeparator(' - ')->setAutoEscape(false) ?>
 
     <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
 
     <!-- Le styles -->
-    <?php echo $this->headLink() ?>
+    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+                    ->appendStylesheet($this->basePath() . '/css/bootstrap.min.css')
+                    ->appendStylesheet($this->basePath() . '/css/style.css')
+                    ->appendStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css') ?>
 
     <!-- Scripts -->
-    <?php echo $this->headScript() ?>
+    <?php echo $this->headScript()->appendFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                                  ->appendFile($this->basePath() . '/js/jquery-1.7.2.min.js') ?>
 
   </head>
 
