@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-05 23:45-0700\n"
-"PO-Revision-Date: 2012-07-05 23:57-0700\n"
+"PO-Revision-Date: 2012-07-06 08:18-0700\n"
 "Last-Translator: Evan Coury <me@evancoury.com>\n"
 "Language-Team: ZF Contributors <zf-devteam@zend.com>\n"
 "Language: \n"
@@ -145,7 +145,7 @@ msgstr "Controller"
 #: ../view/error/404.phtml:41
 #, php-format
 msgid "resolves to %s"
-msgstr "wenn auflöst in %s"
+msgstr "wird aufgelöst in %s"
 
 #: ../view/error/404.phtml:51
 msgid "Exception"
