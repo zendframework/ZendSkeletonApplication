@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-05 22:32-0700\n"
-"PO-Revision-Date: 2012-07-05 22:32-0700\n"
+"PO-Revision-Date: 2012-07-05 23:36-0700\n"
 "Last-Translator: Evan Coury <me@evancoury.com>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: \n"
@@ -63,7 +63,7 @@ msgstr "Découvrez les modules"
 #: ../view/application/index/index.phtml:17
 #, php-format
 msgid "The community is working on developing a community site to serve as a repository and gallery for ZF2 modules. The project is available %son GitHub%s. The site is currently live and currently contains a list of some of the modules already available for ZF2."
-msgstr "La communauté travaille sur le développement d'un site communautaire avec l'objectif de servir de dépôt et de galerie  pour les modules ZF2. Le projet est disponible %ssur GitHub%. Le site est déjà en ligne, et contient une liste non exhaustive des modules déjà disponibles pour ZF2."
+msgstr "La communauté travaille sur le développement d'un site communautaire avec l'objectif de servir de dépôt et de galerie  pour les modules ZF2. Le projet est disponible %ssur GitHub%s. Le site est déjà en ligne, et contient une liste non exhaustive des modules déjà disponibles pour ZF2."
 
 #: ../view/application/index/index.phtml:18
 msgid "Explore ZF2 Modules"
