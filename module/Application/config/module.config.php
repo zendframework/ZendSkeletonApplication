@@ -50,7 +50,7 @@ return array(
         ),
     ),
     'translator' => array(
-        'locale' => 'en_US',
+        'locale' => 'de_DE',
         'translation_patterns' => array(
             array(
                 'type'     => 'gettext',
