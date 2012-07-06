@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <?php echo $this->headTitle('ZF2 Skeleton Application')->setSeparator(' - ')->setAutoEscape(false) ?>
+    <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
 
     <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
 
@@ -30,10 +30,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="<?php echo $this->url('home') ?>">Skeleton Application</a>
+          <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Skeleton Application') ?></a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="<?php echo $this->url('home') ?>">Home</a></li>
+              <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -47,7 +47,7 @@
       <hr>
 
       <footer>
-        <p>&copy; 2005 - 2012 by Zend Technologies Ltd. All rights reserved.</p>
+        <p>&copy; 2005 - 2012 by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
       </footer>
 
     </div> <!-- /container -->
