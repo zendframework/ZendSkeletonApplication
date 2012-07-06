@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-05 19:30-0700\n"
-"PO-Revision-Date: 2012-07-05 19:38-0700\n"
+"POT-Creation-Date: 2012-07-05 22:17-0700\n"
+"PO-Revision-Date: 2012-07-05 22:17-0700\n"
 "Last-Translator: Evan Coury <me@evancoury.com>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: \n"
@@ -15,6 +15,19 @@ msgstr ""
 "X-Poedit-Country: UNITED STATES\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
+
+#: ../view/layout/layout.phtml:6
+#: ../view/layout/layout.phtml:33
+msgid "Skeleton Application"
+msgstr ""
+
+#: ../view/layout/layout.phtml:36
+msgid "Home"
+msgstr ""
+
+#: ../view/layout/layout.phtml:50
+msgid "All rights reserved."
+msgstr ""
 
 #: ../view/application/index/index.phtml:2
 #, php-format
