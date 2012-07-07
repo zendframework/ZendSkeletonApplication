@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-05 22:17-0700\n"
-"PO-Revision-Date: 2012-07-07 12:52+0300\n"
+"PO-Revision-Date: 2012-07-07 13:58+0300\n"
 "Last-Translator: Tawfek Daghistani <tawfekov@gmail.com>\n"
 "Language-Team: Arabic <>\n"
 "Language: \n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../view/layout/layout.phtml:6 ../view/layout/layout.phtml:33
 msgid "Skeleton Application"
-msgstr "التطبيق الأساسي "
+msgstr "Skeleton Application"
 
 #: ../view/layout/layout.phtml:36
 msgid "Home"
