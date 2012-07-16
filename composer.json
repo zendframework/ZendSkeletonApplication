@@ -9,6 +9,6 @@
     "homepage": "http://framework.zend.com/",
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zendframework": "dev-master#18c8e223f070deb07c17543ed938b54542aa0ed8"
+        "zendframework/zendframework": "dev-master#d6b0afe61149c6d0669743aab5c73285c42cd0db"
     }
 }
