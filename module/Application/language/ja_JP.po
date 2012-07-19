@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-05 19:30-0700\n"
-"PO-Revision-Date: 2012-07-06 19:26+0900\n"
+"PO-Revision-Date: 2012-07-15 08:20+0900\n"
 "Last-Translator: sasezaki <sasezaki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -37,7 +37,7 @@ msgstr "開発を追う"
 #: ../view/application/index/index.phtml:11
 #, php-format
 msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework webiste which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
-msgstr "Zend Framework 2 は鋭意開発中です。ZF2の開発進行にご感心がおありでしょうか、Zend Framework公式ウェブサイト上ではZF2特別ポータルがあり、 %swiki%s、 %sdev blog%s、 %sissue tracker%s、 などのZF2関連のものを提供しています。最新の開発状況に追随するためのすばらしいリソースです。"
+msgstr "Zend Framework 2 は鋭意開発中です。ZF2の開発進行にご関心がおありでしょうか、Zend Framework公式ウェブサイト上ではZF2特別ポータルがあり、 %swiki%s、 %sdev blog%s、 %sissue tracker%s、 などのZF2関連のものを提供しています。最新の開発状況に追随するためのすばらしいリソースです。"
 
 #: ../view/application/index/index.phtml:12
 msgid "ZF2 Development Portal"
@@ -63,11 +63,11 @@ msgstr "ヘルプとサポート"
 #: ../view/application/index/index.phtml:23
 #, php-format
 msgid "If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk.2 on Freenode%s. We'd love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s."
-msgstr ""
+msgstr "ZF2 で開発中に何らかのお手伝いやサポートが必要な場合、IRC を通じて私たちと連絡することができます。: %s#zftalk.2 on Freenode%s ベータ版についてあなたが抱えるかもしれない質問やフィードバックを何でも聞きたいと望みます。あるいは、%smailing lists%s を購読したり質問をポストしたりできます。"
 
 #: ../view/application/index/index.phtml:24
 msgid "Ping us on IRC"
-msgstr ""
+msgstr "IRC で呼び出す"
 
 #: ../view/error/index.phtml:1
 msgid "An error occurred"
@@ -75,7 +75,7 @@ msgstr "エラーが発生しました"
 
 #: ../view/error/index.phtml:8
 msgid "Additional information"
-msgstr ""
+msgstr "追加の情報"
 
 #: ../view/error/index.phtml:11
 #: ../view/error/index.phtml:35
@@ -95,11 +95,11 @@ msgstr "スタックトレース"
 
 #: ../view/error/index.phtml:29
 msgid "Previous exceptions"
-msgstr ""
+msgstr "前の例外"
 
 #: ../view/error/index.phtml:58
 msgid "No Exception available"
-msgstr ""
+msgstr "例外が利用できません"
 
 #: ../view/error/404.phtml:1
 msgid "A 404 error occurred"
@@ -132,7 +132,7 @@ msgstr "コントローラ"
 #: ../view/error/404.phtml:41
 #, php-format
 msgid "resolves to %s"
-msgstr ""
+msgstr "%s に解決"
 
 #: ../view/error/404.phtml:51
 msgid "Exception"
