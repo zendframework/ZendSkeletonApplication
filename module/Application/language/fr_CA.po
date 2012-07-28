@@ -105,7 +105,7 @@ msgstr "Suivre le développement"
 
 #: ../view/application/index/index.phtml:11
 #, php-format
-msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework webiste which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
+msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework website which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
 msgstr "Zend Framework 2 est en cours de développement. Si vous êtes intéressé pour suivre l'évolution de ZF2, il existe un portail dédié à ZF2 sur le site officiel Zend Framework qui propose des liens vers le %swiki%s ZF2, le %sblogue de dev%s, le %ssuivi des problèmes%s, et bien plus encore. Il s'agit d'une excellente ressource pour rester à jour sur les dernières évolutions !"
 
 #: ../view/application/index/index.phtml:12

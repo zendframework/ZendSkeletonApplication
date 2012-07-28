@@ -37,7 +37,7 @@ msgstr "Hacer un Fork del Zend Framework 2 en GitHub"
 msgid "Follow Development"
 msgstr "Seguir el Desarrollo"
 
-msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework webiste which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
+msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework website which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
 msgstr "El Zend Framework 2 está en pleno desarrollo. Si estás interesado en seguir el desarrollo del ZF2, existe un portal especial para el ZF2 en el sitio web oficial del Zend Framework el cual provee enlaces %sa la Wiki%s, %sal Blog de desarrollo%s, %sal issue tracker%s y mucho más. Este es un gran recurso para mantenerte al día con los últimos avances en el desarrollo!"
 
 msgid "ZF2 Development Portal"
