@@ -50,8 +50,8 @@ msgstr "Segui lo sviluppo"
 
 #: ../view/application/index/index.phtml:11
 #, php-format
-msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework webiste which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
-msgstr "Zend Framework 2 è in forte sviluppo. Se sei interessato a seguire lo sviluppo di ZF2, è presente un portale che fornisce link al %swiki%s, al %sdev blog%s, all'%issue tracker% e a molto altro riguardo a ZF2. Il Portale è un'ottima risorsa per rimanere aggiornati con gli ultimi sviluppi!"
+msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework website which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
+msgstr "Zend Framework 2 è in forte sviluppo. Se sei interessato a seguire lo sviluppo di ZF2, è presente un portale che fornisce link al %swiki%s, al %sdev blog%s, all'%sissue tracker%s e a molto altro riguardo a ZF2. Il Portale è un'ottima risorsa per rimanere aggiornati con gli ultimi sviluppi!"
 
 #: ../view/application/index/index.phtml:12
 msgid "ZF2 Development Portal"
@@ -64,7 +64,7 @@ msgstr "Scopri i Moduli"
 #: ../view/application/index/index.phtml:17
 #, php-format
 msgid "The community is working on developing a community site to serve as a repository and gallery for ZF2 modules. The project is available %son GitHub%s. The site is currently live and currently contains a list of some of the modules already available for ZF2."
-msgstr "La community sta lavorando allo sviluppo di un sito che deve servire come raccolta e gallery di Moduli per ZF2. Il progetto è disponibile %son Github%. Il sito è visitabile e al momento contiene una lista di alcuni dei Moduli già disponibili per ZF2."
+msgstr "La community sta lavorando allo sviluppo di un sito che deve servire come raccolta e gallery di Moduli per ZF2. Il progetto è disponibile %son Github%s. Il sito è visitabile e al momento contiene una lista di alcuni dei Moduli già disponibili per ZF2."
 
 #: ../view/application/index/index.phtml:18
 msgid "Explore ZF2 Modules"
