@@ -36,7 +36,7 @@ msgstr "開発を追う"
 
 #: ../view/application/index/index.phtml:11
 #, php-format
-msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework webiste which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
+msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework website which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
 msgstr "Zend Framework 2 は鋭意開発中です。ZF2の開発進行にご関心がおありでしょうか、Zend Framework公式ウェブサイト上ではZF2特別ポータルがあり、 %swiki%s、 %sdev blog%s、 %sissue tracker%s、 などのZF2関連のものを提供しています。最新の開発状況に追随するためのすばらしいリソースです。"
 
 #: ../view/application/index/index.phtml:12
