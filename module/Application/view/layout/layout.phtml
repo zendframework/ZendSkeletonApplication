@@ -9,13 +9,13 @@
 
     <!-- Le styles -->
     <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
-                    ->appendStylesheet($this->basePath() . '/css/bootstrap.min.css')
-                    ->appendStylesheet($this->basePath() . '/css/style.css')
-                    ->appendStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css') ?>
+                    ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
+                    ->prependStylesheet($this->basePath() . '/css/style.css')
+                    ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
 
     <!-- Scripts -->
-    <?php echo $this->headScript()->appendFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-                                  ->appendFile($this->basePath() . '/js/jquery-1.7.2.min.js') ?>
+    <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                                  ->prependFile($this->basePath() . '/js/jquery-1.7.2.min.js') ?>
 
   </head>
 
@@ -52,5 +52,6 @@
 
     </div> <!-- /container -->
 
+  <?php echo $this->inlineScript() ?>
   </body>
 </html>
