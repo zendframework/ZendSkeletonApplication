@@ -19,6 +19,7 @@ and use composer to install dependencies:
     cd my/project/dir
     git clone git://github.com/zendframework/ZendSkeletonApplication.git
     cd ZendSkeletonApplication
+    php composer.phar self-update
     php composer.phar install
 
 Using Git submodules
