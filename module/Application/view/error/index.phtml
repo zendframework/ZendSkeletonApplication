@@ -45,11 +45,11 @@
                 <pre class="prettyprint linenums"><?php echo $e->getTraceAsString() ?></pre>
             </dd>
         </dl>
-        <?php
-                $e = $e->getPrevious();
-            endwhile;
-        ?>
     </li>
+    <?php
+        $e = $e->getPrevious();
+        endwhile;
+    ?>
 </ul>
 <?php endif; ?>
 
