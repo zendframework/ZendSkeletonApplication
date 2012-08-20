@@ -1,6 +1,15 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} -s [OR]
-RewriteCond %{REQUEST_FILENAME} -l [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^.*$ - [NC,L]
-RewriteRule ^.*$ index.php [NC,L]
+# Turning on the rewrite engine
+<IfModule mod_rewrite.c>
+  # Enable runtime rewriting engine (default value is off)
+  RewriteEngine On
+  # If the request file is a local file
+  RewriteCond %{REQUEST_FILENAME} -s [OR]
+  # Or if the request file is a local symlink
+  RewriteCond %{REQUEST_FILENAME} -l [OR]
+  # Or if the request file is a local directory
+  RewriteCond %{REQUEST_FILENAME} -d
+  # Don't rewrite it, and stop the rewriting process
+  RewriteRule ^.*$ - [NC,L]
+  # Otherwise, we rewrite with the index.php file
+  RewriteRule ^.*$ index.php [NC,L]
+</IfModule>
