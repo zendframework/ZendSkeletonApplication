@@ -14,12 +14,10 @@ Installation
 Using Composer (recommended)
 ----------------------------
 The recommended way to get a working copy of this project is to clone the repository
-and use composer to install dependencies:
+and use composer to install dependencies using the "create-project" command:
 
-    cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
-    cd ZendSkeletonApplication
-    php composer.phar install
+    curl -s http://getcomposer.org/installer | php --
+    php composer.phar create-project zendframework/skeleton-application path/to/install
 
 Using Git submodules
 --------------------
