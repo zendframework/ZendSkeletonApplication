@@ -4,7 +4,7 @@ body {
 }
 
 .zf-green {
-    color: #68b604; 
+    color: #68b604;
 }
 
 .btn-success {
@@ -27,7 +27,7 @@ body {
 }
 
 .btn-success:active, .btn-success.active {
-  background-color: #57a900 \9;
+  background-color: #57a900;
 }
 
 div.container a.brand {
