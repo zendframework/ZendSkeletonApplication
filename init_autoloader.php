@@ -21,8 +21,17 @@ if (file_exists('vendor/autoload.php')) {
     $loader = include 'vendor/autoload.php';
 }
 
-// Support for ZF2_PATH environment variable or git submodule
-if (($zf2Path = getenv('ZF2_PATH') ?: (is_dir('vendor/ZF2/library') ? 'vendor/ZF2/library' : false)) !== false) {
+$zf2Path = false;
+
+if (getenv('ZF2_PATH')) {           // Support for ZF2_PATH environment variable or git submodule
+    $zf2Path = getenv('ZF2_PATH');
+} elseif (get_cfg_var('zf2_path')) { // Support for zf2_path directive value
+    $zf2Path = get_cfg_var('zf2_path');
+} elseif (is_dir('vendor/ZF2/library')) {
+    $zf2Path = 'vendor/ZF2/library';
+}
+
+if ($zf2Path) {
     if (isset($loader)) {
         $loader->add('Zend', $zf2Path . '/Zend');
     } else {
