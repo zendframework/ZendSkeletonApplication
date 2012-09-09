@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-05 22:17-0700\n"
-"PO-Revision-Date: 2012-09-07 17:13-0300\n"
+"PO-Revision-Date: 2012-09-09 15:23-0300\n"
 "Last-Translator: Diogo Melo <dmelo87@gmail.com>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: \n"
@@ -19,7 +19,7 @@ msgstr ""
 #: ../view/layout/layout.phtml:6
 #: ../view/layout/layout.phtml:33
 msgid "Skeleton Application"
-msgstr "Aplicação Esqueleto"
+msgstr "Aplicação Skeleton"
 
 #: ../view/layout/layout.phtml:36
 msgid "Home"
@@ -27,7 +27,7 @@ msgstr "Início"
 
 #: ../view/layout/layout.phtml:50
 msgid "All rights reserved."
-msgstr "Todos os direitos reservados"
+msgstr "Todos os direitos reservados."
 
 #: ../view/application/index/index.phtml:2
 #, php-format
@@ -37,7 +37,7 @@ msgstr "Bem vindo ao %sZend Framework 2%s"
 #: ../view/application/index/index.phtml:3
 #, php-format
 msgid "Congratulations! You have successfully installed the %sZF2 Skeleton Application%s. You are currently running Zend Framework version %s. This skeleton can serve as a simple starting point for you to begin building your application on ZF2."
-msgstr "Parabéns! Você instalou a %sAplicação Esqueleto ZF2%s com sucesso. Você está usando a versão %s do Zend Framework. Este esqueleto serve simplesmente como um ponto de inicio na construção da sua aplicação ZF2."
+msgstr "Parabéns! Você instalou a %sAplicação Skeleton ZF2%s com sucesso. Você está usando a versão %s do Zend Framework. Este esqueleto serve simplesmente como um ponto de inicio na construção da sua aplicação ZF2."
 
 #: ../view/application/index/index.phtml:4
 msgid "Fork Zend Framework 2 on GitHub"
@@ -50,7 +50,7 @@ msgstr "Acompanhe o Desenvolvimento"
 #: ../view/application/index/index.phtml:11
 #, php-format
 msgid "Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework website which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!"
-msgstr "Zend Framework 2 está sob desenvolvimento ativo. Se vocês está interessado em acompanhar o desenvolvimento do ZF2, tem um portal ZF2 especial no site oficial do Zend Framework que possui links para ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, dentre outros. Este é um excelente material para se manter atualizado com os últimos desenvolvimentos."
+msgstr "Zend Framework 2 está sob desenvolvimento ativo. Se vocês está interessado em acompanhar o desenvolvimento do ZF2, tem um portal ZF2 especial no site oficial do Zend Framework que possui links para ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, dentre outros. Este é um excelente material para se manter atualizado com os últimos desenvolvimentos!"
 
 #: ../view/application/index/index.phtml:12
 msgid "ZF2 Development Portal"
@@ -76,7 +76,7 @@ msgstr "Ajuda &amp; Suporte"
 #: ../view/application/index/index.phtml:23
 #, php-format
 msgid "If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk.2 on Freenode%s. We'd love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s."
-msgstr "Caso você precise de ajuda ou suporte enquanto desenvolve com ZF2, pode nos encontrar pelo %s#zftalk.2 on Freenode%s. Vamos gostar muito de ouvir perguntas e opiniões que você possa ter em relação às versões beta. Também, você pode se registrar e enviar perguntar para as %slista de emails%s."
+msgstr "Caso você precise de ajuda ou suporte enquanto desenvolve com ZF2, pode nos encontrar pelo %s#zftalk.2 on Freenode%s. Vamos gostar muito de ouvir perguntas e opiniões que você possa ter em relação às versões beta. Também, você pode se registrar e enviar perguntar para a %slista de e-mail%s."
 
 #: ../view/application/index/index.phtml:24
 msgid "Ping us on IRC"
@@ -116,27 +116,27 @@ msgstr "Nenhuma exceção disponível"
 
 #: ../view/error/404.phtml:1
 msgid "A 404 error occurred"
-msgstr "O erro 404 aconteceu"
+msgstr "Ocorreu um erro 404"
 
 #: ../view/error/404.phtml:10
 msgid "The requested controller was unable to dispatch the request."
-msgstr "O controlador requisitado não foi capaz de despachar a requisição"
+msgstr "O controlador requisitado não foi capaz de despachar a requisição."
 
 #: ../view/error/404.phtml:13
 msgid "The requested controller could not be mapped to an existing controller class."
-msgstr "O controlador requisitados não pode ser mapeado a uma classe de controlador existente"
+msgstr "O controlador requisitados não pode ser mapeado a uma classe de controlador existente."
 
 #: ../view/error/404.phtml:16
 msgid "The requested controller was not dispatchable."
-msgstr "O controlador requisitado não foi despachado"
+msgstr "O controlador requisitado não foi despachado."
 
 #: ../view/error/404.phtml:19
 msgid "The requested URL could not be matched by routing."
-msgstr "A URL requisitada não pode ser casada a uma rota"
+msgstr "A URL requisitada não pode ser encontrada em uma rota."
 
 #: ../view/error/404.phtml:22
 msgid "We cannot determine at this time why a 404 was generated."
-msgstr "Não foi possível determinar o motivo do 404 ter sido gerado"
+msgstr "Não foi possível determinar o motivo do 404 ter ocorrido."
 
 #: ../view/error/404.phtml:34
 msgid "Controller"
