@@ -33,7 +33,7 @@ if (getenv('ZF2_PATH')) {           // Support for ZF2_PATH environment variable
 
 if ($zf2Path) {
     if (isset($loader)) {
-        $loader->add('Zend', $zf2Path . '/Zend');
+        $loader->add('Zend', $zf2Path);
     } else {
         include $zf2Path . '/Zend/Loader/AutoloaderFactory.php';
         Zend\Loader\AutoloaderFactory::factory(array(
