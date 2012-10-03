@@ -16,8 +16,8 @@ Using Composer (recommended)
 The recommended way to get a working copy of this project is to clone the repository
 and use `composer` to install dependencies using the `create-project` command:
 
-    curl -s https://getcomposer.org/installer | php -
-    php composer.phar create-project -repository-url="http://packages.zendframework.com" zendframework/skeleton-application path/to/install
+    curl -s https://getcomposer.org/installer | php --
+    php composer.phar create-project --repository-url="http://packages.zendframework.com" zendframework/skeleton-application path/to/install
 
 Alternately, clone the repository and manually invoke `composer` using the shipped
 `composer.phar`:
