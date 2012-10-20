@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ZendSkeletonApplication\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-05 22:17-0700\n"
-"PO-Revision-Date: 2012-10-18 07:56+0400\n"
+"PO-Revision-Date: 2012-10-20 17:06+0400\n"
 "Last-Translator: vragovR <vragovR@yandex.ru>\n"
 "Language-Team: ZF Contibutors <zf-devteam@zend.com>\n"
 "Language: en_US\n"
@@ -131,7 +131,7 @@ msgstr "Сообщение"
 #: ../view/error/index.phtml:19 ../view/error/index.phtml:43
 #: ../view/error/404.phtml:55
 msgid "Stack trace"
-msgstr "Отслеживание стека"
+msgstr "Развертывание стека"
 
 #: ../view/error/index.phtml:29
 msgid "Previous exceptions"
@@ -143,7 +143,7 @@ msgstr "Нет имеющихся исключений"
 
 #: ../view/error/404.phtml:1
 msgid "A 404 error occurred"
-msgstr "Произошла ошибка 404"
+msgstr "Ошибка 404"
 
 #: ../view/error/404.phtml:10
 msgid "The requested controller was unable to dispatch the request."
@@ -162,13 +162,11 @@ msgstr "Запрашиваемый контроллер не доступен."
 
 #: ../view/error/404.phtml:19
 msgid "The requested URL could not be matched by routing."
-msgstr "Для запрашиваемого URL не найдено соответствие"
+msgstr "Для запрашиваемого URL не может быть достигнуто направление."
 
 #: ../view/error/404.phtml:22
 msgid "We cannot determine at this time why a 404 was generated."
-msgstr ""
-"В настоящее время мы не можем определить почему была сгенерированна страница "
-"404."
+msgstr "Мы не можем определить причину создания страницы 404."
 
 #: ../view/error/404.phtml:34
 msgid "Controller"
