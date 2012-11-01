@@ -1,0 +1,32 @@
+<h1>Register</h1>
+
+<?php
+if (!$this->enableRegistration) {
+    print "Registration is disabled";
+    return;
+}
+$form = $this->registerForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('zfcuser/register'));
+$form->setAttribute('method', 'post');
+?>
+
+<?php echo $this->form()->openTag($form) ?>
+    <dl class="zend_form">
+    <?php foreach ($form as $element): ?>
+        <?php if (!$element instanceof Zend\Form\Element\Button): ?>
+            <dt><?php echo $this->formLabel($element) ?></dt>
+        <?php endif ?>
+        <?php if ($element instanceof Zend\Form\Element\Button): ?>
+            <dd><?php echo $this->formButton($element) ?></dd>
+        <?php elseif ($element instanceof Zend\Form\Element\Captcha): ?>
+            <dd><?php echo $this->formCaptcha($element) . $this->formElementErrors($element) ?></dd>
+        <?php else: ?>
+            <dd><?php echo $this->formInput($element) . $this->formElementErrors($element) ?></dd>
+        <?php endif ?>
+    <?php endforeach ?>
+    </dl>
+    <?php if ($this->redirect): ?>
+        <input type="hidden" name="redirect" value="<?php echo $this->redirect ?>" />
+    <?php endif ?>
+<?php echo $this->form()->closeTag() ?>

@@ -85,6 +85,7 @@ return array(
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
         'template_path_stack' => array(
+            'zfcuser' => __DIR__ . '/../view/zfc-user/',
             __DIR__ . '/../view',
         ),
     ),

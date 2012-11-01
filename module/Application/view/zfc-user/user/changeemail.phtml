@@ -1,0 +1,35 @@
+<h3>Change Email for <?php echo $this->zfcUserDisplayName() ?></h3>
+<?php if ($status === true) : ?>
+<div class="alert alert-success">Email address changed successfully.</div>
+<?php elseif ($status === false) : ?>
+<div class="alert alert-error">Unable to update your email address. Please try again.</div>
+<?php endif; ?>
+<?php
+
+$form = $this->changeEmailForm;
+
+$form->prepare();
+$form->setAttribute('action', $this->url('zfcuser/changeemail'));
+$form->setAttribute('method', 'post');
+
+?>
+<?php echo $this->form()->openTag($form) ?>
+    <dl class="zend_form">
+    <?php foreach ($form as $element): ?>
+        <?php if ($element->getLabel() != null): ?>
+            <dt><?php echo $this->formLabel($element) ?></dt>
+        <?php endif ?>
+        <?php if ($element instanceof Zend\Form\Element\Button): ?>
+            <dd><?php echo $this->formButton($element) ?></dd>
+        <?php elseif ($element instanceof Zend\Form\Element\Captcha): ?>
+            <dd><?php echo $this->formCaptcha($element) . $this->formElementErrors($element) ?></dd>
+        <?php else: ?>
+            <dd><?php echo $this->formInput($element) . $this->formElementErrors($element) ?></dd>
+        <?php endif ?>
+    <?php endforeach ?>
+    </dl>
+    <?php if ($this->redirect): ?>
+        <input type="hidden" name="redirect" value="<?php echo $this->redirect ?>" />
+    <?php endif ?>
+    <input type="submit" value="Submit" />
+<?php echo $this->form()->closeTag() ?>
