@@ -1,6 +1,10 @@
 <?php
 return array(
     'modules' => array(
+        'ZendDeveloperTools',
+        'BjyProfiler',
+        'DoctrineModule',
+        'DoctrineORMModule',
         'ZfcBase',
         'ZfcUser',
         'Application',
