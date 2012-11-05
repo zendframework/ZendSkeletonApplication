@@ -55,8 +55,8 @@ msgstr "Explora los módulos del ZF2"
 msgid "Help &amp; Support"
 msgstr "Ayuda &amp; Soporte"
 
-msgid "If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk.2 on Freenode%s. We'd love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s."
-msgstr "Si necesitas alguna ayuda o soporte mientras estás desarrollando con el ZF2, puedes encontrarnos via IRC: %s#zftalk.2 en Freenode%s. Nos encantaría leer tus preguntas o cualquier feedback que puedas tener en relación a los lanzamientos de las versiones beta. También puedes subscribirte y enviar preguntas %sa la lista de correos%s"
+msgid "If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk on Freenode%s. We'd love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s."
+msgstr "Si necesitas alguna ayuda o soporte mientras estás desarrollando con el ZF2, puedes encontrarnos via IRC: %s#zftalk en Freenode%s. Nos encantaría leer tus preguntas o cualquier feedback que puedas tener en relación a los lanzamientos de las versiones beta. También puedes subscribirte y enviar preguntas %sa la lista de correos%s"
 
 msgid "Ping us on IRC"
 msgstr "Escríbenos en el IRC"
