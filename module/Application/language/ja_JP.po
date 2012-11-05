@@ -62,8 +62,8 @@ msgstr "ヘルプとサポート"
 
 #: ../view/application/index/index.phtml:23
 #, php-format
-msgid "If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk.2 on Freenode%s. We'd love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s."
-msgstr "ZF2 で開発中に何らかのお手伝いやサポートが必要な場合、IRC を通じて私たちと連絡することができます。: %s#zftalk.2 on Freenode%s ベータ版についてあなたが抱えるかもしれない質問やフィードバックを何でも聞きたいと望みます。あるいは、%smailing lists%s を購読したり質問をポストしたりできます。"
+msgid "If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk on Freenode%s. We'd love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s."
+msgstr "ZF2 で開発中に何らかのお手伝いやサポートが必要な場合、IRC を通じて私たちと連絡することができます。: %s#zftalk on Freenode%s ベータ版についてあなたが抱えるかもしれない質問やフィードバックを何でも聞きたいと望みます。あるいは、%smailing lists%s を購読したり質問をポストしたりできます。"
 
 #: ../view/application/index/index.phtml:24
 msgid "Ping us on IRC"
