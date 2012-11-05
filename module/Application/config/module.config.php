@@ -1,11 +1,5 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- */
+namespace Application;
 
 return array(
     'router' => array(
@@ -25,9 +19,9 @@ return array(
             // module. Simply drop new controllers in, and you can access them
             // using the path /application/:controller/:action
             'application' => array(
-                'type'    => 'Literal',
+                'type'    => 'Segment',
                 'options' => array(
-                    'route'    => '/application',
+                    'route'    => '/application[/:controller[/:action]]',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Application\Controller',
                         'controller'    => 'Index',
@@ -35,24 +29,21 @@ return array(
                     ),
                 ),
                 'may_terminate' => true,
-                'child_routes' => array(
+                'child_routes'  => array(
                     'default' => array(
-                        'type'    => 'Segment',
+                        'type'    => 'Wildcard',
                         'options' => array(
-                            'route'    => '/[:controller[/:action]]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                            'defaults' => array(
-                            ),
-                        ),
+                            'key_value_delimiter' => '='
+                        )
                     ),
                 ),
             ),
         ),
     ),
     'service_manager' => array(
+        'aliases'   => array(
+            'EntityManager'        => 'Doctrine\ORM\EntityManager',
+        ),
         'factories' => array(
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
         ),
@@ -69,7 +60,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Major' => 'Application\Controller\MajorController'
         ),
     ),
     'view_manager' => array(
@@ -89,4 +81,21 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
+
+    'doctrine' => array(
+        'driver' => array(
+            __NAMESPACE__ . '_driver' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'
+                )
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
+                )
+            )
+        ),
+    )
 );

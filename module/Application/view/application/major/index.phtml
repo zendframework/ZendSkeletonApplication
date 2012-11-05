@@ -1,0 +1,31 @@
+<?php
+/** @var $majors \Application\Entity\Major[] */
+?>
+<h1>Majors</h1>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Name</th>
+        <th class="span2"><a href="<?= $this->url('application/default', array(
+            'controller' => 'major',
+            'action'     => 'add'
+        )); ?>">Add Major</a></th>
+    </tr>
+    <?php foreach ($majors as $major): ?>
+    <tr>
+        <td><?= $major->getName(); ?></td>
+        <td>
+            <a href="<?= $this->url('application/default', array(
+                'controller' => 'major',
+                'action'     => 'edit',
+                'id'         => $major->getId()
+            )); ?>">Edit</a> |
+            <a href="<?= $this->url('application/default', array(
+                'controller' => 'major',
+                'action'     => 'delete',
+                'id'         => $major->getId()
+            )); ?>">Delete</a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>

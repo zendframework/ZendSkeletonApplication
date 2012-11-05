@@ -20,7 +20,7 @@ $settings = array(
      * Name of Entity class to use. Useful for using your own entity class
      * instead of the default one provided. Default is ZfcUser\Entity\User.
      */
-    //'user_entity_class' => 'ZfcUser\Entity\User',
+    'user_entity_class' => 'Application\Entity\Person',
 
     /**
      * Enable registration
@@ -29,7 +29,7 @@ $settings = array(
      *
      * Accepted values: boolean true or false
      */
-    //'enable_registration' => true,
+    'enable_registration' => true,
 
     /**
      * Enable Username
@@ -39,7 +39,7 @@ $settings = array(
      *
      * Accepted values: boolean true or false
      */
-    //'enable_username' => false,
+    // 'enable_username' => false,
 
     /**
      * Enable Display Name
@@ -49,7 +49,7 @@ $settings = array(
      *
      * Accepted values: boolean true or false
      */
-    //'enable_display_name' => true,
+    'enable_display_name' => true,
 
     /**
      * Modes for authentication identity match

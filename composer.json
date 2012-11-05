@@ -13,7 +13,6 @@
         "zendframework/zendframework": "dev-master",
         "zendframework/zend-developer-tools": "dev-master",
         "bjyoungblood/bjy-profiler": "dev-master",
-        "doctrine/doctrine-module" : "dev-master",
-        "doctrine/doctrine-orm-module" : "dev-master"
+        "zf-commons/zfc-user-doctrine-orm" : "dev-master"
     }
 }

@@ -10,25 +10,24 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="students")
  */
-class Student
+class Student extends Person
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(type="string", name="major")
+     * @ORM\ManyToOne(targetEntity="Major")
+     * @ORM\JoinColumn(name="major", referencedColumnName="id")
      */
     protected $major;
 
     /**
-     * @param string $major
+     * @param Major $major
      */
-    public function setMajor($major)
+    public function setMajor(Major $major)
     {
         $this->major = $major;
     }
 
     /**
-     * @return string
+     * @return Major
      */
     public function getMajor()
     {

@@ -1,0 +1,10 @@
+<?php
+use Zend\Form\Form;
+
+$form->prepare();
+
+if ($form instanceof Form) {
+    echo $this->form()->openTag($form);
+    echo $this->partial('layout/partial/form/fieldset', array('fieldset' => $form));
+    echo $this->form()->closeTag($form);
+}

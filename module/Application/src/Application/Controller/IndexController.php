@@ -9,6 +9,7 @@
 
 namespace Application\Controller;
 
+use Doctrine\ORM\Tools\SchemaTool;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -18,9 +19,47 @@ class IndexController extends AbstractActionController
     {
         return array();
     }
-    
-    public function testAction()
+
+    public function generateSchemaAction()
     {
-        
+        /** @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->getServiceLocator()->get('EntityManager');
+        $tool = new SchemaTool($em);
+
+        // This will scan the Application/Entity directory and automatically
+        // generate the sql needed to create the tables used to store your entity data.
+        $classDir        = __DIR__ . '/../Entity/';
+        $classMetaArray  = array();
+        $files           = scandir($classDir);
+        foreach ($files as $file) {
+            if (preg_match('/^(?<name>[A-Za-z]+)\.php$/', $file, $match)) {
+                $className = sprintf('Application\Entity\%s', $match['name']);
+                if (class_exists($className)) {
+                    $classMetaArray[] = $em->getClassMetadata($className);
+                }
+            }
+        }
+
+        $viewModel = new ViewModel();
+
+        if (!empty($classMetaArray)) {
+            $sql = $tool->getCreateSchemaSql($classMetaArray);
+            $viewModel->setVariable('sql', $sql);
+
+            if ($this->getRequest()->isPost()) {
+                $data = $this->getRequest()->getPost();
+
+                if (isset($data['cancel'])) {
+                    // If the user presses the 'cancel' button, redirect to the 'home' route.
+                    return $this->redirect()->toRoute('home');
+                } elseif (isset($data['submit'])) {
+                    // The user chose to run the queries.
+                    $tool->updateSchema($classMetaArray);
+                    $viewModel->setVariable('success', true);
+                }
+            }
+        }
+
+        return $viewModel;
     }
 }
