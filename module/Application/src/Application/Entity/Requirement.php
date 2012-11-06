@@ -5,12 +5,12 @@ namespace Application\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * A Major.
+ * A Requirement.
  *
  * @ORM\Entity
- * @ORM\Table(name="majors")
+ * @ORM\Table(name="requirements")
  */
-class Major
+class Requirement
 {
     /**
      * @var int
@@ -29,11 +29,12 @@ class Major
     protected $name;
 
     /**
-     * @var Requirement[]
+     * @var Major
      *
-     * @ORM\OneToMany(targetEntity="Requirement", mappedBy="requirements")
+     * @ORM\ManyToOne(targetEntity="Major", inversedBy="requirements")
+     * @ORM\JoinColumn(name="major_id", referencedColumnName="id")
      */
-    protected $requirements;
+    protected $major;
 
     /**
      * @param int $id
@@ -68,18 +69,18 @@ class Major
     }
 
     /**
-     * @param $requirements
+     * @param $major
      */
-    public function setRequirements($requirements)
+    public function setMajor($major)
     {
-        $this->requirements = $requirements;
+        $this->major = $major;
     }
 
     /**
-     * @return Requirement[]
+     * @return Major
      */
-    public function getRequirements()
+    public function getMajor()
     {
-        return $this->requirements;
+        return $this->major;
     }
 }
