@@ -1,8 +1,13 @@
 <?php
 return array(
     'modules' => array(
+        'ZendDeveloperTools',
+        'BjyProfiler',
+        'DoctrineModule',
+        'DoctrineORMModule',
         'ZfcBase',
         'ZfcUser',
+        'ZfcUserDoctrineORM',
         'Application',
     ),
     'module_listener_options' => array(

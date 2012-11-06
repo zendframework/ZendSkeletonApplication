@@ -32,8 +32,14 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active">
-                           <a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
-                            <li><a href="<?php echo $this->url('zfcuser/login')?>"><?php echo $this->translate('Log In')?></a></li>
+                           <a href="<?php echo $this->url('home') ?>">Home</a></li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <?php if ($identity = $this->zfcUserIdentity()): ?>
+                            <li><a href="<?= $this->url('zfcuser'); ?>"><?= $this->gravatar($identity->getEmail(), array('img_size' => 20)); ?> <?= $this->zfcUserDisplayName(); ?></a></li>
+                            <?php else: ?>
+                            <li><a href="<?= $this->url('zfcuser/login'); ?>">Log In</a></li>
+                            <?php endif; ?>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>

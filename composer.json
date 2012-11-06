@@ -7,8 +7,12 @@
         "zf2"
     ],
     "homepage": "http://framework.zend.com/",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zendframework": "2.*"
+        "zendframework/zendframework": "dev-master",
+        "zendframework/zend-developer-tools": "dev-master",
+        "bjyoungblood/bjy-profiler": "dev-master",
+        "zf-commons/zfc-user-doctrine-orm" : "dev-master"
     }
 }

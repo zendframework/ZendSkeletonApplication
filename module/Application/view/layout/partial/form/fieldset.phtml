@@ -1,0 +1,35 @@
+<?php
+use Zend\Form\Element;
+
+/** @var $fieldset \Zend\Form\Fieldset */
+
+$actions    = array();
+$label      = $fieldset->getLabel();
+$labelAttrs = $fieldset->getLabelAttributes();
+?>
+
+<?php if ($label): ?>
+    <?= $this->formLegend($fieldset); ?>
+<?php endif; ?>
+
+<?php
+foreach ($fieldset->getElements() as $element) {
+    if ($element instanceof Element\Submit) {
+        $actions[] = $element;
+        continue;
+    }
+    echo $this->partial('layout/partial/form/field', array('field' => $element));
+}
+foreach ($fieldset->getFieldsets() as $child) {
+    echo $this->partial('layout/partial/form/fieldset', array('fieldset' => $child));
+}
+?>
+
+<?php if (!empty($actions)): ?>
+<div class="form-actions">
+    <?php foreach ($actions as $button): ?>
+    <?= $this->formSubmit($button); ?>
+    <?php endforeach; ?>
+</div>
+<?php endif; ?>
+

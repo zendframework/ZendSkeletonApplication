@@ -11,9 +11,16 @@ namespace Application;
 
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Zend\ModuleManager\Feature\ServiceProviderInterface;
+use Zend\ModuleManager\Feature\ViewHelperProviderInterface;
 
-class Module
+class Module implements
+    ServiceProviderInterface,
+    ViewHelperProviderInterface
 {
+    /**
+     * @param \Zend\Mvc\MvcEvent $e
+     */
     public function onBootstrap(MvcEvent $e)
     {
         $e->getApplication()->getServiceManager()->get('translator');
@@ -22,11 +29,47 @@ class Module
         $moduleRouteListener->attach($eventManager);
     }
 
+    /**
+     * Expected to return \Zend\ServiceManager\Config object or array to
+     * seed such an object.
+     *
+     * @return array|\Zend\ServiceManager\Config
+     */
+    public function getServiceConfig()
+    {
+        return array(
+            'invokables' => array(
+                'zfcuser_user_service' => 'Application\Service\User',
+            ),
+        );
+    }
+
+    /**
+     * Expected to return \Zend\ServiceManager\Config object or array to
+     * seed such an object.
+     *
+     * @return array|\Zend\ServiceManager\Config
+     */
+    public function getViewHelperConfig()
+    {
+        return array(
+            'invokables' => array(
+                'FormLegend' => 'Application\View\Helper\FormLegend',
+            )
+        );
+    }
+
+    /**
+     * @return mixed
+     */
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';
     }
 
+    /**
+     * @return array
+     */
     public function getAutoloaderConfig()
     {
         return array(
