@@ -1,24 +1,30 @@
-<?php echo $this->doctype(); ?>
+<?php
+use Application\Entity\Administrator;
+
+echo $this->doctype(); ?>
 
 <html lang="en">
-    <head>
-        <meta charset="">
-        <?php echo $this->headTitle(''. $this->translate('Southern Iowa Community College'))->setSeparator(' - ')->setAutoEscape(false) ?>
+<head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle('Southern Iowa Community College'); ?>
 
-        <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+    <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
 
-        <!-- Le styles -->
-        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/HeefeLogo6.png'))
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
-                        ->prependStylesheet($this->basePath() . '/css/style.css')
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+    <!-- Le styles -->
+    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+                    ->appendStylesheet($this->basePath() . '/css/bootstrap.css')
+                    ->appendStylesheet($this->basePath() . '/css/style.css')
+                    ->appendStylesheet($this->basePath() . '/css/bootstrap-responsive.css');
+    ?>
+    <!-- Scripts -->
+    <?php echo $this->headScript()
+                    ->prependFile($this->basePath() . '/js/bootstrap.js')
+                    ->prependFile($this->basePath() . '/js/jquery-1.8.2.js')
+                    ->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',));
+    ?>
 
-        <!-- Scripts -->
-        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-                                      ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-                                      ->prependFile($this->basePath() . '/js/jquery.min.js') ?>
+</head>
 
-    </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
@@ -35,11 +41,23 @@
                            <a href="<?php echo $this->url('home') ?>">Home</a></li>
                         </ul>
                         <ul class="nav pull-right">
-                            <?php if ($identity = $this->zfcUserIdentity()): ?>
-                            <li><a href="<?= $this->url('zfcuser'); ?>"><?= $this->gravatar($identity->getEmail(), array('img_size' => 20)); ?> <?= $this->zfcUserDisplayName(); ?></a></li>
-                            <?php else: ?>
+                        <?php if ($identity = $this->zfcUserIdentity()): ?>
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <?= $this->gravatar($identity->getEmail(), array('img_size' => 22)); ?> <?= $identity->getName(); ?>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <?php if ($identity instanceof Administrator): ?>
+                                    <li><a href="<?= $this->url('application/default', array('controller' => 'admin', 'action' => 'update-schema')); ?>">Generate Schema</a></li>
+                                    <li class="divider"></li>
+                                    <?php endif; ?>
+                                    <li><a href="<?= $this->url('zfcuser'); ?>">My Account</a></li>
+                                    <li><a href="<?= $this->url('zfcuser/logout'); ?>">Log out</a></li>
+                                </ul>
+                            </li>
+                        <?php else: ?>
                             <li><a href="<?= $this->url('zfcuser/login'); ?>">Log In</a></li>
-                            <?php endif; ?>
+                        <?php endif; ?>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>

@@ -1,4 +1,18 @@
-<div style="float:left; padding-right:16px;"><?php echo $this->gravatar($this->zfcUserIdentity()->getEmail()) ?></div>
-<h3>Hello, <?php echo $this->zfcUserDisplayName() ?>!</h3>
+<?php
+/** @var $identity \Application\Entity\Person */
+$identity = $this->zfcUserIdentity();
+
+// Technically, this would be better placed in the controller.
+$nsArr    = explode('\\', get_class($identity));
+$userType = array_pop($nsArr);
+?>
+
+<div style="float:left; padding-right:16px;"><?php echo $this->gravatar($identity->getEmail()) ?></div>
+<h3>Hello, <?php echo $identity->getDisplayName(); ?>!</h3>
+
+<p><?= $userType; ?></p>
+
 <a href="<?php echo $this->url('zfcuser/logout') ?>">[Sign Out]</a>
+
+
 <div style="clear:both;"></div>

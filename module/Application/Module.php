@@ -38,7 +38,11 @@ class Module implements
     public function getServiceConfig()
     {
         return array(
+            'aliases' => array(
+                'UserService' => 'zfcuser_user_service'
+            ),
             'invokables' => array(
+                'SchemaService'        => 'Application\Service\Schema',
                 'zfcuser_user_service' => 'Application\Service\User',
             ),
         );

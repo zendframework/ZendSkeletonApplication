@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="role", type="string")
- * @ORM\DiscriminatorMap({"student" = "Student", "professor" = "Professor"})
+ * @ORM\DiscriminatorMap({"student" = "Student", "professor" = "Professor", "administrator" = "Administrator"})
  * @ORM\Table(name="people")
  */
 abstract class Person implements UserInterface

@@ -60,8 +60,10 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Major' => 'Application\Controller\MajorController'
+            'Application\Controller\Index'  => 'Application\Controller\IndexController',
+            'Application\Controller\Major'  => 'Application\Controller\MajorController',
+            'Application\Controller\Admin'  => 'Application\Controller\AdminController',
+            'Application\Controller\Course' => 'Application\Controller\CourseController'
         ),
     ),
     'view_manager' => array(
