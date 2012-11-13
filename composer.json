@@ -7,6 +7,11 @@
         "zf2"
     ],
     "homepage": "http://framework.zend.com/",
+    "autoload": {
+        "psr-0": {
+            "Application": "module/Application/src/"
+        }
+    },
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.*"
