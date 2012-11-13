@@ -9,7 +9,7 @@
     "homepage": "http://framework.zend.com/",
     "autoload": {
         "psr-0": {
-            "Application": "module/Application/src/"
+            "Application\\": "module/Application/src/"
         }
     },
     "require": {
