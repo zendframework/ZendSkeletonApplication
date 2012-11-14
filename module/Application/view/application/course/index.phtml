@@ -1,4 +1,9 @@
-<h1>Register for Classes</h1>
+<div class="well">
+    <h1>Register for Classes</h1>
+    <?php if (isset($mysecret)): ?>
+        <h2 style="color:red;"><?= $mysecret; ?></h2>
+    <?php endif; ?>
+</div>
 
 <table class="table table-bordered table-striped table-condensed">
     
