@@ -48,7 +48,7 @@ echo $this->doctype(); ?>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <?php if ($identity instanceof Administrator): ?>
-                                    <li><a href="<?= $this->url('application/default', array('controller' => 'admin', 'action' => 'update-schema')); ?>">Generate Schema</a></li>
+                                    <?php /* <li><a href="<?= $this->url('application/default', array('controller' => 'admin', 'action' => 'update-schema')); ?>">Generate Schema</a></li> */ ?>
                                     <li class="divider"></li>
                                     <?php endif; ?>
                                     <li><a href="<?= $this->url('zfcuser'); ?>">My Account</a></li>

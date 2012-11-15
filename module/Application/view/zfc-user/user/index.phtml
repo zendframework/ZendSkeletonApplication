@@ -12,7 +12,57 @@ $userType = array_pop($nsArr);
 
 <p><?= $userType; ?></p>
 
-<a href="<?php echo $this->url('zfcuser/logout') ?>">[Sign Out]</a>
 
+<div style="float:left">
+<div class="hero-unit">
+<ul class="nav nav-list">
+    <li class="nav-header">Actions</li>
+    <li><a href="#">View Profile</a></li>
+
+    <?php
+    /**
+     * Now that we have named routes, it's easy to refer to them and build links.
+     * Since this is a view, it has access to helpers that can make many tasks much
+     * easier. To invoke a helper, you just type $this->helpername(), (where helpername
+     * is the name of the helper you want to invoke). The first one we'll use is the url
+     * helper.
+     *
+     * The url helper takes two arguments (actually more, but we'll only worry about the first
+     * two). The first argument is the name of a route defined in module.config.php. The second
+     * is a key => value array that contains any variable you'd like to pass along. But watch out,
+     * only variables that the route understands will be passed along!
+     *
+     * $this->url('course') will find the 'course' route and build a link based on that. If you
+     * don't define any additional variables, it will use the defaults.
+     */
+    ?>
+    <li><a href="<?= $this->url('course'); ?>">View Courses</a></li>
+
+    <?php
+    /**
+     * Why doesn't this work? See if you can fix this line so the variable 'secret' is passed along
+     * to the course controller. Read module.config.php again for hints. (hint: the route name is missing something)
+     * Then look at the course controller to see how to retrieve variables from the route.
+     */
+    ?>
+    <li><a href="<?= $this->url('course', array('secret' => 'Top Secret!!')); ?>">View Secret Courses</a></li>
+
+    <?php
+    /**
+     * TODO: Task 2 - use the url helper to build a link that points to the 'add' action in the course controller.
+     * Remember that the action is a variable. (Hint: it's NOT "$this->url('course/add');")
+     *
+     * TODO: Task 3 - Play around with controllers, routes, and actions. Try to create your own controller and action,
+     * define a route that points to it, and build a link to it with the url helper. Extra credit if you can pass
+     * your own variables to it.
+     */
+    ?>
+
+    <li><a href="#">View Schedule</a></li>
+
+    <li><a href="<?= $this->url('zfcuser/logout') ?>">[Log Out]</a></li>
+</ul>
+</div>
+</div>
 
 <div style="clear:both;"></div>
