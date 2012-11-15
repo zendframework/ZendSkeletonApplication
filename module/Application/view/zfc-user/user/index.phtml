@@ -12,17 +12,7 @@ $userType = array_pop($nsArr);
 
 <p><?= $userType; ?></p>
 
+<a href="<?php echo $this->url('zfcuser/logout') ?>">[Sign Out]</a>
 
-<div style="float:left">
-<div class="hero-unit">
-<ul class="nav nav-list">
-    <ul class="nav-header">Actions</ul>
-    <ul class="active"><a href="#">View Profile</a></ul> 
-    <ul><a href="#">Register for Classes</a></ul>
-    <ul><a href="#">View Schedule</a></ul>
-    <ul><a href="<?php echo $this->url('zfcuser/logout') ?>">[Log Out]</a></ul>
-</ul>
-</div>
-</div>
 
 <div style="clear:both;"></div>
