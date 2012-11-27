@@ -101,21 +101,29 @@ return array(
              * Next: open view/zfc-user/user/index.phtml
              */
 
-            // 'major' => array( ... )
-            
-            
-
-            
-               'schedule' =>array(
-                   'type' =>'Segment',
-                   'options'=>array(
-                       'route'=>'/schedule[/:action]',
-                       'defaults'=>array(
-                           'controller'=>'Application\Controller\Schedule',
-                           'action'=>'index'
-                       )
-                   )
-               )
+            'major' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/major[/:action]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Major',
+                        'action'     => 'index'
+                    )
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'wildcard' => array(
+                        'type' => 'Wildcard',
+                        'secret'=>array(
+                            'type'=> 'Secret',
+                            'options' => array(
+                                'param_delimiter'     => '/',
+                                'key_value_delimiter' => '='
+                            )
+                        )
+                    )
+                )
+            )
         ),
     ),
 

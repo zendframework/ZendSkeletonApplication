@@ -65,7 +65,7 @@ class MajorController extends AbstractActionController
         $serviceLocator = $this->getServiceLocator();
         $entityManager  = $serviceLocator->get('EntityManager');
         $request        = $this->getRequest();
-        $majorForm      = $serviceLocator->get('Application\Form\Major');
+        $majorForm      = $serviceLocator->get('MajorForm');
         $majorForm->setLabel('Add a new Major');
         $majorForm->prepareElements();
 
@@ -108,7 +108,7 @@ class MajorController extends AbstractActionController
         $serviceLocator = $this->getServiceLocator();
         $entityManager  = $serviceLocator->get('EntityManager');
         $request        = $this->getRequest();
-        $majorForm      = $serviceLocator->get('Application\Form\Major');
+        $majorForm      = $serviceLocator->get('MajorForm');
         $majorId        = $this->params()->fromRoute('id');
 
         // If there's no major id, we can't edit anything. Redirect back to the list
@@ -164,7 +164,7 @@ class MajorController extends AbstractActionController
         $serviceLocator = $this->getServiceLocator();
         $entityManager  = $serviceLocator->get('EntityManager');
         $request        = $this->getRequest();
-        $deleteForm     = $serviceLocator->get('Application\Form\Delete');
+        $deleteForm     = $serviceLocator->get('DeleteForm');
         $majorId        = $this->params()->fromRoute('id');
 
         // If there's no major id, we can't edit anything. Redirect back to the list
@@ -214,9 +214,6 @@ class MajorController extends AbstractActionController
     public function redirectToList()
     {
         // It should be saved to the db. Redirect back to the entity list
-        return $this->redirect()->toRoute('application/default', array(
-            'controller' => 'major',
-            'action'     => 'index'
-        ));
+        return $this->redirect()->toRoute('major');
     }
 }

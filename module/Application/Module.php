@@ -43,6 +43,9 @@ class Module implements
             ),
             'invokables' => array(
                 'SchemaService'        => 'Application\Service\Schema',
+                'CourseForm'           => 'Application\Form\Course',
+                'MajorForm'            => 'Application\Form\Major',
+                'DeleteForm'           => 'Application\Form\Delete',
                 'zfcuser_user_service' => 'Application\Service\User',
             ),
         );

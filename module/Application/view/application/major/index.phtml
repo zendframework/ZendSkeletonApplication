@@ -6,22 +6,17 @@
 <table class="table table-bordered table-striped">
     <tr>
         <th>Name</th>
-        <th class="span2"><a href="<?= $this->url('application/default', array(
-            'controller' => 'major',
-            'action'     => 'add'
-        )); ?>">Add Major</a></th>
+        <th class="span2"><a href="<?= $this->url('major', array('action' => 'add')); ?>">Add Major</a></th>
     </tr>
     <?php foreach ($majors as $major): ?>
     <tr>
         <td><?= $major->getName(); ?></td>
         <td>
-            <a href="<?= $this->url('application/default', array(
-                'controller' => 'major',
+            <a href="<?= $this->url('major/wildcard', array(
                 'action'     => 'edit',
                 'id'         => $major->getId()
             )); ?>">Edit</a> |
-            <a href="<?= $this->url('application/default', array(
-                'controller' => 'major',
+            <a href="<?= $this->url('major/wildcard', array(
                 'action'     => 'delete',
                 'id'         => $major->getId()
             )); ?>">Delete</a>

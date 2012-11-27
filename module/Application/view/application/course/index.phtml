@@ -1,16 +1,10 @@
-<div class="well">
-    <h1>Register for Classes</h1>
-    <?php if (isset($mysecret)): ?>
-        <h2 style="color:red;"><?= $mysecret; ?></h2>
-    <?php endif; ?>
-</div>
-
-<table class="table table-bordered table-striped table-condensed">
-    
+<?php
+/** @var $course \Application\Entity\Course[] */
+?>
+<table class="table table-bordered table-striped">
+    <?php foreach ($courses as $course): ?>
     <tr>
-       <th> <input type="text" placeholder="course name"></th>
-        <th><input type="text" placeholder="course number"></th>
-    <th class="span2"><a href="<?= $this->url('course', array('action'=>'add')); ?>">Add Course</a></th>
+        <td><?= $course->getName(); ?></td>
     </tr>
-    
+    <?php endforeach; ?>
 </table>

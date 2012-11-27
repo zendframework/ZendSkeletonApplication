@@ -39,21 +39,13 @@ class CourseController extends AbstractActionController
      */
     public function indexAction()
     {
-        /**
-         * $this->params() returns a special helper that lets you retrieve variables
-         * from the system. Your options are: fromRoute(), fromGet(), or fromPost()
-         * Each method takes two arguments: the variable name, and a value to return
-         * if the variable isn't set. So, $this->params()->fromRoute('nothinghere', '1234');
-         * would return '1234' if there's no 'nothinghere' variable defined in the route.
-         */
-        $secret = $this->params()->fromRoute('secret');
+        $entityManager = $this->getEntityManager();
+        $courseRepo    = $entityManager->getRepository('Application\Entity\Course');
+        $courses       = $courseRepo->findAll();
 
-        if ($secret) {
-            // This passes the variable along to the view as $mysecret
-            return array('mysecret' => $secret); 
-        }
-
-        return null;
+        $viewModel     = new ViewModel();
+        $viewModel->setVariable('courses', $courses);
+        return $viewModel;
     }
 
     public function addAction()
@@ -140,12 +132,6 @@ class CourseController extends AbstractActionController
         $viewModel = new ViewModel();
         $viewModel->setVariable('form', $courseForm);
         return $viewModel;
-        
-        
-        
-        
-        
-        
 
     }
 
