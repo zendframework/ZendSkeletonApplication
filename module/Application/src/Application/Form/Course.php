@@ -9,15 +9,15 @@ use Zend\InputFilter\InputFilter;
 use Zend\Validator;
 use DoctrineModule\Validator\ObjectExists;
 
-class Major extends AbstractForm
+class Course extends AbstractForm
 {
     /**
      * Prepare the form elements
      */
     public function prepareElements()
     {
-        // Give the form an 'id' attribute of 'major'
-        $this->setAttribute('id', 'major');
+        // Give the form an 'id' attribute of 'course'
+        $this->setAttribute('id', 'course');
 
         // Id
         $id = new Element\Hidden('id');
@@ -25,7 +25,7 @@ class Major extends AbstractForm
 
         // Name
         $name = new Element('name');
-        $name->setLabel('Major Name');
+        $name->setLabel('Course Name');
         $this->add($name);
 
         // A cancel button
@@ -52,14 +52,14 @@ class Major extends AbstractForm
 
         $inputFilter = new InputFilter();
         $entityManager = $this->getServiceLocator()->get('EntityManager');
-        $majorRepo     = $entityManager->getRepository('Application\Entity\Major');
+        $courseRepo     = $entityManager->getRepository('Application\Entity\Course');
 
         // Id Filter
         $id = new Input('id');
         $id->setRequired(false);
         $idValidator = $id->getValidatorChain();
         $idValidator->addValidator(new ObjectExists(array(
-            'object_repository' => $majorRepo,
+            'object_repository' => $courseRepo,
             'fields'            => array('id')
         )));
         $inputFilter->add($id);

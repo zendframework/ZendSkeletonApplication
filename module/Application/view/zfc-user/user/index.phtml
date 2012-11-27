@@ -17,7 +17,7 @@ $userType = array_pop($nsArr);
 <div class="hero-unit">
 <ul class="nav nav-list">
     <li class="nav-header">Actions</li>
-    <li><a href="#">View Profile</a></li>
+    <li class="active">Profile</a></li>
 
     <?php
     /**
@@ -36,7 +36,7 @@ $userType = array_pop($nsArr);
      * don't define any additional variables, it will use the defaults.
      */
     ?>
-    <li><a href="<?= $this->url('course'); ?>">View Courses</a></li>
+    <li><a href="<?= $this->url('course', array('action'=>'add')); ?>">Add Courses</a></li>
 
     <?php
     /**
@@ -45,7 +45,7 @@ $userType = array_pop($nsArr);
      * Then look at the course controller to see how to retrieve variables from the route.
      */
     ?>
-    <li><a href="<?= $this->url('course', array('secret' => 'Top Secret!!')); ?>">View Secret Courses</a></li>
+    <li><a href="<?= $this->url('course/wildcard', array('secret' =>'Top Secret!!')); ?>">View Secret Courses</a></li>
 
     <?php
     /**
@@ -58,7 +58,7 @@ $userType = array_pop($nsArr);
      */
     ?>
 
-    <li><a href="#">View Schedule</a></li>
+    <li><a href="<?=$this->url('schedule') ?>">View Schedule</a></li>
 
     <li><a href="<?= $this->url('zfcuser/logout') ?>">[Log Out]</a></li>
 </ul>

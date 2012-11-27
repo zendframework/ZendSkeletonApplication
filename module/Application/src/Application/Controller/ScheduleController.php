@@ -12,7 +12,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class IndexController extends AbstractActionController
+class ScheduleController extends AbstractActionController
 {
     public function indexAction()
     {
@@ -24,21 +24,5 @@ class IndexController extends AbstractActionController
     /**
      * Rebuilds the database and loggs out the current user
      */
-    protected function rebuildDatabase()
-    {
-        /**
-         * @var $userService   \Application\Service\User
-         * @var $schemaService \Application\Service\Schema
-         */
-        $serviceLocator = $this->getServiceLocator();
-        $userService    = $serviceLocator->get('UserService');
-        $schemaService  = $serviceLocator->get('SchemaService');
-
-        // Rebuild the database
-        $schemaService->updateSchema();
-
-        // Make sure the current user is logged out since the database
-        // has been reset.
-        $userService->getAuthService()->clearIdentity();
-    }
+    
 }

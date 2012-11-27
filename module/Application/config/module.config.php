@@ -78,12 +78,19 @@ return array(
                 'child_routes' => array(
                     'wildcard' => array(
                         'type' => 'Wildcard',
-                        'options' => array(
+                        'secret'=>array(
+                            'type'=> 'Secret',
+                              
+                           'options' => array(
                             'param_delimiter'     => '/',
                             'key_value_delimiter' => '='
+                                
+                           ) 
                         )
                     )
                 )
+                
+                
             ),
 
             /**
@@ -91,10 +98,24 @@ return array(
              * This may be a bit tedious, but it will make it MUCH easier to build your links
              * everywhere else in the application
              *
-             * Next: open view/application/zfc-user/index.phtml
+             * Next: open view/zfc-user/user/index.phtml
              */
 
             // 'major' => array( ... )
+            
+            
+
+            
+               'schedule' =>array(
+                   'type' =>'Segment',
+                   'options'=>array(
+                       'route'=>'/schedule[/:action]',
+                       'defaults'=>array(
+                           'controller'=>'Application\Controller\Schedule',
+                           'action'=>'index'
+                       )
+                   )
+               )
         ),
     ),
 
@@ -106,10 +127,11 @@ return array(
      */
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index'  => 'Application\Controller\IndexController',
-            'Application\Controller\Major'  => 'Application\Controller\MajorController',
-            'Application\Controller\Admin'  => 'Application\Controller\AdminController',
-            'Application\Controller\Course' => 'Application\Controller\CourseController'
+            'Application\Controller\Index'   => 'Application\Controller\IndexController',
+            'Application\Controller\Major'   => 'Application\Controller\MajorController',
+            'Application\Controller\Admin'   => 'Application\Controller\AdminController',
+            'Application\Controller\Course'  => 'Application\Controller\CourseController',
+            'Application\Controller\Schedule'=> 'Application\Controller\ScheduleController'
         ),
     ),
 

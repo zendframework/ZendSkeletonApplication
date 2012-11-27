@@ -8,9 +8,9 @@
 <table class="table table-bordered table-striped table-condensed">
     
     <tr>
-        <th>Select Course Name</th>
-        <th>Select Course Number</th>
-        <th class="span2"><a href="#">Add Course</a></th>
+       <th> <input type="text" placeholder="course name"></th>
+        <th><input type="text" placeholder="course number"></th>
+    <th class="span2"><a href="<?= $this->url('course', array('action'=>'add')); ?>">Add Course</a></th>
     </tr>
     
 </table>
