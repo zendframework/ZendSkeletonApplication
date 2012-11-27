@@ -52,7 +52,11 @@ class Course extends AbstractForm
 
         $inputFilter = new InputFilter();
         $entityManager = $this->getServiceLocator()->get('EntityManager');
+<<<<<<< Updated upstream
         $courseRepo     = $entityManager->getRepository('Application\Entity\Course');
+=======
+        $courseRepo    = $entityManager->getRepository('Application\Entity\Course');
+>>>>>>> Stashed changes
 
         // Id Filter
         $id = new Input('id');

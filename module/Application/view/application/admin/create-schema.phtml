@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="span3">
+        <?= $this->partial('application/admin/partial/navigation'); ?>
+    </div>
+    <div class="span9">
+        <div class="well">
+            <h2>SQL Schema Generator</h2>
+        </div>
+
+        <?php if (isset($sql) && !empty($sql)): ?>
+        <table class="table table-striped table-bordered">
+            <?php foreach ($sql as $statement): ?>
+            <tr>
+                <td><?= $statement; ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php else: ?>
+        <div class="alert alert-block alert-info">
+            <h2>Nothing to do!</h2>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>
