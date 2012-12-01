@@ -34,7 +34,11 @@ return array(
                     ),
                 ),
             ),
-
+                
+            
+            
+            
+            
             /**
              * Here's a Segment route. Segment routes allow you to define variables that can be used to change
              * the controller, action, and even add new variables that you can use any way you like.
@@ -51,6 +55,8 @@ return array(
              * If those brackets were not there, the action would be mandatory and the route "/course/:action" would not
              * understand a url that just had "/course".
              */
+           
+            
             'course' => array(
                 'type' => 'Segment',
                 'options' => array(
@@ -91,6 +97,13 @@ return array(
                 )
                 
                 
+                
+                
+                
+                
+                
+                
+                
             ),
 
             /**
@@ -99,7 +112,9 @@ return array(
              * everywhere else in the application
              *
              * Next: open view/zfc-user/user/index.phtml
+             * 
              */
+            
 
             'major' => array(
                 'type' => 'Segment',
@@ -122,11 +137,50 @@ return array(
                             )
                         )
                     )
+               
                 )
+                
+                
             )
+            
+            
+            
         ),
-    ),
-
+        
+        'student' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/student[/:action]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Student',
+                        'action'     => 'index'
+                    )
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'wildcard' => array(
+                        'type' => 'Wildcard',
+                        'secret'=>array(
+                            'type'=> 'Secret',
+                            'options' => array(
+                                'param_delimiter'     => '/',
+                                'key_value_delimiter' => '='
+                            )
+                        )
+                    )
+               
+                )
+                
+                
+            )
+            
+            
+            
+        ),
+        
+        
+    
+                
     /**
      * IMPORTANT:
      * This is the all important 'controllers' configuration.
@@ -139,7 +193,8 @@ return array(
             'Application\Controller\Major'   => 'Application\Controller\MajorController',
             'Application\Controller\Admin'   => 'Application\Controller\AdminController',
             'Application\Controller\Course'  => 'Application\Controller\CourseController',
-            'Application\Controller\Schedule'=> 'Application\Controller\ScheduleController'
+            'Application\Controller\Schedule'=> 'Application\Controller\ScheduleController',
+            'Application\Controller\Student' => 'Application\Controller\StudentController',   
         ),
     ),
 

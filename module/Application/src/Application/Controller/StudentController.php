@@ -7,6 +7,9 @@ use Application\Entity\Administrator;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Controller\AbstractActionController;
+use Application\Entity\Course as CourseEntity;
+
+
 
 class StudentController extends AbstractActionController
 {
@@ -43,6 +46,9 @@ class StudentController extends AbstractActionController
      */
     public function indexAction()
     {
+        
+        
+        
 
     }
 
@@ -51,7 +57,15 @@ class StudentController extends AbstractActionController
      */
     public function listCoursesAction()
     {
+        $entityManager = $this->getServiceLocator()->get('EntityManager');
+        $courseRepo    = $entityManager->getRepository('Application\Entity\Course');
+        $courses       = $courseRepo->findAll();
 
+        $viewModel     = new ViewModel();
+        $viewModel->setVariable('courses', $courses);
+        return $viewModel;
+        
+        
     }
 
     /**
@@ -60,5 +74,29 @@ class StudentController extends AbstractActionController
     public function addCourseAction()
     {
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    public function getCourses()
+            
+    {
+        
+        
+        
+        
+        
+        
+        
+        
     }
 }

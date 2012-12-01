@@ -1,10 +1,26 @@
 <?php
 /** @var $course \Application\Entity\Course[] */
 ?>
+<h1>Courses</h1>
+
 <table class="table table-bordered table-striped">
+    <tr>
+        <th>Name</th>
+        <th class="span2"><a href="<?= $this->url('course', array('action' => 'add')); ?>">Add Course</a></th>
+    </tr>
     <?php foreach ($courses as $course): ?>
     <tr>
         <td><?= $course->getName(); ?></td>
+        <td>
+            <a href="<?= $this->url('course/wildcard', array(
+                'action'     => 'edit',
+                'id'         => $course->getId()
+            )); ?>">Edit</a> |
+            <a href="<?= $this->url('course/wildcard', array(
+                'action'     => 'delete',
+                'id'         => $course->getId()
+            )); ?>">Delete</a>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>
