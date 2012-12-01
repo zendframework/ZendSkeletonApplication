@@ -193,7 +193,6 @@ return array(
             'Application\Controller\Major'   => 'Application\Controller\MajorController',
             'Application\Controller\Admin'   => 'Application\Controller\AdminController',
             'Application\Controller\Course'  => 'Application\Controller\CourseController',
-            'Application\Controller\Schedule'=> 'Application\Controller\ScheduleController',
             'Application\Controller\Student' => 'Application\Controller\StudentController',   
         ),
     ),

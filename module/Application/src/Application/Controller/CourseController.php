@@ -2,13 +2,12 @@
 
 namespace Application\Controller;
 
-use Application\Entity\Course as CourseEntity;
+use Application\Entity\Professor;
+use Application\Entity\Administrator;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\Mvc\Exception;
-use Application\Entity\Professor;
-
+use Application\Entity\Course as CourseEntity;
 
 
 /**
@@ -33,9 +32,8 @@ class CourseController extends AbstractActionController
      */
     public function onDispatch(MvcEvent $e)
     {
-        // TODO: add authentication here (hint: look at the AdminController)
-
-         $auth = $this->zfcUserAuthentication();
+        /** @var $auth \ZfcUser\Controller\Plugin\ZfcUserAuthentication */
+        $auth = $this->zfcUserAuthentication();
         if (!$auth->hasIdentity()) {
             // The user is not authenticated! Redirect to the login route.
             return $this->redirect()->toRoute('zfcuser/login');
@@ -50,14 +48,12 @@ class CourseController extends AbstractActionController
         return parent::onDispatch($e);
     }
 
-    
-    
     /**
      * @return array|void
      */
     public function indexAction()
     {
-        $entityManager = $this->getServiceLocator()->get('EntityManager');
+        $entityManager = $this->getEntityManager();
         $courseRepo    = $entityManager->getRepository('Application\Entity\Course');
         $courses       = $courseRepo->findAll();
 
@@ -68,7 +64,7 @@ class CourseController extends AbstractActionController
 
     public function addAction()
     {
-        $serviceLocator = $this->getServiceLocator();
+            $serviceLocator = $this->getServiceLocator();
         $entityManager  = $serviceLocator->get('EntityManager');
         $request        = $this->getRequest();
         $courseForm      = $serviceLocator->get('Application\Form\Course');
@@ -87,7 +83,7 @@ class CourseController extends AbstractActionController
             $courseForm->bind($newCourse);
             $courseForm->setData($data);
 
-            if ($courseForm->isValid()) {
+            if ($majorForm->isValid()) {
                 $entityManager->persist($newCourse);
                 $entityManager->flush();
 
@@ -210,7 +206,11 @@ class CourseController extends AbstractActionController
     public function redirectToList()
     {
         // It should be saved to the db. Redirect back to the entity list
-        return $this->redirect()->toRoute('course');
+        return $this->redirect()->toRoute('application/default', array(
+            'controller' => 'course',
+            'action'     => 'index'
+        ));
+        
         
         
         

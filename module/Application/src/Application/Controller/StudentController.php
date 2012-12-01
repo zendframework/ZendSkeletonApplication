@@ -87,16 +87,5 @@ class StudentController extends AbstractActionController
         
     }
     
-    public function getCourses()
-            
-    {
-        
-        
-        
-        
-        
-        
-        
-        
-    }
+    
 }
