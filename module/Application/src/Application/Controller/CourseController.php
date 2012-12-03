@@ -4,6 +4,7 @@ namespace Application\Controller;
 
 use Application\Entity\Professor;
 use Application\Entity\Administrator;
+use Zend\Mvc\Exception;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -68,7 +69,7 @@ class CourseController extends AbstractActionController
            $serviceLocator = $this->getServiceLocator();
         $entityManager  = $serviceLocator->get('EntityManager');
         $request        = $this->getRequest();
-        $courseForm      = $serviceLocator->get('Application\Form\Course');
+        $courseForm      = $serviceLocator->get('CourseForm');
         $courseForm->setLabel('Add a new Course');
         $courseForm->prepareElements();
 
@@ -110,7 +111,7 @@ class CourseController extends AbstractActionController
         $serviceLocator = $this->getServiceLocator();
         $entityManager  = $serviceLocator->get('EntityManager');
         $request        = $this->getRequest();
-        $courseForm      = $serviceLocator->get('Application\Form\Course');
+        $courseForm      = $serviceLocator->get('CourseForm');
         $courseId        = $this->params()->fromRoute('id');
 
         // If there's no major id, we can't edit anything. Redirect back to the list
@@ -160,7 +161,7 @@ class CourseController extends AbstractActionController
         $serviceLocator = $this->getServiceLocator();
         $entityManager  = $serviceLocator->get('EntityManager');
         $request        = $this->getRequest();
-        $deleteForm     = $serviceLocator->get('Application\Form\Delete');
+        $deleteForm     = $serviceLocator->get('DeleteForm');
         $courseId        = $this->params()->fromRoute('id');
 
         // If there's no major id, we can't edit anything. Redirect back to the list
