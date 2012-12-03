@@ -24,6 +24,45 @@ return array(
              * and run a method called 'index' (which the framework internally changes to indexAction)
              *
              */
+            
+             'student' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/student[/:action]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Student',
+                        'action'     => 'index'
+                    )
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'wildcard' => array(
+                        'type' => 'Wildcard',
+                        'secret'=>array(
+                            'type'=> 'Secret',
+                            'options' => array(
+                                'param_delimiter'     => '/',
+                                'key_value_delimiter' => '='
+                            )
+                        )
+                    )
+               
+                )
+                
+                
+            ),
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             'home' => array(
                 'type' => 'Literal',
                 'options' => array(
@@ -147,32 +186,7 @@ return array(
             
         ),
         
-        'student' => array(
-                'type' => 'Segment',
-                'options' => array(
-                    'route' => '/student[/:action]',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Student',
-                        'action'     => 'index'
-                    )
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'wildcard' => array(
-                        'type' => 'Wildcard',
-                        'secret'=>array(
-                            'type'=> 'Secret',
-                            'options' => array(
-                                'param_delimiter'     => '/',
-                                'key_value_delimiter' => '='
-                            )
-                        )
-                    )
-               
-                )
-                
-                
-            )
+       
             
             
             

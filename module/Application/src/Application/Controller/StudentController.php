@@ -57,14 +57,15 @@ class StudentController extends AbstractActionController
      */
     public function listCoursesAction()
     {
-        $entityManager = $this->getServiceLocator()->get('EntityManager');
+        
+        $serviceLocator = $this->getServiceLocator();
+        $entityManager =$serviceLocator->get('EntityManager');
         $courseRepo    = $entityManager->getRepository('Application\Entity\Course');
         $courses       = $courseRepo->findAll();
 
         $viewModel     = new ViewModel();
         $viewModel->setVariable('courses', $courses);
         return $viewModel;
-        
         
     }
 
@@ -77,6 +78,62 @@ class StudentController extends AbstractActionController
         
         
         
+         
+        $serviceLocator = $this->getServiceLocator();
+        $entityManager  = $serviceLocator->get('EntityManager');
+        $request        = $this->getRequest();
+        $deleteForm     = $serviceLocator->get('Application\Form\Delete');
+        $courseId        = $this->params()->fromRoute('id');
+
+        // If there's no major id, we can't edit anything. Redirect back to the list
+        if (!$courseId) {
+            return $this->redirectToList();
+        }
+
+        // Find the major
+        /** @var $major \Application\Entity\Major */
+        $course = $entityManager->find('Application\Entity\Course', $courseId);
+
+        if (!$course) {
+            // The major couldn't be found even though the ID was present! That's a problem
+            throw new Exception\InvalidArgumentException("Invalid Course ID!");
+        }
+
+        $deleteForm->setLabel(sprintf('Delete %s', $course->getName()));
+        $deleteForm->prepareElements(); // (prepare before binding, otherwise the data will be empty)
+
+        if ($request->isPost()) {
+            $data = $request->getPost();
+
+            if (isset($data['cancel'])) {
+                // The cancel button was pressed. Redirect and return
+                return $this->redirectToList();
+            }
+
+            $deleteForm->setData($data);
+            if ($deleteForm->isValid()) {
+                // Remove the entity from the db and flush
+                $identity->getCourses()->add($course);
+                $entityManager->flush();
+                return $this->redirectToList();
+            }
+        }
+
+        $viewModel = new ViewModel();
+        $viewModel->setVariable('form', $deleteForm);
+        return $viewModel;
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    public function getCoursesAction()
+    {
         
         
         
