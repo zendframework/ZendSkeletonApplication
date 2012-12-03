@@ -181,4 +181,25 @@ abstract class Person implements UserInterface
         $this->password = $password;
         return $this;
     }
+
+    /**
+     * Get state.
+     *
+     * @return int
+     */
+    public function getState()
+    {
+        // TODO: Implement getState() method.
+    }
+
+    /**
+     * Set state.
+     *
+     * @param int $state
+     * @return UserInterface
+     */
+    public function setState($state)
+    {
+        // TODO: Implement setState() method.
+    }
 }
