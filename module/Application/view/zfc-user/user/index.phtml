@@ -7,13 +7,17 @@ $nsArr    = explode('\\', get_class($identity));
 $userType = array_pop($nsArr);
 ?>
 
-<div style="float:left; padding-right:16px;"><?php echo $this->gravatar($identity->getEmail()) ?></div>
-<h3>Hello, <?php echo $identity->getDisplayName(); ?>!</h3>
 
+
+<div style="float:left;">
+<h3>Welcome, <?php echo $identity->getDisplayName(); ?>!</h3>
 <p><?= $userType; ?></p>
+</div>
+
+<div style="float:left; padding-left:0px;padding-top:100px; "><?php echo $this->gravatar($identity->getEmail()) ?></div>
 
 
-<div style="float:left">
+<div style="float:right">
 <div class="hero-unit">
 <ul class="nav nav-list">
     <li class="nav-header">Actions</li>

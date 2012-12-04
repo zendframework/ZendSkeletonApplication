@@ -93,7 +93,8 @@ class StudentController extends AbstractActionController
         // Find the major
         /** @var $major \Application\Entity\Major */
         $course = $entityManager->find('Application\Entity\Course', $courseId);
-
+        
+         
         if (!$course) {
             // The major couldn't be found even though the ID was present! That's a problem
             throw new Exception\InvalidArgumentException("Invalid Course ID!");
@@ -109,14 +110,11 @@ class StudentController extends AbstractActionController
                 // The cancel button was pressed. Redirect and return
                 return $this->redirectToList();
             }
-
-            $deleteForm->setData($data);
-            if ($deleteForm->isValid()) {
-                // Remove the entity from the db and flush
-                $identity->getCourses()->add($course);
-                $entityManager->flush();
-                return $this->redirectToList();
-            }
+            
+            $this->student->addCourse($course);
+            $entityManager->flush();
+            return $this->redirectToList();
+            
         }
 
         $viewModel = new ViewModel();
@@ -136,7 +134,7 @@ class StudentController extends AbstractActionController
     {
         
         
-        
+        return $this->redirect()->toRoute('course');
         
         
         
