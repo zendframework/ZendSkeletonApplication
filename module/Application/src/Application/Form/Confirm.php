@@ -5,11 +5,11 @@ namespace Application\Form;
 use Zend\Form\Form;
 use Zend\Form\Element;
 
-class Delete extends Form
+class Confirm extends Form
 {
     public function prepareElements()
     {
-        $this->setAttribute('id', 'delete');
+        $this->setAttribute('id', 'confirm');
 
         // A cancel button
         $cancel = new Element\Submit('cancel');
@@ -18,9 +18,9 @@ class Delete extends Form
         $this->add($cancel);
 
         // A submit button
-        $delete = new Element\Submit('delete');
-        $delete->setValue('Delete');
-        $delete->setAttribute('class', 'btn btn-danger pull-right');
-        $this->add($delete);
+        $confirm = new Element\Submit('confirm');
+        $confirm->setValue('confirm');
+        $confirm->setAttribute('class', 'btn btn-danger pull-right');
+        $this->add($confirm);
     }
 }
