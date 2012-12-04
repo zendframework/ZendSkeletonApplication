@@ -2,6 +2,7 @@
 
 namespace Application\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,6 +28,13 @@ class Course
      * @ORM\Column(type="string", name="name")
      */
     protected $name;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ManyToMany(targetEntity="Student", mappedBy="courses")
+     */
+    protected $students;
 
     /**
      * @param int $id
@@ -58,5 +66,41 @@ class Course
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Adds the passed student to this course.
+     *
+     * @param Student $student
+     */
+    public function addStudent(Student $student)
+    {
+        $this->getStudents()->add($student);
+    }
+
+    /**
+     * Removes the passed student from this course
+     *
+     * @param Student $student
+     */
+    public function removeStudent(Student $student)
+    {
+        $this->getStudents()->removeElement($student);
+    }
+
+    /**
+     * @param $students
+     */
+    public function setStudents($students)
+    {
+        $this->students = $students;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getStudents()
+    {
+        return $this->students;
     }
 }

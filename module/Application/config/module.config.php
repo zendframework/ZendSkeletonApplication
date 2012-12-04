@@ -4,6 +4,30 @@ namespace Application;
 return array(
     'router' => array(
         'routes' => array(
+            'admin' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/admin[/:action]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Admin',
+                        'action'     => 'index'
+                    )
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'wildcard' => array(
+                        'type' => 'Wildcard',
+                        'secret'=>array(
+                            'type'=> 'Secret',
+                            'options' => array(
+                                'param_delimiter'     => '/',
+                                'key_value_delimiter' => '='
+                            )
+                        )
+                    )
+                )
+            ),
+
             /**
              * This is where you define which controller and action is loaded based on the url.
              * We'll probably only use two types of routes: 'Literal' and 'Segment'.
@@ -46,23 +70,9 @@ return array(
                             )
                         )
                     )
-               
                 )
-                
-                
             ),
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+
             'home' => array(
                 'type' => 'Literal',
                 'options' => array(
@@ -73,11 +83,7 @@ return array(
                     ),
                 ),
             ),
-                
-            
-            
-            
-            
+
             /**
              * Here's a Segment route. Segment routes allow you to define variables that can be used to change
              * the controller, action, and even add new variables that you can use any way you like.
@@ -134,15 +140,6 @@ return array(
                         )
                     )
                 )
-                
-                
-                
-                
-                
-                
-                
-                
-                
             ),
 
             /**
@@ -176,25 +173,11 @@ return array(
                             )
                         )
                     )
-               
                 )
-                
-                
             )
-            
-            
-            
         ),
-        
-       
-            
-            
-            
-        ),
-        
-        
-    
-                
+    ),
+
     /**
      * IMPORTANT:
      * This is the all important 'controllers' configuration.
