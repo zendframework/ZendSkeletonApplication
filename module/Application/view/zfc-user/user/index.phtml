@@ -1,4 +1,7 @@
 <?php
+
+use Application\Entity\Administrator;
+
 /** @var $identity \Application\Entity\Person */
 $identity = $this->zfcUserIdentity();
 
@@ -40,7 +43,9 @@ $userType = array_pop($nsArr);
      * don't define any additional variables, it will use the defaults.
      */
     ?>
+    <?php if ($identity instanceof Administrator): // only allow admins to see this link ?>
     <li><a href="<?= $this->url('course', array('action'=>'add')); ?>">Add Courses</a></li>
+    <?php endif; ?>
 
     <?php
     /**

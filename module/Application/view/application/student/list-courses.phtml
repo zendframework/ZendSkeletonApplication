@@ -1,24 +1,31 @@
-
-    <h1>Register for Class</h1>
-   
 <?php
-/** @var $course \Application\Entity\Course[] */
+/**
+ * @var $course  \Application\Entity\Course[]
+ * @var $student \Application\Entity\Student
+ */
+
+$student = $this->zfcUserIdentity(); // should be a student if you can see this
 ?>
 
+<h1>Register for Class</h1>
 
 <table class="table table-bordered table-striped">
     <tr>
         <th>Course Name</th>
-        </tr>
-    <?php foreach ($courses as $course): ?>
+        <th></th>
+    </tr>
+    <?php foreach ($courses as $course):
+        if ($student->getCourses()->contains($course)) {
+            continue; // The student is already in this course, so continue to the next one
+        }
+    ?>
     <tr>
         <td><?= $course->getName(); ?></td>
         <td>
             <a href="<?= $this->url('student/wildcard', array(
                 'action'     => 'add-course',
                 'id'         => $course->getId()
-            )); ?>">Add</a> 
-            
+            )); ?>">Add</a>
         </td>
     </tr>
     <?php endforeach; ?>

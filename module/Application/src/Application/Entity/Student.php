@@ -22,7 +22,7 @@ class Student extends Person
     /**
      * @var ArrayCollection
      * 
-     * @ORM\ManyToMany(targetEntity="Course", inversedBy="students")
+     * @ORM\ManyToMany(targetEntity="Course", inversedBy="students", cascade={"all"})
      * @ORM\JoinTable(name="students_courses")
      */
     protected $courses;
@@ -46,17 +46,19 @@ class Student extends Person
     /**
      * Adds a course to this student instance
      */
-    public function addCourse($aCourse)
+    public function addCourse(Course $course)
     {
-        $this->courses->add($aCourse);
+        $this->getCourses()->add($course);
+        $course->addStudent($this);
     }
     
     /**
      * Removes a course from this student instance.
      */
-    public function removeCourse($aCourse)
+    public function removeCourse(Course $course)
     {
-        $this->courses->remove($aCourse);
+        $this->getCourses()->removeElement($course);
+        $course->removeStudent($this);
     }
     
     /**

@@ -1,0 +1,16 @@
+Your courses
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Course Name</th>
+        <th><a href="<?= $this->url('student', array('action' => 'list-courses')); ?>">List Available Courses</a></th>
+    </tr>
+    <?php foreach ($student->getCourses() as $course): ?>
+    <tr>
+        <td><?= $course->getName(); ?></td>
+        <td><a href="<?= $this->url('student/wildcard', array(
+            'action' => 'remove-course',
+            'id' => $course->getId() )); ?>">Remove</a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>

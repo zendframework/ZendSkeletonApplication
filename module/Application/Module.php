@@ -46,6 +46,7 @@ class Module implements
                 'CourseForm'           => 'Application\Form\Course',
                 'MajorForm'            => 'Application\Form\Major',
                 'DeleteForm'           => 'Application\Form\Delete',
+                'ConfirmForm'          => 'Application\Form\Confirm',
                 'zfcuser_user_service' => 'Application\Service\User',
             ),
         );

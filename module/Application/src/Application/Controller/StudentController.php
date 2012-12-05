@@ -5,6 +5,8 @@ namespace Application\Controller;
 use Application\Entity\Student;
 use Application\Entity\Administrator;
 use Zend\View\Model\ViewModel;
+
+use Zend\Mvc\Exception;
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Controller\AbstractActionController;
 use Application\Entity\Course as CourseEntity;
@@ -46,10 +48,9 @@ class StudentController extends AbstractActionController
      */
     public function indexAction()
     {
-        
-        
-        
-
+        $viewModel = new ViewModel();
+        $viewModel->setVariable('student', $this->student);
+        return $viewModel;
     }
 
     /**
@@ -57,16 +58,14 @@ class StudentController extends AbstractActionController
      */
     public function listCoursesAction()
     {
-        
         $serviceLocator = $this->getServiceLocator();
-        $entityManager =$serviceLocator->get('EntityManager');
-        $courseRepo    = $entityManager->getRepository('Application\Entity\Course');
-        $courses       = $courseRepo->findAll();
+        $entityManager  = $serviceLocator->get('EntityManager');
+        $courseRepo     = $entityManager->getRepository('Application\Entity\Course');
+        $courses        = $courseRepo->findAll();
+        $viewModel      = new ViewModel();
 
-        $viewModel     = new ViewModel();
         $viewModel->setVariable('courses', $courses);
         return $viewModel;
-        
     }
 
     /**
@@ -74,16 +73,11 @@ class StudentController extends AbstractActionController
      */
     public function addCourseAction()
     {
-
-        
-        
-        
-         
         $serviceLocator = $this->getServiceLocator();
         $entityManager  = $serviceLocator->get('EntityManager');
         $request        = $this->getRequest();
-        $deleteForm     = $serviceLocator->get('Application\Form\Delete');
-        $courseId        = $this->params()->fromRoute('id');
+        $form           = $serviceLocator->get('ConfirmForm');
+        $courseId       = $this->params()->fromRoute('id');
 
         // If there's no major id, we can't edit anything. Redirect back to the list
         if (!$courseId) {
@@ -93,15 +87,14 @@ class StudentController extends AbstractActionController
         // Find the major
         /** @var $major \Application\Entity\Major */
         $course = $entityManager->find('Application\Entity\Course', $courseId);
-        
-         
+
         if (!$course) {
             // The major couldn't be found even though the ID was present! That's a problem
             throw new Exception\InvalidArgumentException("Invalid Course ID!");
         }
 
-        $deleteForm->setLabel(sprintf('Delete %s', $course->getName()));
-        $deleteForm->prepareElements(); // (prepare before binding, otherwise the data will be empty)
+        $form->setLabel(sprintf('Register for class "%s"', $course->getName()));
+        $form->prepareElements();
 
         if ($request->isPost()) {
             $data = $request->getPost();
@@ -114,66 +107,63 @@ class StudentController extends AbstractActionController
             $this->student->addCourse($course);
             $entityManager->flush();
             return $this->redirectToList();
-            
         }
 
         $viewModel = new ViewModel();
-        $viewModel->setVariable('form', $deleteForm);
+        $viewModel->setVariable('form', $form);
         return $viewModel;
-        
-        
-        
-        
-        
-        
-        
     }
-    
-    
-    
-    
+
+    /**
+     * @return \Zend\View\Model\ViewModel
+     * @throws \Zend\Mvc\Exception\InvalidArgumentException
+     */
     public function removeCourseAction()
     {
-        
-        
-        
-        
-        
-        
-        
-        
+        $serviceLocator = $this->getServiceLocator();
+        $entityManager  = $serviceLocator->get('EntityManager');
+        $request        = $this->getRequest();
+        $form           = $serviceLocator->get('ConfirmForm');
+        $courseId       = $this->params()->fromRoute('id');
+
+        // If there's no major id, we can't edit anything. Redirect back to the list
+        if (!$courseId) {
+            return $this->redirectToList();
+        }
+
+        // Find the major
+        /** @var $major \Application\Entity\Major */
+        $course = $entityManager->find('Application\Entity\Course', $courseId);
+
+        if (!$course) {
+            // The course couldn't be found even though the ID was present! That's a problem
+            throw new Exception\InvalidArgumentException("Invalid Course ID!");
+        }
+
+        $form->setLabel(sprintf('Remove "%s"', $course->getName()));
+        $form->prepareElements();
+
+        if ($request->isPost()) {
+            $data = $request->getPost();
+
+            if (isset($data['cancel'])) {
+                // The cancel button was pressed. Redirect and return
+                return $this->redirectToList();
+            }
+
+            $this->student->removeCourse($course);
+            $entityManager->flush();
+            return $this->redirectToList();
+        }
+
+        $viewModel = new ViewModel();
+        $viewModel->setVariable('form', $form);
+        return $viewModel;
     }
-    
-    
-    
-    
-    
-    
-    
-    public function getCourseAction()
-    {
-        
-        $this->student->getCourses($course);
-        
-        
-        
-        
-        
-    }
-    
+
     public function redirectToList()
     {
         // It should be saved to the db. Redirect back to the entity list
-        return $this->redirect()->toRoute('course');
-        
-        
-        
-        
+        return $this->redirect()->toRoute('student', array('controller' => 'list-courses'));
     }
-    
-   
-    
-    
-    
-    
 }

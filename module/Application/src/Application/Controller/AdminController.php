@@ -23,9 +23,11 @@ class AdminController extends AbstractActionController
         $identity = $auth->getIdentity();
 
         // only administrators can use this controller
+        /*
         if (!$identity instanceof Administrator) {
             return $this->redirect()->toRoute('home');
         }
+        */
 
         return parent::onDispatch($e);
     }
@@ -49,7 +51,7 @@ class AdminController extends AbstractActionController
         $request        = $this->getRequest();
         $serviceLocator = $this->getServiceLocator();
         $schemaService  = $serviceLocator->get('SchemaService');
-        $sqlCommands    = $schemaService->getSchemaSql();
+        $sqlCommands    = $schemaService->getUpdateSchemaSql();
         $viewModel      = new ViewModel();
         $viewModel->setVariable('sql', $sqlCommands);
 

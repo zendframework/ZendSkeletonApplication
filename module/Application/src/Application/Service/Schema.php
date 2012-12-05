@@ -76,6 +76,15 @@ class Schema implements ServiceLocatorAwareInterface
         return $schema;
     }
 
+    public function getUpdateSchemaSql()
+    {
+        $entityManager = $this->getEntityManager();
+        $schemaTool    = new SchemaTool($entityManager);
+        $entityMeta    = $this->getEntityMetaData();
+        $schema        = $schemaTool->getUpdateSchemaSql($entityMeta);
+        return $schema;
+    }
+
     /**
      * Rebuild the schema.
      */
