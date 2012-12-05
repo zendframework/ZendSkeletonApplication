@@ -5,14 +5,15 @@ namespace Application\Form;
 use Zend\Form\Form;
 use Zend\Form\Element;
 
-class Confirm extends Form
+class Add extends Form
 {
     public function prepareElements()
-    {
-        $this->setAttribute('id', 'confirm');
+            
+    {        
+        $this->setAttribute('id', 'add');
 
         // A cancel button
-        $cancel = new Element\Submit('cancel');
+        $cancel = new Element\Submit('add');
         $cancel->setValue('Cancel');
         $cancel->setAttribute('class', 'btn');
         $this->add($cancel);

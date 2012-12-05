@@ -55,9 +55,9 @@ class Student extends Person
     /**
      * Removes a course from this student instance.
      */
-    public function removeCourse()
+    public function removeCourse($aCourse)
     {
-        
+        $this->courses->remove($aCourse);
     }
     
     /**

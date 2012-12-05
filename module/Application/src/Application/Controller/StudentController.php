@@ -130,17 +130,50 @@ class StudentController extends AbstractActionController
     }
     
     
-    public function getCoursesAction()
+    
+    
+    public function removeCourseAction()
     {
         
         
-        return $this->redirect()->toRoute('course');
+        
         
         
         
         
         
     }
+    
+    
+    
+    
+    
+    
+    
+    public function getCourseAction()
+    {
+        
+        $this->student->getCourses($course);
+        
+        
+        
+        
+        
+    }
+    
+    public function redirectToList()
+    {
+        // It should be saved to the db. Redirect back to the entity list
+        return $this->redirect()->toRoute('course');
+        
+        
+        
+        
+    }
+    
+   
+    
+    
     
     
 }

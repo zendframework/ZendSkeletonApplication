@@ -203,7 +203,7 @@ class CourseController extends AbstractActionController
         return $viewModel;
     }
 
-    /**
+    /** 
      * A helper function to redirect to the major list
      *
      * @return mixed

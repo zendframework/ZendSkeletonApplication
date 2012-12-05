@@ -4,6 +4,30 @@ namespace Application;
 return array(
     'router' => array(
         'routes' => array(
+            
+             'admin' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/admin[/:action]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Admin',
+                        'action'     => 'index'
+                    )
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'wildcard' => array(
+                        'type' => 'Wildcard',
+                        'secret'=>array(
+                            'type'=> 'Secret',
+                            'options' => array(
+                                'param_delimiter'     => '/',
+                                'key_value_delimiter' => '='
+                            )
+                        )
+                    )
+                )
+            ),
             /**
              * This is where you define which controller and action is loaded based on the url.
              * We'll probably only use two types of routes: 'Literal' and 'Segment'.
