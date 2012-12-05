@@ -1,21 +1,24 @@
+
+    <h1>Register for Class</h1>
+   
 <?php
 /** @var $course \Application\Entity\Course[] */
 ?>
-<h1>Courses</h1>
+
 
 <table class="table table-bordered table-striped">
     <tr>
-        <th>Name</th>
-        <th class="span2"></th>
-    </tr>
+        <th>Course Name</th>
+        </tr>
     <?php foreach ($courses as $course): ?>
     <tr>
         <td><?= $course->getName(); ?></td>
         <td>
             <a href="<?= $this->url('student/wildcard', array(
-                'action' => 'add-course',
-                'id'     => $course->getId()
-            )); ?>">Add Course</a>
+                'action'     => 'add-course',
+                'id'         => $course->getId()
+            )); ?>">Add</a> 
+            
         </td>
     </tr>
     <?php endforeach; ?>

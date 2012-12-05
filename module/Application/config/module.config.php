@@ -4,7 +4,8 @@ namespace Application;
 return array(
     'router' => array(
         'routes' => array(
-            'admin' => array(
+            
+             'admin' => array(
                 'type' => 'Segment',
                 'options' => array(
                     'route' => '/admin[/:action]',
@@ -27,7 +28,6 @@ return array(
                     )
                 )
             ),
-
             /**
              * This is where you define which controller and action is loaded based on the url.
              * We'll probably only use two types of routes: 'Literal' and 'Segment'.
@@ -70,9 +70,23 @@ return array(
                             )
                         )
                     )
+               
                 )
+                
+                
             ),
-
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             'home' => array(
                 'type' => 'Literal',
                 'options' => array(
@@ -83,7 +97,11 @@ return array(
                     ),
                 ),
             ),
-
+                
+            
+            
+            
+            
             /**
              * Here's a Segment route. Segment routes allow you to define variables that can be used to change
              * the controller, action, and even add new variables that you can use any way you like.
@@ -140,6 +158,15 @@ return array(
                         )
                     )
                 )
+                
+                
+                
+                
+                
+                
+                
+                
+                
             ),
 
             /**
@@ -173,11 +200,25 @@ return array(
                             )
                         )
                     )
+               
                 )
+                
+                
             )
+            
+            
+            
         ),
-    ),
-
+        
+       
+            
+            
+            
+        ),
+        
+        
+    
+                
     /**
      * IMPORTANT:
      * This is the all important 'controllers' configuration.
