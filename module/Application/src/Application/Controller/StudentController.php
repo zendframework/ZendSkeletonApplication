@@ -4,6 +4,8 @@ namespace Application\Controller;
 
 use Application\Entity\Student;
 use Application\Entity\Administrator;
+
+use Zend\Mvc\Exception;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\MvcEvent;
 use Zend\Mvc\Controller\AbstractActionController;
@@ -46,10 +48,6 @@ class StudentController extends AbstractActionController
      */
     public function indexAction()
     {
-        
-        
-        
-
     }
 
     /**
@@ -57,7 +55,6 @@ class StudentController extends AbstractActionController
      */
     public function listCoursesAction()
     {
-        
         $serviceLocator = $this->getServiceLocator();
         $entityManager =$serviceLocator->get('EntityManager');
         $courseRepo    = $entityManager->getRepository('Application\Entity\Course');
@@ -66,7 +63,6 @@ class StudentController extends AbstractActionController
         $viewModel     = new ViewModel();
         $viewModel->setVariable('courses', $courses);
         return $viewModel;
-        
     }
 
     /**
@@ -74,15 +70,10 @@ class StudentController extends AbstractActionController
      */
     public function addCourseAction()
     {
-
-        
-        
-        
-         
         $serviceLocator = $this->getServiceLocator();
         $entityManager  = $serviceLocator->get('EntityManager');
         $request        = $this->getRequest();
-        $deleteForm     = $serviceLocator->get('Application\Form\Delete');
+        $deleteForm     = $serviceLocator->get('DeleteForm');
         $courseId        = $this->params()->fromRoute('id');
 
         // If there's no major id, we can't edit anything. Redirect back to the list
@@ -93,8 +84,7 @@ class StudentController extends AbstractActionController
         // Find the major
         /** @var $major \Application\Entity\Major */
         $course = $entityManager->find('Application\Entity\Course', $courseId);
-        
-         
+
         if (!$course) {
             // The major couldn't be found even though the ID was present! That's a problem
             throw new Exception\InvalidArgumentException("Invalid Course ID!");
@@ -118,29 +108,8 @@ class StudentController extends AbstractActionController
         }
 
         $viewModel = new ViewModel();
+        $viewModel->setVariable('course', $course);
         $viewModel->setVariable('form', $deleteForm);
         return $viewModel;
-        
-        
-        
-        
-        
-        
-        
     }
-    
-    
-    public function getCoursesAction()
-    {
-        
-        
-        return $this->redirect()->toRoute('course');
-        
-        
-        
-        
-        
-    }
-    
-    
 }

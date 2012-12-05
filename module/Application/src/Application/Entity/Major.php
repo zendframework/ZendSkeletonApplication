@@ -29,13 +29,6 @@ class Major
     protected $name;
 
     /**
-     * @var Requirement[]
-     *
-     * @ORM\OneToMany(targetEntity="Requirement", mappedBy="requirements")
-     */
-    protected $requirements;
-
-    /**
      * @param int $id
      */
     public function setId($id)
@@ -65,21 +58,5 @@ class Major
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * @param $requirements
-     */
-    public function setRequirements($requirements)
-    {
-        $this->requirements = $requirements;
-    }
-
-    /**
-     * @return Requirement[]
-     */
-    public function getRequirements()
-    {
-        return $this->requirements;
     }
 }

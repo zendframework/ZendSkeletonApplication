@@ -28,14 +28,6 @@ class Student extends Person
     protected $courses;
 
     /**
-     * @var ArrayCollection
-     *
-     * @ManyToMany(targetEntity="Course", inversedBy="students")
-     * @JoinTable(name="students_courses")
-     */
-    protected $courses;
-
-    /**
      * @param Major $major
      */
     public function setMajor(Major $major)
@@ -57,7 +49,6 @@ class Student extends Person
     public function addCourse($aCourse)
     {
         $this->courses->add($aCourse);
-                
     }
     
     /**
@@ -70,7 +61,7 @@ class Student extends Person
     
     /**
      * 
-     * @param type $courses
+     * @param ArrayCollection $courses
      */
     public function setCourses($courses)
     {
@@ -79,42 +70,6 @@ class Student extends Person
     
     /**
      * 
-     * @return ArrayCollection
-     */
-    public function getCourses()
-    {
-        return $this->courses;
-    }
-
-    /**
-     * Adds the passed $course to courses
-     *
-     * @param Course $course
-     */
-    public function addCourse(Course $course)
-    {
-        $this->getCourses()->add($course);
-    }
-
-    /**
-     * Removes the passed course from courses
-     *
-     * @param Course $course
-     */
-    public function removeCourse(Course $course)
-    {
-        $this->getCourses()->removeElement($course);
-    }
-
-    /**
-     * @param $courses
-     */
-    public function setCourses($courses)
-    {
-        $this->courses = $courses;
-    }
-
-    /**
      * @return ArrayCollection
      */
     public function getCourses()

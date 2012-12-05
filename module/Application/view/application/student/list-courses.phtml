@@ -1,3 +1,22 @@
+<?php
+/** @var $course \Application\Entity\Course[] */
+?>
+<h1>Courses</h1>
 
-    <h1>hello</h1>
-   
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Name</th>
+        <th class="span2"></th>
+    </tr>
+    <?php foreach ($courses as $course): ?>
+    <tr>
+        <td><?= $course->getName(); ?></td>
+        <td>
+            <a href="<?= $this->url('student/wildcard', array(
+                'action' => 'add-course',
+                'id'     => $course->getId()
+            )); ?>">Add Course</a>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>

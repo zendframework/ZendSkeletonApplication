@@ -32,7 +32,7 @@ class Course
     /**
      * @var ArrayCollection
      *
-     * @ManyToMany(targetEntity="Student", mappedBy="courses")
+     * @ORM\ManyToMany(targetEntity="Student", mappedBy="courses")
      */
     protected $students;
 
