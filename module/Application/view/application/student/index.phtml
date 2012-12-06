@@ -1,11 +1,11 @@
 
-Your courses
+<h1>Your Courses</h1>
 
 
 <table class="table table-bordered table-striped">
     <tr>
         <th>Course Name</th>
-        <th><a href="<?= $this->url('student', array('action' => 'list-courses')); ?>">List Available Courses</a></th>
+        <th><a href="<?= $this->url('student', array('action' => 'list-courses')); ?>"class="btn btn-primary">Back to Course List</a></th>
     </tr>
     <?php foreach ($student->getCourses() as $course): ?>
     <tr>
@@ -15,8 +15,9 @@ Your courses
             'id' => $course->getId() )); ?>">Remove</a>
         </td>
     </tr>
+
+
     <?php endforeach; ?>
+    
 </table>
-
-
 

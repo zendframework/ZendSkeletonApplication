@@ -7,13 +7,14 @@
 $student = $this->zfcUserIdentity(); // should be a student if you can see this
 ?>
 
-<h1>Register for Class</h1>
+<h1>Add a Class</h1>
 
 <table class="table table-bordered table-striped">
     <tr>
         <th>Course Name</th>
+        <th><a href="<?= $this->url('student', array('action' => 'index')); ?>"class="btn btn-primary">View Your Courses</a></th>
         <th></th>
-    </tr>
+   </tr>
     <?php foreach ($courses as $course):
         if ($student->getCourses()->contains($course)) {
             continue; // The student is already in this course, so continue to the next one
@@ -27,6 +28,11 @@ $student = $this->zfcUserIdentity(); // should be a student if you can see this
                 'id'         => $course->getId()
             )); ?>">Add</a>
         </td>
+        
     </tr>
+    
     <?php endforeach; ?>
+    
+            
 </table>
+

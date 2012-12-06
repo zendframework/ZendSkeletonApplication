@@ -37,10 +37,13 @@ echo $this->doctype(); ?>
                     <a class="brand" href="#">SICC</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active">
+                            <li>
+                                  
                            <a href="<?php echo $this->url('home') ?>">Home</a></li>
+                           <li><a href="<?= $this->url('zfcuser'); ?>">My Account</a></li>
                             
                         </ul>
+                        
                         <ul class="nav pull-right">
                         <?php if ($identity = $this->zfcUserIdentity()): ?>
                             <li>
@@ -68,6 +71,7 @@ echo $this->doctype(); ?>
             <?php echo $this->content; ?>
             <hr>
             <footer>
+                
                 <p>&copy;2012 by Heefe Technologies, inc. <?php echo $this->translate('All rights reserved.') ?></p>
             </footer>
         </div> <!-- /container -->
