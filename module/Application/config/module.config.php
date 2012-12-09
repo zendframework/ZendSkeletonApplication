@@ -52,6 +52,27 @@ return array(
             ),
         ),
     ),
+    'console' => array(
+        'router' => array(
+            'routes' => array(
+                // You can define your console routes here. For more information refer to
+                // http://www.zendframework.com/manual/2.0/en/modules/zend.console.routes.html
+
+                /*
+                'help' => array(
+                    'type' => 'Zend\Mvc\Router\Console\Simple',
+                    'options' => array(
+                        'route'    => 'help',
+                        'defaults' => array(
+                            'controller' => 'Application\Controller\Index',
+                            'action'     => 'help',
+                        ),
+                    ),
+                ),
+                */
+            )
+        ),
+    ),
     'service_manager' => array(
         'factories' => array(
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
