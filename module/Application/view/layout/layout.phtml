@@ -14,10 +14,9 @@
                         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
 
         <!-- Scripts -->
-        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-                                      ->prependFile($this->basePath() . '/js/bootstrap.min.js')
-                                      ->prependFile($this->basePath() . '/js/jquery.min.js') ?>
-
+        <?php echo $this->headScript()->prependFile($this->basePath() . '/scripts/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                                      ->setAllowArbitraryAttributes(true)
+                                      ->prependFile($this->basePath() . '/scripts/require-jquery.js', 'text/javascript', array('data-main' => 'scripts/main')) ?>
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -45,5 +44,14 @@
             </footer>
         </div> <!-- /container -->
         <?php echo $this->inlineScript() ?>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+
     </body>
 </html>
