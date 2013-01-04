@@ -4,3 +4,8 @@ RewriteCond %{REQUEST_FILENAME} -l [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^.*$ - [NC,L]
 RewriteRule ^.*$ index.php [NC,L]
+# If you are using phpcloud.com or other cloud PaaS solutions, you may need to
+# Remove the line immediately above this comment, and uncomment the following:
+# RewriteCond %{REQUEST_URI}::$1 ^(/.+)(.+)::\2$
+# RewriteRule ^(.*)$ - [E=BASE:%1]
+# RewriteRule ^(.*)$ %{ENV:BASE}index.php [NC,L]
