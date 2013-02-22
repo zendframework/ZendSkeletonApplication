@@ -23,7 +23,7 @@ Alternately, clone the repository and manually invoke `composer` using the shipp
 `composer.phar`:
 
     cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
+    git clone git://github.com/ynunez/ZendSkeletonApplication.git
     cd ZendSkeletonApplication
     php composer.phar self-update
     php composer.phar install
@@ -35,7 +35,7 @@ Another alternative for downloading the project is to grab it via `curl`, and
 then pass it to `tar`:
 
     cd my/project/dir
-    curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
+    curl -#L https://github.com/ynunez/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
 
 You would then invoke `composer` to install dependencies per the previous
 example.
@@ -48,5 +48,4 @@ Alternatively, you can install using native git submodules:
 
 Virtual Host
 ------------
-Afterwards, set up a virtual host to point to the public/ directory of the
-project and you should be ready to go!
+Virtual Host are not required with this modification, index.php has been moved to the root directory as well as the .htaccess file. Images, CSS, and JavaScript files still reside on the public directory and the base path has been set to the public directory
