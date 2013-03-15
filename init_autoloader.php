@@ -41,8 +41,6 @@ if ($zf2Path) {
                 'autoregister_zf' => true
             )
         ));
-        require $zf2Path . '/Zend/Stdlib/compatibility/autoload.php';
-        require $zf2Path . '/Zend/Session/compatibility/autoload.php';
     }
 }
 
