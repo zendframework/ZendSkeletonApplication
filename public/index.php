@@ -3,7 +3,7 @@
  * This makes our life easier when dealing with paths. Everything is relative
  * to the application root now.
  */
-chdir(dirname(__DIR__));
+chdir(realpath(__DIR__ . DIRECTORY_SEPARATOR . '..'));
 
 // Setup autoloading
 require 'init_autoloader.php';
