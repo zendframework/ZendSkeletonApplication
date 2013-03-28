@@ -4,7 +4,7 @@
 /config/autoload/*.local.php
 /config/autoload/local.php
 /data/cache/*
-/data/cache/!.gitignore
+!/data/cache/.gitignore
 /.DS_Store
 /.idea
 /.~lock.*
@@ -14,5 +14,5 @@
 /vendor/autoload.php
 /vendor/composer
 /vendor/.composer
-/vendor/!.gitignore
+!/vendor/.gitignore
 /vendor/zendframework
