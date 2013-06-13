@@ -8,4 +8,3 @@ nbproject
 .settings
 composer.lock
 vendor/bin
-ZendSkeletonApplication.iml
