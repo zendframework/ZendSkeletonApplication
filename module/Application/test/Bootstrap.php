@@ -30,7 +30,7 @@ class Bootstrap
         if (isset($testConfig['module_listener_options']['module_paths'])) {
             $modulePaths = $testConfig['module_listener_options']['module_paths'];
             foreach ($modulePaths as $modulePath) {
-                if (($path = static::findParentPath($modulePath)) ) {
+                if (($path = static::findParentPath($modulePath))) {
                     $zf2ModulePaths[] = $path;
                 }
             }
