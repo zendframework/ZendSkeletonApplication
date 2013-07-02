@@ -36,4 +36,11 @@ class Module
             ),
         );
     }
+
+    public function getConsoleUsage()
+    {
+        return array(
+            '[--help|-h]' => 'Show this usage message',
+        );
+    }
 }

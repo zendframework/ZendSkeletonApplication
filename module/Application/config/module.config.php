@@ -92,4 +92,18 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
+    'console' => array(
+        'router' => array('routes' => array(
+            'help' => array(
+                'type' => 'simple',
+                'options' => array(
+                    'route' => '[--help|-h]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Index',
+                        'action'     => 'consoleHelp',
+                    ),
+                ),
+            ),
+        )),
+    ),
 );
