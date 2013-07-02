@@ -44,7 +44,8 @@ Using Git submodules
 --------------------
 Alternatively, you can install using native git submodules:
 
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
+    git clone git://github.com/zendframework/ZendSkeletonApplication.git
+    git submodule add https://github.com/zendframework/zf2.git vendor/ZF2
 
 Virtual Host
 ------------
