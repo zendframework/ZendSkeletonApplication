@@ -92,18 +92,11 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
+    // Placeholder for console routes
     'console' => array(
-        'router' => array('routes' => array(
-            'help' => array(
-                'type' => 'simple',
-                'options' => array(
-                    'route' => '[--help|-h]',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
-                        'action'     => 'consoleHelp',
-                    ),
-                ),
+        'router' => array(
+            'routes' => array(
             ),
-        )),
+        ),
     ),
 );

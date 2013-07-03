@@ -19,17 +19,4 @@ class IndexController extends AbstractActionController
     {
         return new ViewModel();
     }
-
-    public function consoleHelpAction()
-    {
-        $e = $this->getEvent();
-        $e->setError(Application::ERROR_CONTROLLER_INVALID);
-        $application     = $e->getApplication();
-        $services        = $application->getServiceManager();
-        $notFoundHandler = $services->get('RouteNotFoundStrategy');
-        $notFoundHandler->setDisplayNotFoundReason(false);
-        $notFoundHandler->handleRouteNotFoundError($e);
-        $e->setError(null);
-        return $e->getResult();
-    }
 }
