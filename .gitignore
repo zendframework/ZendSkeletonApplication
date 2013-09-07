@@ -6,5 +6,4 @@ nbproject
 .idea
 .project
 .settings
-composer.lock
 vendor/bin

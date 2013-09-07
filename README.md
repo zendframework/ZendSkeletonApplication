@@ -18,6 +18,7 @@ and use `composer` to install dependencies using the `create-project` command:
 
     curl -s https://getcomposer.org/installer | php --
     php composer.phar create-project -sdev --repository-url="https://packages.zendframework.com" zendframework/skeleton-application path/to/install
+    php composer.phar update
 
 Alternately, clone the repository and manually invoke `composer` using the shipped
 `composer.phar`:
@@ -27,6 +28,7 @@ Alternately, clone the repository and manually invoke `composer` using the shipp
     cd ZendSkeletonApplication
     php composer.phar self-update
     php composer.phar install
+    php composer.phar update
 
 (The `self-update` directive is to ensure you have an up-to-date `composer.phar`
 available.)
@@ -37,7 +39,7 @@ then pass it to `tar`:
     cd my/project/dir
     curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
 
-You would then invoke `composer` to install dependencies per the previous
+You would then invoke `composer` to install and update dependencies per the previous
 example.
 
 Using Git submodules
