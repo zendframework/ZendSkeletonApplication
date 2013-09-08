@@ -58,6 +58,8 @@ The simplest way to get started if you are using PHP 5.4 or above is to start th
 This will start the cli-server on port 8080, and bind it to all network
 interfaces.
 
+**Note: ** The built-in CLI server is *for development only*.
+
 ### Apache Setup
 
 To setup apache, setup a virtual host to point to the public/ directory of the
