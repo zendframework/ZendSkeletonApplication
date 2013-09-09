@@ -50,10 +50,10 @@ Web Server Setup
 
 ### PHP CLI Server
 
-The simplest way to get started if you are using PHP 5.4 or above is to start the internal PHP cli-server in the public directory:
+The simplest way to get started if you are using PHP 5.4 or above is to start the internal PHP cli-server in the root directory:
 
     cd public
-    php -S 0.0.0.0:8080 index.php
+    php -S 0.0.0.0:8080 -t public/ public/index.php
 
 This will start the cli-server on port 8080, and bind it to all network
 interfaces.
