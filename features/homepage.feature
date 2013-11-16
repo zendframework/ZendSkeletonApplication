@@ -4,9 +4,6 @@ Feature: Application Index
   I need to be able to load the application homepage
 
 Scenario: Load the homepage
-  Given I am in path "/"
-  When I load the page
-  Then I should see:
-    """
-    Welcome to <span class="zf-green">Zend Framework 2</span>
-    """
+  Given I am on the homepage
+  Then the response status code should be 200
+  And I should see "Welcome to Zend Framework 2"
