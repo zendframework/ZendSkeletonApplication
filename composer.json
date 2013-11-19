@@ -12,6 +12,8 @@
         "zendframework/zendframework": ">2.2.0rc1"
     },
     "require-dev": {
-        "behat/behat": "2.4.*"
+        "behat/behat": "~2.4",
+        "behat/mink-extension":"~1.2",
+        "behat/mink-goutte-driver": "*"
     }
 }
