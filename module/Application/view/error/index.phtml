@@ -28,7 +28,9 @@
 <hr/>
 <h2><?php echo $this->translate('Previous exceptions') ?>:</h2>
 <ul class="unstyled">
-    <?php while($e) : ?>
+    <?php
+    $error_counts = 0;
+    while($error_counts < 10 && $e) : ?>
     <li>
         <h3><?php echo get_class($e); ?></h3>
         <dl>
@@ -48,6 +50,7 @@
     </li>
     <?php
         $e = $e->getPrevious();
+        $error_counts++;
         endwhile;
     ?>
 </ul>
