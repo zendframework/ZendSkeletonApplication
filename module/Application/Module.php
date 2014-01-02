@@ -11,8 +11,10 @@ namespace Application;
 
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Zend\ModuleManager\Feature\ConsoleBannerProviderInterface;
+use Zend\Console\Adapter\AdapterInterface as Console;
 
-class Module
+class Module implements ConsoleBannerProviderInterface
 {
     public function onBootstrap(MvcEvent $e)
     {
@@ -35,5 +37,14 @@ class Module
                 ),
             ),
         );
+    }
+
+    public function getConsoleBanner(Console $console)
+    {
+        return
+            "Welcome to Zend Skeleton Application\n".
+            "Zend Framework version ". \Zend\Version\Version::VERSION
+        ;
+
     }
 }
