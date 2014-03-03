@@ -65,7 +65,7 @@ msgstr "إكتشف الوحدات البرمجية"
 msgid "The community is working on developing a community site to serve as a repository and gallery for ZF2 modules. The project is available %son GitHub%s. The site is currently live and currently contains a list of some of the modules already available for ZF2."
 msgstr "إن مجتمع المبرمجين المحترفين يعمل الآن على تطوير موقع خاص بهم ليخدم كمصدر لوحدات ZF2 البرمجية. المشروع متوفر على منصة %sGitHub%s. إن الموقع متوفر الآن ويحتوي على بعض الوحدات البرمجية الجاهزة للاستخدام في ZF2."
 
-#: ../view/application/index/index.phtmlمl:18
+#: ../view/application/index/index.phtml:18
 msgid "Explore ZF2 Modules"
 msgstr "استعرض الوحدات البرمجية لـ ZF2"
 
