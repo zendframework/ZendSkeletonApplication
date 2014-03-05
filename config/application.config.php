@@ -5,6 +5,9 @@ return array(
         'Application',
         'DoctrineModule',
         'DoctrineORMModule',
+        'ZfcBase',
+        'ZfcUser',
+        'ZfcUserDoctrineORM',
     	'CASEBase',
     ),
 
