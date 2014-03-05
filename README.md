@@ -81,6 +81,9 @@ and update the params sub-array
 		'dbname' => 'database' 
 	) 
 
+Update the database schema using cli:
+
+	~ ./vendor/bin/doctrine-module orm:schema-tool:update --force
 ###Development mode
 
 Copy 
