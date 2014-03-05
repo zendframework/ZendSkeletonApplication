@@ -1,21 +1,20 @@
 {
-    "name": "av4tar/zend-skeleton-application",
-    "description": "Skeleton Application for ZF2 by AV4TAr",
-    "license": "BSD-3-Clause",
-    "keywords": [
-        "framework",
-        "zf2"
-    ],
-    "require": {
-        "php": ">=5.3.3",
-        "zendframework/zendframework": "2.2.*",
-        "doctrine/doctrine-orm-module": "0.*",
-        "doctrine/migrations": "1.0.*@dev"
-    },
-    "require-dev": {
-        "zendframework/zftool": "dev-master",
-        "zendframework/zend-developer-tools": "dev-master",
-        "phpunit/phpunit": "3.7.*",
-        "firephp/firephp-core" : "0.4.0"
-    }
+  "name" : "av4tar/zend-skeleton-application",
+  "description" : "Skeleton Application for ZF2 by AV4TAr",
+  "require" : {
+    "php" : ">=5.3.3",
+    "zendframework/zendframework" : "2.2.*",
+    "doctrine/doctrine-orm-module" : "0.*",
+    "doctrine/migrations" : "1.0.*@dev",
+    "zf-commons/zfc-user" : "dev-master",
+    "zf-commons/zfc-user-doctrine-orm" : "dev-master"
+  },
+  "require-dev" : {
+    "zendframework/zftool" : "dev-master",
+    "zendframework/zend-developer-tools" : "dev-master",
+    "phpunit/phpunit" : "3.7.*",
+    "firephp/firephp-core" : "0.4.0"
+  },
+  "keywords" : [ "framework", "zf2" ],
+  "license" : "BSD-3-Clause"
 }
