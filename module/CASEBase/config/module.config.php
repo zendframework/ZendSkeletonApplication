@@ -17,6 +17,12 @@ return array(
             )
         )
     ),
+    'zfcuser' => array(
+        // telling ZfcUser to use our own class
+        'user_entity_class' => 'CASEBase\Entity\User',
+        // telling ZfcUserDoctrineORM to skip the entities it defines
+        'enable_default_entities' => false
+    ),
     
     'controllers' => array(
         'invokables' => array(
@@ -63,5 +69,11 @@ return array(
         'template_path_stack' => array(
             'CASEBase' => __DIR__ . '/../view'
         )
+    ),
+    'service_manager' => array(
+        'aliases' => array(
+            
+            'zfcuser_doctrine_em' => 'Doctrine\ORM\EntityManager'
+        ),
     )
 );
