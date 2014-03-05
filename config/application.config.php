@@ -7,9 +7,10 @@ return array(
         'DoctrineORMModule',
         'ZfcBase',
         'ZfcUser',
-        //'ZfcAdmin', //https://github.com/ZF-Commons/ZfcAdmin
         'ZfcUserDoctrineORM',
+        'ZfcAdmin', // https://github.com/ZF-Commons/ZfcAdmin/tree/master/docs
     	'CASEBase',
+        'CASEAdmin',
     ),
 
     // These are various options for the listeners attached to the ModuleManager

@@ -273,5 +273,16 @@ return array(
         'aliases' => array(
             'zfcuser_doctrine_em' => 'Doctrine\ORM\EntityManager'
         )
-    )
+    ),
+    /*
+     //Agrego un menu al panel de administracion
+    'navigation' => array(
+        'admin' => array(
+            'case-base' => array(
+                'label' => 'Users',
+                'route' => 'zfcuser',
+            ),
+        ),
+    ),
+    */
 );

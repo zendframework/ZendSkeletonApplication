@@ -33,6 +33,7 @@ This will install:
  - ZfcBase & ZfcUser: https://github.com/ZF-Commons/ZfcUser 
  - ZfcUserDoctrineORM
  - CASEBase
+ - CASEAdmin
 
 
 Web Server Setup
