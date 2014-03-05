@@ -7,6 +7,7 @@ return array(
         'DoctrineORMModule',
         'ZfcBase',
         'ZfcUser',
+        //'ZfcAdmin', //https://github.com/ZF-Commons/ZfcAdmin
         'ZfcUserDoctrineORM',
     	'CASEBase',
     ),
