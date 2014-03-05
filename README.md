@@ -27,6 +27,13 @@ available.)
 
 You would then invoke `composer` to install dependencies per the previous example.
 
+This will install:
+
+ - DoctrineModule & DoctrineORMModule
+ - ZfcBase & ZfcUser: https://github.com/ZF-Commons/ZfcUser 
+ - ZfcUserDoctrineORM
+ - CASEBase
+
 
 Web Server Setup
 ----------------
@@ -39,9 +46,9 @@ project and you should be ready to go! It should look something like below:
 
     <VirtualHost *:80>
         ServerName application.dev
-        DocumentRoot /path/to/zf2-tutorial/public
+        DocumentRoot /path/to/zf2-application/public
         SetEnv APPLICATION_ENV "development"
-        <Directory /path/to/zf2-tutorial/public>
+        <Directory /path/to/zf2-application/public>
             DirectoryIndex index.php
             AllowOverride All
             Order allow,deny
