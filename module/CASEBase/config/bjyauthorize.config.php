@@ -180,7 +180,6 @@ return array(
                         'administrator',
                     )
                 )
-                
             )
         )
     )
