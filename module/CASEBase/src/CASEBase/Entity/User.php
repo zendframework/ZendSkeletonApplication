@@ -3,12 +3,14 @@ namespace CASEBase\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ZfcUser\Entity\UserInterface;
+use BjyAuthorize\Provider\Role\ProviderInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
  */
-class User implements UserInterface
+class User implements UserInterface, ProviderInterface
 {
 
     /**
@@ -44,6 +46,24 @@ class User implements UserInterface
      * @ORM\Column(type="smallint", options={"default" = 0})
      */
     protected $state = 0;
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     * @ORM\ManyToMany(targetEntity="CASEBase\Entity\Role")
+     * @ORM\JoinTable(name="user_role_linker",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id")}
+     * )
+     */
+    protected $roles;
+    
+    public function __construct()
+    {
+        /**
+         * Initialies the roles variable.
+         */
+        $this->roles = new ArrayCollection();
+    }
 	/**
      * @return the $id
      */
@@ -140,7 +160,27 @@ class User implements UserInterface
         $this->state = $state;
     }
 
-
+    /**
+     * Get role.
+     *
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles->getValues();
+    }
+    
+    /**
+     * Add a role to the user.
+     *
+     * @param Role $role
+     *
+     * @return void
+     */
+    public function addRole($role)
+    {
+        $this->roles[] = $role;
+    }
     
     
 }

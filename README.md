@@ -81,9 +81,9 @@ and update the params sub-array
 		'dbname' => 'database' 
 	) 
 
-Update the database schema using cli:
+Update the database schema using cli running migrations:
 
-	~ ./vendor/bin/doctrine-module orm:schema-tool:update --force
+	$ ./vendor/bin/doctrine-module migrations:migrate
 ###Development mode
 
 Copy 

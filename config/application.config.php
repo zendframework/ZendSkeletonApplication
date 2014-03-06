@@ -9,8 +9,10 @@ return array(
         'ZfcUser',
         'ZfcUserDoctrineORM',
         'ZfcAdmin', // https://github.com/ZF-Commons/ZfcAdmin/tree/master/docs
+        'BjyAuthorize',
     	'CASEBase',
         'CASEAdmin',
+        
     ),
 
     // These are various options for the listeners attached to the ModuleManager
