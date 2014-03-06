@@ -95,11 +95,5 @@ to
 That will activate ZFTool and the ZendDevloperTools bar.
 
 #Features
-##User Management
- - Login: /user/login
- - Registration: /user/register
- - Change email: /user/change-email
- - Change Password: /user/change-password
- 
-##Admin Panel
- - Entrypoint: /admin
+ - User Management
+ - Admin panel /admin

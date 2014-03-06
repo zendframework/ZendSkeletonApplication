@@ -1,2 +1,3 @@
 #CASEAdmin
-Overwrites ZfcAdmin configuration
+ - Entrypoint /admin
+ - User should have "administrator" role
