@@ -97,3 +97,7 @@ That will activate ZFTool and the ZendDevloperTools bar.
 #Features
  - User Management
  - Admin panel /admin
+ 
+ #TODO
+  - Default role for new users
+    - check https://github.com/darkmatus/roleuserbridge
