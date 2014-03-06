@@ -5,10 +5,11 @@
     "php" : ">=5.3.3",
     "zendframework/zendframework" : "2.2.*",
     "doctrine/doctrine-orm-module" : "0.*",
-    "doctrine/migrations" : "1.0.*@dev",
     "zf-commons/zfc-user" : "dev-master",
     "zf-commons/zfc-user-doctrine-orm" : "dev-master",
-    "zf-commons/zfc-admin" : "=v0.1.1"
+    "zf-commons/zfc-admin" : "=v0.1.1",
+    "bjyoungblood/bjy-authorize" : "1.4.*",
+    "doctrine/migrations" : "dev-master"
   },
   "require-dev" : {
     "zendframework/zftool" : "dev-master",

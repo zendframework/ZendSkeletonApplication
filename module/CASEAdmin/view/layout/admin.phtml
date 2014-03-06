@@ -1,0 +1,57 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <?php echo $this->headTitle('CASE Admin Interface')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+    <!-- Le styles -->
+    <?php echo $this->headLink()->prependStylesheet('//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css') ?>
+
+    <!-- Scripts -->
+    <?php echo $this->headScript()->prependFile('//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js')
+                                  ->prependFile('//code.jquery.com/jquery.min.js')
+                                  ->prependFile('//html5shiv.googlecode.com/svn/trunk/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',)) ?>
+
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="<?php echo $this->url('zfcadmin') ?>">Admin</a>
+          <div class="nav-collapse">
+            <?php echo $this->navigation('admin_navigation')
+                            ->menu()
+                            ->setUlClass('nav')
+                            ->setMaxDepth(0)
+                            ->setRenderInvisible(false)?>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <?php echo $this->content; ?>
+
+      <hr>
+
+      <footer>
+        <p>&copy; CASE All rights reserved.</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  <?php echo $this->inlineScript() ?>
+  </body>
+</html>
