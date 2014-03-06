@@ -10,6 +10,19 @@
  * in ZendSkeletonApplication. This is a good practice, as it prevents sensitive
  * credentials from accidentally being committed into version control.
  */
-
-return array(
+return array (
+	'doctrine' => array (
+		'connection' => array (
+			'orm_default' => array (
+				'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+				'params' => array (
+					'host' => 'localhost',
+					'port' => '3306',
+					'user' => 'root',
+					'password' => 'root',
+					'dbname' => 'database' 
+				) 
+			) 
+		) 
+	) 
 );
