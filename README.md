@@ -58,9 +58,9 @@ To setup apache, setup a virtual host to point to the public/ directory of the
 project and you should be ready to go! It should look something like below:
 
     <VirtualHost *:80>
-        ServerName zf2-tutorial.localhost
-        DocumentRoot /path/to/zf2-tutorial/public
-        <Directory /path/to/zf2-tutorial/public>
+        ServerName zf2-app.localhost
+        DocumentRoot /path/to/zf2-app/public
+        <Directory /path/to/zf2-app/public>
             DirectoryIndex index.php
             AllowOverride All
             Order allow,deny
@@ -70,3 +70,38 @@ project and you should be ready to go! It should look something like below:
             </IfModule>
         </Directory>
     </VirtualHost>
+
+### Nginx Setup
+
+To setup nginx, open your `/path/to/nginx/nginx.conf` and add an
+[include directive](http://nginx.org/en/docs/ngx_core_module.html#include) below
+into `http` block if it does not already exist:
+
+    http {
+        # ...
+        include sites-enabled/*.conf;
+    }
+
+
+Create a virtual host configuration file for your project under `/path/to/nginx/sites-enabled/zf2-app.localhost.conf`
+it should look something like below:
+
+    server {
+        listen       80;
+        server_name  zf2-app.localhost;
+        root         /path/to/zf2-app/public;
+
+        location / {
+            index index.php;
+            try_files $uri $uri/ @php
+        }
+
+        location @php {
+            # Pass the PHP requests to FastCGI server (php-fpm) on 127.0.0.1:9000
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_param  SCRIPT_FILENAME /path/to/zf2-app/public/index.php;
+            include fastcgi_params;
+        }
+    }
+
+Restart the nginx, now you should be ready to go!
