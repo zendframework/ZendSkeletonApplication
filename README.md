@@ -1,11 +1,10 @@
-#ZendSkeletonApplication
+#CASE preconfigured ZendSkeletonApplication
 
 
 ##Introduction
 
-This is a simple, skeleton application using the ZF2 MVC layer and module
-systems. 
-This Seklleton have some other modules preconfigured like Doctrine, ZfcUser, etc.
+This is a simple, skeleton application using the ZF2 MVC layer and module systems.
+This Sekleton have some other modules preconfigured for CASE Design, like Doctrine, ZfcUser, etc.
 
 
 ##Installation
