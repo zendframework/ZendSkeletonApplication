@@ -1,18 +1,18 @@
-ZendSkeletonApplication
-=======================
+#ZendSkeletonApplication
 
-Introduction
-------------
+
+##Introduction
+
 This is a simple, skeleton application using the ZF2 MVC layer and module
 systems. 
 This Seklleton have some other modules preconfigured like Doctrine, ZfcUser, etc.
 
 
-Installation
-------------
+##Installation
 
-Using Composer (recommended)
-----------------------------
+
+##Using Composer (recommended)
+
 Clone the repository and manually invoke `composer` using the shipped
 `composer.phar`:
 
@@ -36,8 +36,8 @@ This will install:
  - CASEAdmin
 
 
-Web Server Setup
-----------------
+##Web Server Setup
+
 
 
 ### Apache Setup
@@ -60,8 +60,8 @@ project and you should be ready to go! It should look something like below:
 ### Database Setup
 
 
-Application Setup
------------------
+##Application Setup
+
 
 #### Doctrine Setup
 
@@ -94,16 +94,25 @@ to
 	/config/development.config.php
 That will activate ZFTool and the ZendDevloperTools bar.
 
+##Diagnostics
+  - Module: CASEBaseDiagnostics
+  - Check diagnostics: http://application/diagnostics
+
 #Features
 
  - User Management
  - Admin panel /admin
  
- 
+ ##Doing
+   - ZendDiagnostics with base tests
+    - Disk space
  ##TODO
- 
+  - ZendDiagnostics with base tests
+    - Disk space
   - Default role for new users
+    - Done through migration?
   - check https://github.com/darkmatus/roleuserbridge
   - User Crud
   - Integrate Navication to Application
-  - ZendDiagnostics with base tests
+  - Move migrations to specific modules so that somebody can deactivate zfcuser?
+  - Generate autoloadres
