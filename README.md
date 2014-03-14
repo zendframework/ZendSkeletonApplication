@@ -103,6 +103,7 @@ That will activate ZFTool and the ZendDevloperTools bar.
  ##TODO
  
   - Default role for new users
-    - check https://github.com/darkmatus/roleuserbridge
+  - check https://github.com/darkmatus/roleuserbridge
   - User Crud
   - Integrate Navication to Application
+  - ZendDiagnostics with base tests
