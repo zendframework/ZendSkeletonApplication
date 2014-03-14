@@ -9,7 +9,8 @@
     "zf-commons/zfc-user-doctrine-orm" : "dev-master",
     "zf-commons/zfc-admin" : "=v0.1.1",
     "bjyoungblood/bjy-authorize" : "1.4.*",
-    "doctrine/migrations" : "dev-master"
+    "doctrine/migrations" : "dev-master",
+    "zendframework/zenddiagnostics": "dev-master"
   },
   "require-dev" : {
     "zendframework/zftool" : "dev-master",
