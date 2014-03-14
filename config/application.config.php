@@ -12,6 +12,7 @@ return array(
         'BjyAuthorize',
     	'CASEBase',
         'CASEAdmin',
+        'CASEBaseDiagnostics',
         
     ),
 
