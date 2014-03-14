@@ -103,9 +103,12 @@ That will activate ZFTool and the ZendDevloperTools bar.
  - Admin panel /admin
  
  ##Doing
+ 
    - ZendDiagnostics with base tests
-    - Disk space
+   - Disk space
+    
  ##TODO
+ 
   - ZendDiagnostics with base tests
     - Disk space
   - Default role for new users
