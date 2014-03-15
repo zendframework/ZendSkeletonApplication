@@ -93,7 +93,7 @@ it should look something like below:
 
         location / {
             index index.php;
-            try_files $uri $uri/ @php
+            try_files $uri $uri/ @php;
         }
 
         location @php {
