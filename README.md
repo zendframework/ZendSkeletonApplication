@@ -118,3 +118,5 @@ That will activate ZFTool and the ZendDevloperTools bar.
   - Integrate Navication to Application
   - Move migrations to specific modules so that somebody can deactivate zfcuser?
   - Generate autoloadres
+  - Application LOG
+  - Application CACHE
