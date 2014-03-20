@@ -266,6 +266,18 @@ return array(
         )
     ),
     'service_manager' => array(
+        'factories' => array(
+             'Birdsi\Service\UserService' => function($sm){
+                 $entityManager = $sm->get('Doctrine\ORM\EntityManager');
+                 $userService = new CASEBase\Service\UserService($entityManager);
+                 return $userService;
+             },
+            'CASEBase\Service\RoleService' => function($sm){
+                $entityManager = $sm->get('Doctrine\ORM\EntityManager');
+                $roleService = new CASEBase\Service\RoleService($entityManager);
+                return $roleService;
+            },
+        ),
         'aliases' => array(
             'zfcuser_doctrine_em' => 'Doctrine\ORM\EntityManager'
         )
