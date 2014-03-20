@@ -15,18 +15,29 @@ return array(
                     'home' => array(
                         'label' => 'Dashboard',
                         'route' => 'zfcuser',
+                        'pages' => array(
+                            'change-password' => array(
+                                'label' => 'Change password',
+                                'route' => 'zfcuser/changepassword'
+                            ),
+                            'change-email' => array(
+                                'label' => 'Change email',
+                                'route' => 'zfcuser/changeemail'
+                            )
+                        )
                     ),
+                    
                     'login' => array(
                         'label' => 'Sign In',
-                        'route' => 'zfcuser/login',
+                        'route' => 'zfcuser/login'
                     ),
                     'logout' => array(
                         'label' => 'Sign Out',
-                        'route' => 'zfcuser/logout',
+                        'route' => 'zfcuser/logout'
                     ),
                     'register' => array(
                         'label' => 'Register',
-                        'route' => 'zfcuser/register',
+                        'route' => 'zfcuser/register'
                     ),
                 ),
             ),
