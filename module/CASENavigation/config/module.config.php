@@ -26,21 +26,24 @@ return array(
                             )
                         )
                     ),
-                    
+                    //Menu only for guests
                     'login' => array(
                         'label' => 'Sign In',
                         'route' => 'zfcuser/login'
                     ),
+                    //Menu only for users
                     'logout' => array(
                         'label' => 'Sign Out',
                         'route' => 'zfcuser/logout'
                     ),
+                    //Menu only for guests
                     'register' => array(
                         'label' => 'Register',
                         'route' => 'zfcuser/register'
                     ),
                 ),
             ),
+            //Menu only for administrators
             'admin' => array(
                 'label' => 'Admin',
                 'route' => 'zfcadmin',
