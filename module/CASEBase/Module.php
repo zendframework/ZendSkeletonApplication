@@ -9,7 +9,6 @@
 namespace CASEBase;
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
 class Module implements AutoloaderProviderInterface
@@ -40,10 +39,22 @@ class Module implements AutoloaderProviderInterface
 
     public function onBootstrap(MvcEvent $e)
     {
-        // You may not need to do this if you're doing it elsewhere in your
-        // application
-        $eventManager = $e->getApplication()->getEventManager();
-        $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($eventManager);
+        
+        $sm = $e->getApplication()->getServiceManager();
+        
+        /**
+         * Registered Users have default role: user
+         */
+        //https://github.com/ZF-Commons/ZfcUser/wiki/How-to-perform-a-custom-action-when-a-new-user-account-is-created
+        $shem = $sm->get('SharedEventManager');
+        $shem->attach('ZfcUser\Service\User', 'register', function($e) use ($sm) {
+            $user = $e->getParam('user');  // User account object
+            $roleService = $sm->get('CASEBase\Service\RoleService');
+            $role = $roleService->findByRoleName('user');
+            $user->addRole($role);
+        });
+        
+        
+
     }
 }
