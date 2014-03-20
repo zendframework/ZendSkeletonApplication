@@ -44,10 +44,12 @@
             </div>
         </nav>
         <div class="container">
+            
             <?php echo $this->content; ?>
             <hr>
+            <?php echo $this->navigation('Navigation')->menu(); ?>
             <footer>
-                <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
+                <p>&copy;  - <?php echo date('Y') ?> by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
             </footer>
         </div> <!-- /container -->
         <?php echo $this->inlineScript() ?>
