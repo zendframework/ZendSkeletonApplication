@@ -93,6 +93,14 @@ if (isset($this->controller_class)
     </li>
     <?php
         $e = $e->getPrevious();
+	    if (!isset($icount)) {
+			$icount = 0;
+		} else {
+			$icount += 1;
+			if ($icount >=10) {
+				break;
+			}
+		}
         endwhile;
     ?>
 </ul>
