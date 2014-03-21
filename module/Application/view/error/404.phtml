@@ -68,6 +68,7 @@ if (isset($this->controller_class)
 </dl>
 <?php
     $e = $this->exception->getPrevious();
+    $icount = 0;
     if ($e) :
 ?>
 <hr/>
@@ -93,13 +94,10 @@ if (isset($this->controller_class)
     </li>
     <?php
         $e = $e->getPrevious();
-        if (!isset($icount)) {
-            $icount = 0;
-        } else {
-            $icount += 1;
-            if ($icount >=10) {
-                break;
-            }
+        $icount += 1;
+        if ($icount >=10) {
+            echo "There may be more than Ten exceptions, but we have no enough memory to proccess it.";
+            break;
         }
         endwhile;
     ?>
