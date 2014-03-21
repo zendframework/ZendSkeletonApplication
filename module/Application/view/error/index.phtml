@@ -1,3 +1,4 @@
+<?php $escaper = new Zend\Escaper\Escaper('UTF-8'); ?>
 <h1><?php echo $this->translate('An error occurred') ?></h1>
 <h2><?php echo $this->message ?></h2>
 
@@ -14,11 +15,11 @@
     </dd>
     <dt><?php echo $this->translate('Message') ?>:</dt>
     <dd>
-        <pre class="prettyprint linenums"><?php echo $this->escapeHtml($this->exception->getMessage()) ?></pre>
+        <pre class="prettyprint linenums"><?php echo $escaper->escapeHtml($this->exception->getMessage()) ?></pre>
     </dd>
     <dt><?php echo $this->translate('Stack trace') ?>:</dt>
     <dd>
-        <pre class="prettyprint linenums"><?php echo $this->escapeHtml($this->exception->getTraceAsString()) ?></pre>
+        <pre class="prettyprint linenums"><?php echo $escaper->escapeHtml($this->exception->getTraceAsString()) ?></pre>
     </dd>
 </dl>
 <?php
@@ -38,11 +39,11 @@
             </dd>
             <dt><?php echo $this->translate('Message') ?>:</dt>
             <dd>
-                <pre class="prettyprint linenums"><?php echo $this->escapeHtml($e->getMessage()) ?></pre>
+                <pre class="prettyprint linenums"><?php echo $escaper->escapeHtml($e->getMessage()) ?></pre>
             </dd>
             <dt><?php echo $this->translate('Stack trace') ?>:</dt>
             <dd>
-                <pre class="prettyprint linenums"><?php echo $this->escapeHtml($e->getTraceAsString()) ?></pre>
+                <pre class="prettyprint linenums"><?php echo $escaper->escapeHtml($e->getTraceAsString()) ?></pre>
             </dd>
         </dl>
     </li>
