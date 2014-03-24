@@ -149,6 +149,18 @@ return array(
                     )
                 ),
                 array(
+                    'route' => 'zfcuser/changepassword',
+                    'roles' => array(
+                        'user'
+                    )
+                ),
+                array(
+                    'route' => 'zfcuser/changeemail',
+                    'roles' => array(
+                        'user'
+                    )
+                ),
+                array(
                     'route' => 'zfcuser/logout',
                     'roles' => array(
                         'user'

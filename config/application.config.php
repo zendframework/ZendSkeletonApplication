@@ -13,6 +13,7 @@ return array(
     	'CASEBase',
         'CASEAdmin',
         'CASEBaseDiagnostics',
+        'CASENavigation',
         
     ),
 
