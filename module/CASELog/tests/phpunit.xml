@@ -1,7 +1,0 @@
-<phpunit bootstrap="./bootstrap.php" colors="true">
-    <testsuites>
-        <testsuite name="CASELog Test Suite">
-            <directory>./</directory>
-        </testsuite>
-    </testsuites>
-</phpunit>
