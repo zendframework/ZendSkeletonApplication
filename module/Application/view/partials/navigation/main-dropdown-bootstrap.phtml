@@ -1,0 +1,27 @@
+<?php 
+$navigation = $this->navigation();
+$container = $this->container;
+$active = $navigation->findActive($container);  
+
+
+?>
+<ul class="">
+<?php
+    // iterate through the pages
+    foreach ($container as $page) :
+?>
+<?php  if($navigation->accept($page, true)):?>
+<?php if($page->hasPages()):?>
+    <li class="dropdown" >
+<?php echo $this->navigation()->menu()->htmlify($page);?>
+<?php echo $navigation
+            ->menu()
+              ->setPartial('partials/navigation/main-dropdown-bootstrap')
+              ->render($page);
+?> </li>
+<?php else:?>
+    <li class="" > <?php   echo $this->navigation()->menu()->htmlify($page);?> </li>
+<?php endif;?>
+<?php endif;?>
+<?php endforeach; ?>
+</ul>

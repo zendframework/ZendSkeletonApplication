@@ -42,7 +42,7 @@ return array(
         // in the ACL. like roles, they can be hierarchical
         'resource_providers' => array(
             'BjyAuthorize\Provider\Resource\Config' => array(
-                'pants' => array()
+//                 'pants' => array()
             )
         ),
 
@@ -55,23 +55,24 @@ return array(
         'rule_providers' => array(
             'BjyAuthorize\Provider\Rule\Config' => array(
                 'allow' => array(
-                    // allow guests and users (and admins, through inheritance)
-                    // the "wear" privilege on the resource "pants"
-                    array(
-                        array(
-                            'guest',
-                            'user'
-                        ),
-                        'pants',
-                        'wear'
-                    )
+                    array( array('guest'), 'route/zfcuser/login', array()),
+                    array( array('guest'), 'route/zfcuser/register', array()),
+                    
+                    array( array('user'), 'route/zfcuser', array()),
+                    array( array('user'), 'route/zfcuser/changepassword', array()),
+                    array( array('user'), 'route/zfcuser/changeemail', array()),
+                    array( array('user'), 'route/zfcuser/logout', array()),
+                    array( array('user'), 'route/zfcuser/logout', array()),
                 ),
                 
                 // Don't mix allow/deny rules if you are using role inheritance.
                 // There are some weird bugs.
-                'deny' => array()
+                'deny' => array(
+                    array( array('user'), 'route/zfcuser/login', array()),
+                    array( array('user'), 'route/zfcuser/register', array()),
+                )
             // ...
-                        )
+            )
         )
         ,
 

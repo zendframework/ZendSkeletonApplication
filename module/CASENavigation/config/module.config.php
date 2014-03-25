@@ -7,52 +7,62 @@ return array(
             'home' => array(
                 'label' => 'Home',
                 'route' => 'home',
+                'resource' => 'route/home'
+            ),
+            'login' => array(
+                // Menu only for guests
+                'label' => 'Sign In',
+                'route' => 'zfcuser/login',
+                'resource'  => 'route/zfcuser/login',
+                 
+            ),
+            // Menu only for guests
+            'register' => array(
+                'label' => 'Register',
+                'route' => 'zfcuser/register',
+                'resource' => 'route/zfcuser/register'
             ),
             'account' => array(
                 'label' => 'Account',
                 'route' => 'zfcuser',
+                'resource' => 'route/zfcuser',
                 'pages' => array(
                     'home' => array(
                         'label' => 'Dashboard',
                         'route' => 'zfcuser',
+                        'resource' => 'route/zfcuser',
                         'pages' => array(
                             'change-password' => array(
                                 'label' => 'Change password',
-                                'route' => 'zfcuser/changepassword'
+                                'route' => 'zfcuser/changepassword',
+                                'resource' => 'route/zfcuser/changepassword'
                             ),
                             'change-email' => array(
                                 'label' => 'Change email',
-                                'route' => 'zfcuser/changeemail'
+                                'route' => 'zfcuser/changeemail',
+                                'resource' => 'route/zfcuser/changeemail'
                             )
                         )
                     ),
-                    //Menu only for guests
-                    'login' => array(
-                        'label' => 'Sign In',
-                        'route' => 'zfcuser/login'
-                    ),
-                    //Menu only for users
+                    // Menu only for users
                     'logout' => array(
                         'label' => 'Sign Out',
-                        'route' => 'zfcuser/logout'
+                        'route' => 'zfcuser/logout',
+                        'resource' => 'route/zfcuser/logout'
                     ),
-                    //Menu only for guests
-                    'register' => array(
-                        'label' => 'Register',
-                        'route' => 'zfcuser/register'
-                    ),
-                ),
+                )
             ),
-            //Menu only for administrators
+            // Menu only for administrators
             'admin' => array(
                 'label' => 'Admin',
                 'route' => 'zfcadmin',
-            ),
-        ),
+                'resource' => 'route/zfcadmin'
+            )
+        )
     ),
     'service_manager' => array(
         'factories' => array(
             'Navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory'
-        ),
-    ),
+        )
+    )
 );

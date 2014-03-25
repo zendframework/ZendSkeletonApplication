@@ -10,10 +10,11 @@
 namespace CASENavigation;
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Zend\View\Helper\Navigation as ZendViewHelperNavigation;
+use Zend\ModuleManager\Feature\ViewHelperProviderInterface;
 
-class Module implements AutoloaderProviderInterface
+class Module implements AutoloaderProviderInterface, ViewHelperProviderInterface
 {
     public function getAutoloaderConfig()
     {
@@ -34,13 +35,38 @@ class Module implements AutoloaderProviderInterface
     {
         return include __DIR__ . '/config/module.config.php';
     }
+    
+    
 
     public function onBootstrap(MvcEvent $e)
     {
-        // You may not need to do this if you're doing it elsewhere in your
-        // application
-        $eventManager        = $e->getApplication()->getEventManager();
-        $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($eventManager);
+        /**
+            Si estamos usando bjyauthorize le seteamos el al navigation
+            el default acl y el role
+            
+         */
+        $sm = $e->getApplication()->getServiceManager();
+        if($sm->has('BjyAuthorizeServiceAuthorize')){
+            $authorize = $sm->get('BjyAuthorizeServiceAuthorize');
+            $acl = $authorize->getAcl();
+            $role = $authorize->getIdentity();
+            
+            ZendViewHelperNavigation::setDefaultAcl($acl);
+            ZendViewHelperNavigation::setDefaultRole($role);
+        }
     }
+    
+	/* (non-PHPdoc)
+     * @see \Zend\ModuleManager\Feature\ViewHelperProviderInterface::getViewHelperConfig()
+     */
+    public function getViewHelperConfig()
+    {
+        return [
+            'delegators' => [
+                	
+            ]
+        ];
+        
+    }
+
 }
