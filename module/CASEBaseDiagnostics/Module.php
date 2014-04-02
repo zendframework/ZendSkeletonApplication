@@ -12,9 +12,8 @@ namespace CASEBaseDiagnostics;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
-use ZFTool\Diagnostics\Result\Success;
-use ZFTool\Diagnostics\Result\Failure;
-use ZFTool\Diagnostics\Result\Warning;
+use ZendDiagnostics\Result\Success;
+use ZendDiagnostics\Result\Warning;
 
 class Module implements AutoloaderProviderInterface
 {
@@ -38,14 +37,7 @@ class Module implements AutoloaderProviderInterface
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function onBootstrap(MvcEvent $e)
-    {
-        // You may not need to do this if you're doing it elsewhere in your
-        // application
-        $eventManager        = $e->getApplication()->getEventManager();
-        $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($eventManager);
-    }
+    public function onBootstrap(MvcEvent $e){}
     
     public function getDiagnostics()
     {
