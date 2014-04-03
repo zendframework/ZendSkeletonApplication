@@ -1,58 +1,100 @@
 <?php echo $this->doctype(); ?>
-
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <?php echo $this->headTitle('CASE ZF2') ?>
+<head>
+<meta charset="utf-8">
+        <?php echo $this->headTitle('CASE ZF2')?>
 
-        <?php echo $this->headMeta()
+        <?php
+        
+echo $this->headMeta()
             ->appendName('viewport', 'width=device-width, initial-scale=1.0')
-            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
-        ?>
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')?>
 
         <!-- Le styles -->
-        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
-                        ->prependStylesheet($this->basePath() . '/css/style.css')
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+        <?php
+        
+echo $this->headLink(array(
+            'rel' => 'shortcut icon',
+            'type' => 'image/vnd.microsoft.icon',
+            'href' => $this->basePath() . '/img/favicon.ico'
+        ))
+            ->prependStylesheet($this->basePath() . '/css/style.css')
+            ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')?>
 
         <!-- Scripts -->
-        <?php echo $this->headScript()
+        <?php
+        
+echo $this->headScript()
             ->prependFile($this->basePath() . '/js/bootstrap.min.js')
             ->prependFile($this->basePath() . '/js/jquery.min.js')
-            ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-            ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
-        ; ?>
+            ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array(
+            'conditional' => 'lt IE 9'
+        ))
+            ->prependFile($this->basePath() . '/js/html5shiv.js', 'text/javascript', array(
+            'conditional' => 'lt IE 9'
+        ));
+        ?>
 
     </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate("CASE's Skeleton Application") ?></a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li style="margin-right:1px;" class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
-                        <li class="active"><a href="<?php /*echo $this->url('styleguide')*/ ?>"><?php echo $this->translate('Style Guide') ?></a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div>
-        </nav>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top"
+        role="navigation">
         <div class="container">
-            <?php echo $this->content; ?>
-            <hr>
-            <?php echo $this->navigation('Navigation')->menu(); ?>
-            <?php echo $this->navigation('Navigation')->breadcrumbs(); ?>
-            <hr>
-            <footer>
-                <p>by CASE Design Inc. <?php echo $this->translate('All rights reserved.') ?></p>
-            </footer>
-        </div> <!-- /container -->
-        <?php echo $this->inlineScript() ?>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                    <span class="icon-bar"></span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"
+                    href="<?php echo $this->url('home') ?>"><?php echo $this->translate("CASE's Skeleton Application") ?></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                    <?php
+                    echo $this->navigation('Navigation')
+                        ->menu()
+                        ->setUlClass('nav navbar-nav')
+                        ->setMaxDepth(0)
+                        ->render();
+                    ?>
+                </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <div class="breadcrumb-container">
+                <?php //echo $this->navigation('Navigation')->breadcrumbs(); ?>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-8 blog-main">
+                <?php echo $this->content; ?>
+            </div>
+            <?php
+                $pageActive = $this->navigation()->findActive($this->navigation()->getContainer());
+                
+                $hassubmenu = $pageActive['page']->hasPages();
+                if($hassubmenu):
+            ?>
+            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                <?php
+                    
+                    echo $this->navigation()
+                        ->menu()
+                        ->setUlClass('submenu')
+                        ->setMinDepth($pageActive['depth'])
+                        ->setMaxDepth(null);
+                ?>
+            </div>
+            <?php endif;?>    
+        </div>
+        <hr>
+        <footer>
+            <p>by CASE Design Inc. <?php echo $this->translate('All rights reserved.') ?></p>
+        </footer>
+    </div>
+    <!-- /container -->
+        <?php echo $this->inlineScript()?>
     </body>
 </html>
