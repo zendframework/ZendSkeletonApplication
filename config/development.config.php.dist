@@ -4,6 +4,7 @@
 return array(
     'modules' => array(
         'Zf2Whoops',
+        'CASEDevelopment',
         'ZFTool',
         'ZendDeveloperTools',
     ),
