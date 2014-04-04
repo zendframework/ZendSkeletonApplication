@@ -29,7 +29,7 @@ You would then invoke `composer` to install dependencies per the previous exampl
 This will install:
 
  - DoctrineModule & DoctrineORMModule
- - ZfcBase & ZfcUser: https://github.com/ZF-Commons/ZfcUser 
+ - ZfcBase & ZfcUser: https://github.com/ZF-Commons/ZfcUser
  - ZfcUserDoctrineORM
  - CASEBase
  - CASEAdmin
@@ -64,12 +64,12 @@ project and you should be ready to go! It should look something like below:
 
 #### Doctrine Setup
 
-Copy 
+Copy
 
-	/config/autoload/local.php.dist 
-to 
+	/config/autoload/local.php.dist
+to
 
-	/config/autoload/local.php 
+	/config/autoload/local.php
 and update the params sub-array
 
 	'params' => array (
@@ -77,18 +77,18 @@ and update the params sub-array
 		'port' => '3306',
 		'user' => 'root',
 		'password' => 'root',
-		'dbname' => 'database' 
-	) 
+		'dbname' => 'database'
+	)
 
 Update the database schema using cli running migrations:
 
 	$ ./vendor/bin/doctrine-module migrations:migrate
 ###Development mode
 
-Copy 
+Copy
 
-	/config/development.config.php.dist 
-to 
+	/config/development.config.php.dist
+to
 
 	/config/development.config.php
 That will activate ZFTool and the ZendDevloperTools bar.
@@ -97,18 +97,23 @@ That will activate ZFTool and the ZendDevloperTools bar.
   - Module: CASEBaseDiagnostics
   - Check diagnostics: http://application/diagnostics
 
+##Error Handling
+  - Zf2Whoops
+    - 'Zf2Whoops',   // must be added as the first module in the development.config.php file
+    - copy zf2-whoops.local.php.dist to zf2-whoops.local.php in /config/autoload
+
 #Features
 
  - User Management
  - Admin panel /admin
- 
+
  ##Doing
- 
+
    - ZendDiagnostics with base tests
    - Disk space
-    
+
  ##TODO
- 
+
   - ZendDiagnostics with base tests
     - Disk space
   - Default role for new users
