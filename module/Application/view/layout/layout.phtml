@@ -71,9 +71,10 @@ echo $this->headScript()
             <div class="col-sm-8 blog-main">
                 <?php echo $this->content; ?>
             </div>
+            
             <?php
                 $pageActive = $this->navigation()->findActive($this->navigation()->getContainer());
-                
+                if(!empty($pageActive)):
                 $hassubmenu = $pageActive['page']->hasPages();
                 if($hassubmenu):
             ?>
@@ -87,6 +88,7 @@ echo $this->headScript()
                         ->setMaxDepth(null);
                 ?>
             </div>
+            <?php endif;?>
             <?php endif;?>    
         </div>
         <hr>
