@@ -1,12 +1,12 @@
 <?php
 namespace CASEBaseDiagnostics\Test;
 
-use ZFTool\Diagnostics\Test\AbstractTest;
+use ZendDiagnostics\Check\AbstractCheck;
 use ZendDiagnostics\Check\DiskFree;
 use ZendDiagnostics\Result\Success;
 use ZendDiagnostics\Result\Warning;
 
-class DiskSpace extends AbstractTest
+class DiskSpace extends AbstractCheck
 {
     private $size;
     
@@ -14,17 +14,17 @@ class DiskSpace extends AbstractTest
     {
         $this->size = $size;    
     }
-    public function run()
+    public function check()
     { 
         $checkSpace = new DiskFree($this->size);
         $result = $checkSpace->check();
         if($result instanceof Success){
-            return new \ZFTool\Diagnostics\Result\Success($result->getMessage(), $result->getData());
+            return new Success($result->getMessage(), $result->getData());
         } 
         if($result instanceof Warning){
-            return new \ZFTool\Diagnostics\Result\Warning($result->getMessage(), $result->getData());
+            return new Warning($result->getMessage(), $result->getData());
         }
-        return new \ZFTool\Diagnostics\Result\Failure($result->getMessage(), $result->getData());
+        return new Result\Failure($result->getMessage(), $result->getData());
     }
     
 }
