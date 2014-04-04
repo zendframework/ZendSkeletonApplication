@@ -37,7 +37,7 @@ return array(
             * Default: false
             */
             'enabled' => true,
-    
+
             /**
             * Enables or disables the strict mode. If the strict mode is
             * enabled, any error will throw an exception, otherwise all
@@ -47,7 +47,7 @@ return array(
             * Default: true
             */
             'strict' => false,
-    
+
             /**
             * If enabled, the profiler tries to flush the content before the it
             * starts collecting data. This option will be ignored if the Toolbar
@@ -61,7 +61,7 @@ return array(
             * Default: false
             */
             'flush_early' => false,
-    
+
             /**
             * The cache directory is used in the version check and for every storage
             * type that writes to the disk.
@@ -73,7 +73,7 @@ return array(
             * Default: 'data/cache'
             */
             'cache_dir' => 'data/cache',
-    
+
             /**
             * If a matches is defined, the profiler will be disabled if the
             * request does not match the pattern.
@@ -85,7 +85,7 @@ return array(
             * Note: The matcher is not implemented yet!
             */
             'matcher' => array(),
-    
+
             /**
              * Contains a list with all collector the profiler should run.
             * Zend Developer Tools ships with 'db' (Zend\Db), 'time', 'event', 'memory',
@@ -109,7 +109,7 @@ return array(
             * Default: false
             */
             'enabled' => true,
-        
+
             /**
             * If enabled, every empty collector will be hidden.
             *
@@ -117,7 +117,7 @@ return array(
             * Default: false
             */
             'auto_hide' => false,
-    
+
             /**
             * The Toolbar position.
             *
@@ -125,7 +125,7 @@ return array(
             * Default: bottom
             */
             'position' => 'bottom',
-    
+
             /**
             * If enabled, the Toolbar will check if your current Zend Framework version
             * is up-to-date.
@@ -136,7 +136,7 @@ return array(
             * Default: false
             */
             'version_check' => true,
-        
+
             /**
             * Contains a list with all collector toolbar templates. The name
             * of the array key must be same as the name of the collector.
@@ -161,5 +161,15 @@ return array(
      'view_manager' => array(
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
+        //zf2-whoops
+        'editor' => 'sublime',
+        'json_exceptions' => array(
+            'display' => true,
+            'ajax_only' => true,
+            'show_trace' => true
+        ),
+        'whoops_no_catch' => array(
+            'BjyAuthorize\Exception\UnAuthorizedException'
+        ),
     ),
 );
