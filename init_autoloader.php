@@ -27,7 +27,7 @@ if (class_exists('Zend\Loader\AutoloaderFactory')) {
 
 $zf2Path = false;
 
-if (is_dir('vendor/zendframework/zendframework/library/')) {
+if (is_dir('vendor/zendframework/zendframework/library')) {
     $zf2Path = 'vendor/zendframework/zendframework/library';
 } elseif (getenv('ZF2_PATH')) {      // Support for ZF2_PATH environment variable or git submodule
     $zf2Path = getenv('ZF2_PATH');
