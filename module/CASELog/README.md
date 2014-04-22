@@ -10,3 +10,10 @@
     }
 }
 ```
+
+## Usage
+
+```php 
+ //From Controller Action
+ $this->getServiceLocator()->get('Logger')->addEmergency('blah');
+```

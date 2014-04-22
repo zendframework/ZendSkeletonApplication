@@ -1,5 +1,4 @@
 <?php
-use Monolog\Logger;
 /**
  * @see https://github.com/enlitepro/enlite-monolog
  * @see https://github.com/Seldaek/monolog
@@ -9,7 +8,7 @@ return array(
         // Logger name
         'Logger' => array(
             // name of
-            'name' => 'CASELogger',
+            'name' => 'CaseLogger',
             // Handlers, it can be service manager alias(string) or config(array)
             'handlers' => array(
                 'default' => array(
