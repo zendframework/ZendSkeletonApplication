@@ -18,7 +18,8 @@
     "zendframework/zend-developer-tools" : "dev-master",
     "phpunit/phpunit" : "3.7.*",
     "firephp/firephp-core" : "0.4.0",
-    "ghislainf/zf2-whoops" : "dev-master"
+    "ghislainf/zf2-whoops" : "dev-master",
+    "digitalnature/php-ref": "dev-master"
   },
   "keywords" : [ "framework", "zf2" ],
   "license" : "BSD-3-Clause"
