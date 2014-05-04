@@ -4,7 +4,7 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} -s [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]
 RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ - [L]
 # The following rewrites all other queries to index.php. The 
 # condition ensures that if you are using Apache aliases to do
 # mass virtual hosting or installed the project in a subdirectory,
@@ -13,4 +13,4 @@ RewriteRule ^.*$ - [NC,L]
 # as well, providing a safe, one-size fits all solution.
 RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
 RewriteRule ^(.*) - [E=BASE:%1]
-RewriteRule ^(.*)$ %{ENV:BASE}/index.php [NC,L]
+RewriteRule ^(.*)$ %{ENV:BASE}/index.php
