@@ -13,4 +13,4 @@ RewriteRule ^.*$ - [L]
 # as well, providing a safe, one-size fits all solution.
 RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
 RewriteRule ^(.*) - [E=BASE:%1]
-RewriteRule ^(.*)$ %{ENV:BASE}/index.php
+RewriteRule ^(.*)$ %{ENV:BASE}/index.php [L]
