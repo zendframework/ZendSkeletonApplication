@@ -9,33 +9,26 @@
 
 namespace Application;
 
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface,
-    Zend\ModuleManager\Feature\BootstrapListenerInterface,
-    Zend\ModuleManager\Feature\ConfigProviderInterface,
-    Zend\EventManager\EventInterface;
+use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
+use Zend\ModuleManager\Feature\BootstrapListenerInterface;
+use Zend\ModuleManager\Feature\ConfigProviderInterface;
+use Zend\EventManager\EventInterface;
 use Zend\Mvc\ModuleRouteListener;
-
 
 class Module implements BootstrapListenerInterface, ConfigProviderInterface, AutoloaderProviderInterface
 {
     /**
-     * Listen to the bootstrap event
-     *
-     * @param EventInterface $e
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public function onBootstrap(EventInterface $e)
     {
-        $eventManager        = $e->getApplication()->getEventManager();
+        $eventManager        = $e->getTarget()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
     }
 
     /**
-     * Returns configuration to merge with application configuration
-     *
-     * @return array|\Traversable
+     * {@inheritdoc}
      */
     public function getConfig()
     {
@@ -43,9 +36,7 @@ class Module implements BootstrapListenerInterface, ConfigProviderInterface, Aut
     }
 
     /**
-     * Return an array for passing to Zend\Loader\AutoloaderFactory.
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public function getAutoloaderConfig()
     {
