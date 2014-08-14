@@ -15,14 +15,17 @@ use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\EventManager\EventInterface;
 use Zend\Mvc\ModuleRouteListener;
 
-class Module implements BootstrapListenerInterface, ConfigProviderInterface, AutoloaderProviderInterface
+class Module implements
+    BootstrapListenerInterface,
+    ConfigProviderInterface,
+    AutoloaderProviderInterface
 {
     /**
      * {@inheritdoc}
      */
     public function onBootstrap(EventInterface $e)
     {
-        $eventManager        = $e->getTarget()->getEventManager();
+        $eventManager = $e->getTarget()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
     }
