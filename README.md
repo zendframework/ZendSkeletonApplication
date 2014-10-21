@@ -73,5 +73,11 @@ project and you should be ready to go! It should look something like below:
             AllowOverride All
             Order allow,deny
             Allow from all
+            #
+            # NOTICE: 
+            # You have to write
+            Require all granted
+            # in order to Apache could resolve ZF2 vhosts
+            #
         </Directory>
     </VirtualHost>
