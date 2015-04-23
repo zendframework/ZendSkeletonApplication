@@ -1,5 +1,5 @@
+*
+!bin
+!README.md
+!ZF2
 !.gitignore
-.composer
-composer
-zendframework
-autoload.php
