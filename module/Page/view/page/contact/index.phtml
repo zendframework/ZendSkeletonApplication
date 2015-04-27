@@ -1,0 +1,59 @@
+<?php $this->headTitle()->prepend('Contact'); ?>
+<section class="contact">
+<h2>Contact Me</h2>
+
+<p>
+    Feel free to contact me. Please note, however, that I likely will not 
+    respond to recruiters, nor to questions that could be asked in public
+    forums.
+</p>
+
+<?php if ($this->error): ?>
+<p class="error">
+    There were one or more isues with your submission. Please correct them as 
+    indicated below.
+</p>
+<?php endif ?>
+
+<?php 
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('action', $this->url('contact/process'));
+$form->setAttribute('method', 'post');
+
+echo $this->form()->openTag($form);
+?>
+<dl class="zend_form">
+<dt><?php echo $this->formLabel($form->get('from')); ?></dt>
+<dd><?php 
+    echo $this->formInput($form->get('from'));
+    echo $this->formElementErrors($form->get('from'));
+?></dd>
+
+<dt><?php echo $this->formLabel($form->get('subject')); ?></dt>
+<dd><?php 
+    echo $this->formInput($form->get('subject'));
+    echo $this->formElementErrors($form->get('subject'));
+?></dd>
+
+<dt><?php echo $this->formLabel($form->get('body')); ?></dt>
+<dd><?php 
+    echo $this->formTextarea($form->get('body'));
+    echo $this->formElementErrors($form->get('body'));
+?></dd>
+
+<dt><?php echo $this->formLabel($form->get('captcha')); ?></dt>
+<dd><?php 
+    echo $this->formCaptcha($form->get('captcha'));
+    echo $this->formElementErrors($form->get('captcha'));
+?></dd>
+
+<dd><?php 
+    echo $this->formElement($form->get('csrf'));
+    echo $this->formInput($form->get('Send'));
+    echo $this->formElementErrors($form->get('Send'));
+?></dd>
+
+</dl>
+<?php echo $this->form()->closeTag() ?>
+</section>

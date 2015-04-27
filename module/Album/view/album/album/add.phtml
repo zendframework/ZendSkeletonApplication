@@ -1,0 +1,35 @@
+<?php
+// module/Album/view/album/album/add.phtml:
+
+/*
+ * Again, we display a title as before and then we render the form. Zend Framework provides some view helpers to make
+ * this a little easier. The form() view helper has an openTag() and closeTag() method which we use to open
+ * and close the form. Then for each element with a label, we can use formRow(), but for the two elements that are
+ * standalone, we use formHidden() and formSubmit().
+ *
+ */
+$title = 'Add new album';
+$this->headTitle ( $title );
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+
+$form->setAttribute ( 'action', $this->url ( 'album', array (
+		'action' => 'add'
+) ) );
+$form->prepare ();
+
+echo $this->form ()->openTag ( $form );
+echo $this->formHidden ( $form->get ( 'id' ) );
+echo $this->formRow ( $form->get ( 'title' ) );
+echo $this->formRow ( $form->get ( 'artist' ) );
+echo $this->formSubmit ( $form->get ( 'submit' ) );
+echo $this->form ()->closeTag ();
+
+/*
+ * Alternatively, the process of rendering the form can be simplified by using the bundled formCollection view
+ * helper. For example, in the view script above replace all the form-rendering echo statements with:
+ */
+// echo $this->form ()->openTag ( $form );
+// echo $this->formCollection ( $form );
+// echo $this->form ()->closeTag ();
