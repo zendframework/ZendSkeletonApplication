@@ -9,6 +9,8 @@
     "homepage": "http://framework.zend.com/",
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zendframework": "~2.4"
+        "zendframework/zendframework": "~2.4",
+        "phly/phly-contact": "dev-master",
+        "zendframework/zendservice-recaptcha": "2.0.*@dev"
     }
 }

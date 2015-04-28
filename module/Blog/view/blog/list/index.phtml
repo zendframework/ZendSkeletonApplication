@@ -1,0 +1,11 @@
+<!-- Filename: /module/Blog/view/blog/list/index.phtml -->
+ <h1>Blog</h1>
+
+ <?php foreach ($this->posts as $post): ?>
+ <article>
+     <h1 id="post<?= $post->getId() ?>"><?= $post->getTitle() ?></h1>
+     <p>
+         <?= $post->getText() ?>
+     </p>
+ </article>
+ <?php endforeach ?>

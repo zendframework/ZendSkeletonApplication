@@ -1,3 +1,6 @@
 [submodule "vendor/ZF2"]
 	path = vendor/ZF2
 	url = https://github.com/zendframework/zf2.git
+[submodule "vendor/phly/phly-contact"]
+    path = vendor/phly/phly-contact
+    url = git://github.com/phly/phly-contact/.git

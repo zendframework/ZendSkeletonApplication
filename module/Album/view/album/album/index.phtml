@@ -1,0 +1,55 @@
+<?php
+// module/Album/view/album/album/index.phtml:
+
+/*
+ * The first thing we do is to set the title for the page (used in the layout) and also set the title for the <head> section
+ * using the headTitle() view helper which will display in the browsers title bar. We then create a link to add a new
+ * album.
+ */
+$title = 'My albums';
+$this->headTitle ( $title );
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+ <?php
+	/*
+	 *
+	 * The url() view helper is provided by Zend Framework 2 and is used to create the links we need. The first parameter
+	 * to url() is the route name we wish to use for construction of the URL, and the second parameter is an array of all
+	 * the variables to fit into the placeholders to use. In this case we use our album route which is set up to accept two
+	 * placeholder variables: action and id.
+	 */
+	?>
+     <a href="<?php echo $this->url('album', array('action'=>'add'));?>">Add
+		new album</a>
+</p>
+
+<table class="table">
+	<tr>
+		<th>Title</th>
+		<th>Artist</th>
+		<th>&nbsp;</th>
+	</tr>
+ <?php foreach ($albums as $album) : ?>
+ <tr>
+		<td><?php echo $this->escapeHtml($album->title);?></td>
+		<td><?php echo $this->escapeHtml($album->artist);?></td>
+		<td><a
+			href="<?php
+
+echo $this->url ( 'album', array (
+				'action' => 'edit',
+				'id' => $album->id
+		) );
+		?>">Edit</a> <a
+			href="<?php
+
+echo $this->url ( 'album', array (
+				'action' => 'delete',
+				'id' => $album->id
+		) );
+		?>">Delete</a>
+		</td>
+	</tr>
+ <?php endforeach; ?>
+ </table>
