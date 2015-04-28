@@ -1,5 +1,5 @@
 <?php
- namespace Blog\Service;
+namespace Blog\Service;
 
 use Blog\Model\Post;
 
