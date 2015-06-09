@@ -7,4 +7,8 @@ nbproject
 .project
 .settings
 composer.lock
-vendor/bin
+vendor/
+data/cache/
+!data/cache/.gitkeep
+config/autoload/local.php
+config/autoload/*.local.php
