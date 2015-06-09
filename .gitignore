@@ -1,5 +1,6 @@
 nbproject
 ._*
+.vagrant
 .~lock.*
 .buildpath
 .DS_Store
