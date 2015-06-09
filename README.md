@@ -7,57 +7,50 @@ This is a simple, skeleton application using the ZF2 MVC layer and module
 systems. This application is meant to be used as a starting place for those
 looking to get their feet wet with ZF2.
 
-Installation
-------------
+Installation using Composer
+---------------------------
 
-Using Composer (recommended)
-----------------------------
-The recommended way to get a working copy of this project is to clone the repository
-and use `composer` to install dependencies using the `create-project` command:
+The easiest way to create a new ZF2 project is to use [Composer](https://getcomposer.org/). If you don't have it already installed, then please install as per the [documentation](https://getcomposer.org/doc/00-intro.md).
 
-    curl -s https://getcomposer.org/installer | php --
-    php composer.phar create-project -n -sdev zendframework/skeleton-application path/to/install
 
-Alternately, clone the repository and manually invoke `composer` using the shipped
-`composer.phar`:
+Create your new ZF2 project:
 
-    cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
-    cd ZendSkeletonApplication
-    php composer.phar self-update
-    php composer.phar install
+    composer create-project -n -sdev zendframework/skeleton-application path/to/install
 
-(The `self-update` directive is to ensure you have an up-to-date `composer.phar`
-available.)
 
-Another alternative for downloading the project is to grab it via `curl`, and
-then pass it to `tar`:
 
-    cd my/project/dir
-    curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
+### Installation using a tarball with a local composer
 
-You would then invoke `composer` to install dependencies per the previous
-example.
+If you don't have composer installed globally then another way to create a new ZF2 project is to download the tarball and install it:
 
-Using Git submodules
---------------------
-Alternatively, you can install using native git submodules:
+1. Download the [tarball](https://github.com/zendframework/ZendSkeletonApplication/tarball/master), extract it and then install the dependencies with a locally installed Composer:
 
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
+        cd my/project/dir
+        curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
+    
+
+2. Donload composer into your proejct directory and install the dependencies:
+
+        curl -s https://getcomposer.org/installer | php
+        php composer.phar install
+
+If you don't have access to curl, then install Composer into your project as per the [documentation](https://getcomposer.org/doc/00-intro.md).
+
 
 Web Server Setup
 ----------------
 
 ### PHP CLI Server
 
-The simplest way to get started if you are using PHP 5.4 or above is to start the internal PHP cli-server in the root directory:
+The simplest way to get started if you are using PHP 5.4 or above is to start the internal PHP cli-server in the root
+directory:
 
     php -S 0.0.0.0:8080 -t public/ public/index.php
 
 This will start the cli-server on port 8080, and bind it to all network
 interfaces.
 
-**Note: ** The built-in CLI server is *for development only*.
+**Note:** The built-in CLI server is *for development only*.
 
 ### Apache Setup
 
@@ -73,5 +66,8 @@ project and you should be ready to go! It should look something like below:
             AllowOverride All
             Order allow,deny
             Allow from all
+            <IfModule mod_authz_core.c>
+            Require all granted
+            </IfModule>
         </Directory>
     </VirtualHost>
