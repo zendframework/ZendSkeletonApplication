@@ -1,0 +1,108 @@
+[client]
+port      = <%= @port %>
+socket    = <%= @socket %>
+<% if @character_set != 'UNSET' -%>
+default-character-set = <%= @character_set %>
+<% end -%>
+
+[mysqld_safe]
+socket    = <%= @socket %>
+nice    = 0
+<% if @log_error == 'syslog' -%>
+syslog
+<% end -%>
+[mysqld]
+user    = mysql
+pid-file  = <%= @pidfile %>
+socket    = <%= @socket %>
+port      = <%= @port %>
+basedir   = <%= @basedir %>
+datadir   = <%= @datadir %>
+tmpdir    = <%= @tmpdir %>
+max_connections = <%= @max_connections %>
+skip-external-locking
+
+<% if @bind_address -%>
+bind-address        = <%= @bind_address %>
+<% end -%> 
+key_buffer          = <%= @key_buffer %>
+max_allowed_packet  = <%= @max_allowed_packet %>
+thread_stack        = <%= @thread_stack %>
+thread_cache_size   = <%= @thread_cache_size %>
+myisam-recover      = <%= @myisam_recover %>
+query_cache_limit   = <%= @query_cache_limit %>
+query_cache_size    = <%= @query_cache_size %>
+expire_logs_days    = <%= @expire_logs_days %>
+max_binlog_size     = <%= @max_binlog_size %>
+
+<% if @max_connections != 'UNSET' -%>
+max_connections     = <%= @max_connections %>
+<% end -%>
+<% if @tmp_table_size != 'UNSET' -%>
+tmp_table_size      = <%= @tmp_table_size %>
+<% end -%>
+<% if @max_heap_table_size != 'UNSET' -%>
+max_heap_table_size = <%= @max_heap_table_size %>
+<% end -%>
+<% if @table_open_cache != 'UNSET' -%>
+table_open_cache    = <%= @table_open_cache %>
+<% end -%>
+<% if @long_query_time != 'UNSET' -%>
+long_query_time     = <%= @long_query_time %>
+<% end -%>
+<% if @server_id != 'UNSET' -%>
+server-id           = <%= @server_id %>
+<% end -%>
+<% if @sql_log_bin != 'UNSET' -%>
+sql_log_bin         = <%= @sql_log_bin %>
+<% end -%>
+<% if @log_bin != 'UNSET' -%>
+log-bin             = <%= @log_bin %>
+<% end -%>
+<% if @binlog_do_db != 'UNSET' -%>
+binlog-do-db        = <%= @binlog_do_db %>
+<% end -%>
+<% if @log_bin_trust_function_creators != 'UNSET' -%>
+log_bin_trust_function_creators = <%= @log_bin_trust_function_creators %>
+<% end -%>
+<% if @replicate_ignore_table != 'UNSET' -%>
+replicate-ignore-table          = <%= @replicate_ignore_table %>
+<% end -%>
+<% if @replicate_wild_do_table != 'UNSET' -%>
+replicate-wild-do-table         = <%= @replicate_wild_do_table %>
+<% end -%>
+<% if @replicate_wild_ignore_table != 'UNSET' -%>
+replicate-wild-ignore-table     = <%= @replicate_wild_ignore_table %>
+<% end -%>
+<% if @ft_min_word_len != 'UNSET' -%>
+ft_min_word_len = <%= @ft_min_word_len %>
+<% end -%>
+<% if @ft_max_word_len != 'UNSET' -%>
+ft_max_word_len = <%= @ft_max_word_len %>
+<% end -%>
+
+<% if @log_error != 'syslog' -%>
+log_error           = <%= @log_error %>
+<% end -%>
+expire_logs_days    = 10
+max_binlog_size     = 100M
+<% if @default_engine != 'UNSET' %>
+default-storage-engine = <%= @default_engine %>
+<% end -%>
+<% if @character_set != 'UNSET' -%>
+character-set-server   = <%= @character_set %>
+<% end -%>
+<% if @ssl %>
+ssl-ca    = <%= @ssl_ca %>
+ssl-cert  = <%= @ssl_cert %>
+ssl-key   = <%= @ssl_key %>
+<% end -%>
+
+[mysqldump]
+quick
+quote-names
+max_allowed_packet = <%= @max_allowed_packet %>
+[mysql]
+[isamchk]
+key_buffer    = 16M
+!includedir /etc/mysql/conf.d/
