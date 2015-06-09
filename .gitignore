@@ -1,4 +1,5 @@
 nbproject
+.vagrant
 ._*
 .~lock.*
 .buildpath
