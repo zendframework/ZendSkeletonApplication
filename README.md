@@ -7,59 +7,35 @@ This is a simple, skeleton application using the ZF2 MVC layer and module
 systems. This application is meant to be used as a starting place for those
 looking to get their feet wet with ZF2.
 
-Installation
-------------
+Installation using Composer
+---------------------------
 
-There are several options available for installing projects with Composer. If you don't already have it installed,
-the Composer installer script will check some php.ini settings, warn you if they are set incorrectly, and then download
-the latest composer.phar in the current directory.
+The easiest way to create a new ZF2 project is to use [Composer](https://getcomposer.org/). If you don't have it already installed, then please install as per the [documentation](https://getcomposer.org/doc/00-intro.md).
 
-For Composer documentation, please refer to [getcomposer.org](https://getcomposer.org/)
 
-Here are a few recipes to choose from:
+Create your new ZF2 project:
 
-### Option 1 (via curl and composer create-project)
+    composer create-project -n -sdev zendframework/skeleton-application path/to/install
 
-The recommended way to get a working copy of this project is to clone the repository and use `composer` to install
-dependencies using the `create-project` command:
 
-    curl -s https://getcomposer.org/installer | php
-    php composer.phar create-project -n -sdev zendframework/skeleton-application path/to/install
-    mv composer.phar path/to/install
-    cd path/to/install
 
-### Option 2 (via php readfile and composer create-project)
+### Installation using a tarball with a local composer
 
-Or if you don't have curl:
+If you don't have composer installed globally then another way to create a new ZF2 project is to download the tarball and install it:
 
-    php -r "readfile('https://getcomposer.org/installer');" | php
-    php composer.phar create-project -n -sdev zendframework/skeleton-application path/to/install
-    mv composer.phar path/to/install
-    cd path/to/install
+1. Download the [tarball](https://github.com/zendframework/ZendSkeletonApplication/tarball/master), extract it and then install the dependencies with a locally installed Composer:
 
-### Option 3 (via curl and tar and composer install)
-
-An alternative for downloading the project is to grab it via `curl`, and then pass it to `tar`:
-
-    cd my/project/dir
-    curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
-
-You would then install and invoke `composer` to install dependencies manually:
-
-    curl -s https://getcomposer.org/installer | php
-    php composer.phar install
+        cd my/project/dir
+        curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
     
-### Option 4 (via php readfile and composer install)
 
-Or if you don't have curl:
+2. Donload composer into your proejct directory and install the dependencies:
 
-    git clone https://github.com/zendframework/ZendSkeletonApplication.git path/to/install
-    cd path/to/install
-    
-You would then install and invoke `composer` to install dependencies manually:
+        curl -s https://getcomposer.org/installer | php
+        php composer.phar install
 
-    php -r "readfile('https://getcomposer.org/installer');" | php
-    php composer.phar install
+If you don't have access to curl, then install Composer into your project as per the [documentation](https://getcomposer.org/doc/00-intro.md).
+
 
 Web Server Setup
 ----------------
