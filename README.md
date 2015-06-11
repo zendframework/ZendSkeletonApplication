@@ -38,11 +38,11 @@ If you don't have access to curl, then install Composer into your project as per
 
 ### Installing using Vagrant
 
-This project support a basic [Vagrant](http://docs.vagrantup.com/v2/getting-started/index.html) configuration to provide with a bash script your Skeleton Application into the VirtualBox VM.  
+This project support a basic [Vagrant](http://docs.vagrantup.com/v2/getting-started/index.html) configuration to provide with a bash script your Skeleton Application into the VirtualBox VM.
 
 1. Run vagrant up command
 
-   vagrant up
+        vagrant up
 
 2. Visit [http://localhost:8085](http://localhost:8085) in your browser
 
