@@ -1,4 +1,9 @@
 <?php
+/**
+ * If you need an environment-specific system configuration,
+ * there is an example in the documentation
+ * @see http://framework.zend.com/manual/2.3/en/tutorials/config.advanced.html#environment-specific-system-configuration
+ */
 return array(
     // This should be an array of module namespaces used in the application.
     'modules' => array(
