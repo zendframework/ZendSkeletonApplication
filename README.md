@@ -61,7 +61,7 @@ This project supports a basic [Vagrant](http://docs.vagrantup.com/v2/getting-sta
 
 2. Visit [http://localhost:8085](http://localhost:8085) in your browser
 
-Look in `Vagrantfile` for configuration details.
+Look in [Vagrantfile](Vagrantfile) for configuration details.
 
 ### Apache setup
 
