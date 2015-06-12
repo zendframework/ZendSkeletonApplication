@@ -19,7 +19,7 @@ Create your new ZF2 project:
 
 
 
-### Installation using a tarball with a local composer
+### Installation using a tarball with a local Composer
 
 If you don't have composer installed globally then another way to create a new ZF2 project is to download the tarball and install it:
 
@@ -36,10 +36,10 @@ If you don't have composer installed globally then another way to create a new Z
 
 If you don't have access to curl, then install Composer into your project as per the [documentation](https://getcomposer.org/doc/00-intro.md).
 
-Web Server Setup
+Web server setup
 ----------------
 
-### PHP CLI Server
+### PHP CLI server
 
 The simplest way to get started if you are using PHP 5.4 or above is to start the internal PHP cli-server in the root
 directory:
@@ -51,7 +51,7 @@ interfaces.
 
 **Note:** The built-in CLI server is *for development only*.
 
-### Vagrant Server
+### Vagrant server
 
 This project supports a basic [Vagrant](http://docs.vagrantup.com/v2/getting-started/index.html) configuration with an inline shell provisioner to run the Skeleton Application in a [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 
@@ -63,7 +63,7 @@ This project supports a basic [Vagrant](http://docs.vagrantup.com/v2/getting-sta
 
 Look in `Vagrantfile` for configuration details.
 
-### Apache Setup
+### Apache setup
 
 To setup apache, setup a virtual host to point to the public/ directory of the
 project and you should be ready to go! It should look something like below:
@@ -82,7 +82,7 @@ project and you should be ready to go! It should look something like below:
         </Directory>
     </VirtualHost>
 
-### Nginx Setup
+### Nginx setup
 
 To setup nginx, open your `/path/to/nginx/nginx.conf` and add an
 [include directive](http://nginx.org/en/docs/ngx_core_module.html#include) below
