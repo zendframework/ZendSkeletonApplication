@@ -83,11 +83,11 @@ This project supports a basic [Docker](https://www.docker.com/whatisdocker/) con
 
 
 **Notes**
-- This guide map the project on the port 69, but you can change it simply replacing it in the steps *5* and *6*
-- You can change the project path editing the `PROJECT_PATH` env in the Dockerfile
-- You can change the project url (used as alternative to `localhost`) editing the `PROJECT_URL` env in the Dockerfile
+- This recipe puts the project on the port 69, but you can choose a different port in the steps *5* and *6*
+- You can change the project path by editing `ENV PROJECT_PATH` in `Dockerfile`
+- You can change the project url by editing `ENV PROJECT_URL` in `Dockerfile`
 
-For more informations about Dockerfile follow the [official doc](https://docs.docker.com/reference/builder/).
+For more information about Dockerfile read the [official docs](https://docs.docker.com/reference/builder/).
 
 
 ### Apache setup
