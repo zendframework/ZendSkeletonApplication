@@ -77,14 +77,15 @@ This project supports a basic [Docker](https://www.docker.com/whatisdocker/) con
 4. Run `docker images` and find the *IMAGE ID* of the image
 5. Start the container (replace <image-id> with the Image ID found before):
         
-        docker run -d -p 80:80 <image-id> /usr/sbin/apache2ctl -D FOREGROUND` 
+        docker run -d -p 69:80 <image-id> /usr/sbin/apache2ctl -D FOREGROUND` 
 
-6. Go to [zf-skeleton.local](http://zf-skeleton.local) and feel the magic!
+6. Go to [localhost](http://localhost:69) and feel the magic!
 
 
 **Notes**
+- This guide map the project on the port 69, but you can change it simply replacing it in the steps *5* and *6*
 - You can change the project path editing the `PROJECT_PATH` env in the Dockerfile
-- You can change the project url editing the `PROJECT_URL` env in the Dockerfile
+- You can change the project url (used as alternative to `localhost`) editing the `PROJECT_URL` env in the Dockerfile
 
 For more informations about Dockerfile follow the [official doc](https://docs.docker.com/reference/builder/).
 

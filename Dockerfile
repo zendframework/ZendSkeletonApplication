@@ -1,11 +1,10 @@
 FROM ubuntu:14.04
-MAINTAINER Oscar Fanelli <oscar.nesis@gmail.com>
+MAINTAINER Zend Framework
 ENV PROJECT_PATH /var/www/zf-skeleton
-ENV PROJECT_URL zf-skeleton.local
+ENV PROJECT_URL localhost
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
-RUN apt-get -y --force-yes upgrade
 
 # Apache2 and PHP5
 RUN apt-get -y --force-yes install git curl apache2 php5 libapache2-mod-php5
@@ -28,9 +27,6 @@ RUN a2enconf fqdn
 # Port to expose
 EXPOSE 80
 
-# Copy site into place
-ADD . $PROJECT_PATH
-
 # VirtualHost
 RUN echo "\
 <VirtualHost *:80>\n\
@@ -47,6 +43,9 @@ RUN echo "\
 " > /etc/apache2/sites-available/zf-skeleton.conf
 RUN a2dissite 000-default
 RUN a2ensite zf-skeleton
+
+# Copy site into place
+ADD . $PROJECT_PATH
 
 # Composer
 RUN cd $PROJECT_PATH && curl -Ss https://getcomposer.org/installer | php && php composer.phar install --no-progress
