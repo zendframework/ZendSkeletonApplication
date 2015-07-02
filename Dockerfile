@@ -1,13 +1,18 @@
 FROM ubuntu:14.04
 MAINTAINER Zend Framework
+
+# Environment variables
 ENV PROJECT_PATH /var/www/zf-skeleton
 ENV PROJECT_URL localhost
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update
-
 # Apache2 and PHP5
-RUN apt-get -y --force-yes install git curl apache2 php5 libapache2-mod-php5
+RUN apt-get update && apt-get install -y --force-yes \
+    git \
+    curl \
+    apache2 \
+    php5 \
+    libapache2-mod-php5
 
 # Apache2 mods
 RUN a2enmod php5
@@ -45,7 +50,7 @@ RUN a2dissite 000-default
 RUN a2ensite zf-skeleton
 
 # Copy site into place
-ADD . $PROJECT_PATH
+COPY . $PROJECT_PATH
 
 # Composer
 RUN cd $PROJECT_PATH && curl -Ss https://getcomposer.org/installer | php && php composer.phar install --no-progress
