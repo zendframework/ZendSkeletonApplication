@@ -62,7 +62,7 @@ return array(
     //         'interface'       => $stringOptionalInterface,
     //         'method'          => $stringRequiredMethodName,
     //     ),
-    // )
+    // ),
 
    // Initial configuration with which to seed the ServiceManager.
    // Should be compatible with Zend\ServiceManager\Config.
