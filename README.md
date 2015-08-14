@@ -29,7 +29,7 @@ If you don't have composer installed globally then another way to create a new Z
         curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
     
 
-2. Download composer into your proejct directory and install the dependencies:
+2. Download composer into your project directory and install the dependencies:
 
         curl -s https://getcomposer.org/installer | php
         php composer.phar install
