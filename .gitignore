@@ -1,5 +1,6 @@
 nbproject
 ._*
+.vagrant
 .~lock.*
 .buildpath
 .DS_Store
@@ -7,4 +8,5 @@ nbproject
 .project
 .settings
 composer.lock
-vendor/bin
+vendor
+composer.phar
