@@ -7,6 +7,5 @@ nbproject
 .idea
 .project
 .settings
-composer.lock
 vendor
 composer.phar
