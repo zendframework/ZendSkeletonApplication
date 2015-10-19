@@ -12,8 +12,8 @@
         "zendframework/zendframework": "~2.5"
     },
     "autoload": {
-        "psr-4": {
-          "Application\\": "module/Application/src/Application"
+        "psr-0": {
+          "Application": "module/Application/src"
         }
     }
 }
