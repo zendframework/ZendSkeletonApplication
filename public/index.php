@@ -14,14 +14,7 @@ if (php_sapi_name() === 'cli-server') {
     unset($path);
 }
 
-// Composer autoloading
-if (!file_exists('vendor/autoload.php')) {
-    throw new RuntimeException(
-        'Unable to load ZF2. Run `php composer.phar install`.'
-    );
-}
-
-require 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 // Run the application!
 Zend\Mvc\Application::init(require 'config/application.config.php')->run();
