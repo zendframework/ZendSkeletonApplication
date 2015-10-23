@@ -57,11 +57,38 @@ This project supports a basic [Vagrant](http://docs.vagrantup.com/v2/getting-sta
 
 1. Run vagrant up command
 
-    vagrant up
+        vagrant up
+
 
 2. Visit [http://localhost:8085](http://localhost:8085) in your browser
 
 Look in [Vagrantfile](Vagrantfile) for configuration details.
+
+### Docker server
+
+This project supports a basic [Docker](https://www.docker.com/whatisdocker/) configuration
+
+1. [Install Docker](http://docs.docker.com/installation/)
+2. `cd` into the directory of the project
+3. Build the docker image based on the *Dockerfile*:
+        
+        docker build .
+
+4. Run `docker images` and find the *IMAGE ID* of the image
+5. Start the container (replace <image-id> with the Image ID found before):
+        
+        docker run -d -p 69:80 <image-id> /usr/sbin/apache2ctl -D FOREGROUND` 
+
+6. Go to [localhost](http://localhost:69) and feel the magic!
+
+
+**Notes**
+- This recipe puts the project on the port 69, but you can choose a different port in the steps *5* and *6*
+- You can change the project path by editing `ENV PROJECT_PATH` in `Dockerfile`
+- You can change the project url by editing `ENV PROJECT_URL` in `Dockerfile`
+
+For more information about Dockerfile read the [official docs](https://docs.docker.com/reference/builder/).
+
 
 ### Apache setup
 
