@@ -1,6 +1,6 @@
 <?php echo $this->doctype(); ?>
 
-<html lang="<?php echo $this->plugin('translate')->getTranslator()->getLocale(); ?>">
+<html lang="<?php echo $this->escapeHtml($this->plugin('translate')->getTranslator()->getLocale()); ?>">
     <head>
         <meta charset="utf-8">
         <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
