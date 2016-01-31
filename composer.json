@@ -9,6 +9,13 @@
     "homepage": "http://framework.zend.com/",
     "require": {
         "php": ">=5.5",
-        "zendframework/zendframework": "~2.5"
+        "zendframework/zend-cache": "^2.5",
+        "zendframework/zend-config": "^2.5",
+        "zendframework/zend-i18n": "^2.5",
+        "zendframework/zend-log": "^2.5",
+        "zendframework/zend-modulemanager": "^2.5",
+        "zendframework/zend-mvc": "^2.5",
+        "zendframework/zend-serializer": "^2.5",
+        "zendframework/zend-version": "^2.5"
     }
 }
