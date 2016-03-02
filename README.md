@@ -19,17 +19,9 @@ Create your new ZF2 project:
 
 
 
-### Installation using a tarball with a local Composer
+### Install Composer ?
 
-If you don't have composer installed globally then another way to create a new ZF2 project is to download the tarball and install it:
-
-1. Download the [tarball](https://github.com/zendframework/ZendSkeletonApplication/tarball/master), extract it and then install the dependencies with a locally installed Composer:
-
-        cd my/project/dir
-        curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
-    
-
-2. Download composer into your project directory and install the dependencies:
+Download composer into your project directory and install the dependencies:
 
         curl -s https://getcomposer.org/installer | php
         php composer.phar install
