@@ -12,6 +12,8 @@ use Zend\Mvc\MvcEvent;
 
 class Module
 {
+    const VERSION = '3.0.0dev';
+
     public function onBootstrap(MvcEvent $e)
     {
         $moduleRouteListener = new ModuleRouteListener();

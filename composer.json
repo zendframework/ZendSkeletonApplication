@@ -8,12 +8,17 @@
     ],
     "homepage": "http://framework.zend.com/",
     "require": {
-        "php": ">=5.5",
-        "zendframework/zendframework": "~2.5"
+        "php": "^5.6 || ^7.0",
+        "zendframework/zend-component-installer": "^0.1.0",
+        "zendframework/zend-config": "^2.6",
+        "zendframework/zend-mvc": "^3.0.0@dev"
     },
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/"
         }
+    },
+    "scripts": {
+        "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php"
     }
 }
