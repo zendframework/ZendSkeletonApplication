@@ -7,6 +7,8 @@
 
 namespace Application;
 
+use Zend\ServiceManager\Factory\InvokableFactory;
+
 return [
     'router' => [
         'routes' => [
@@ -15,7 +17,7 @@ return [
                 'options' => [
                     'route'    => '/',
                     'defaults' => [
-                        'controller' => 'Application\Controller\Index',
+                        'controller' => Controller\IndexController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -30,7 +32,7 @@ return [
                     'route'    => '/application',
                     'defaults' => [
                         '__NAMESPACE__' => 'Application\Controller',
-                        'controller'    => 'Index',
+                        'controller'    => 'IndexController',
                         'action'        => 'index',
                     ],
                 ],
@@ -53,8 +55,8 @@ return [
         ],
     ],
     'controllers' => [
-        'invokables' => [
-            'Application\Controller\Index' => Controller\IndexController::class
+        'factories' => [
+            Controller\IndexController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
