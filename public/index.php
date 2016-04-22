@@ -14,6 +14,9 @@ if (php_sapi_name() === 'cli-server') {
     unset($path);
 }
 
+// default http response code is 500, so fatal errors return correct response code
+http_response_code(500);
+
 // Setup autoloading
 require 'init_autoloader.php';
 
