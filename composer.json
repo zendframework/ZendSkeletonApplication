@@ -7,11 +7,12 @@
         "zf2"
     ],
     "homepage": "http://framework.zend.com/",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^5.6 || ^7.0",
         "zendframework/zend-component-installer": "^0.1.0",
-        "zendframework/zend-skeleton-installer": "^0.1.0",
-        "zendframework/zend-mvc": "^3.0.0-dev || ^3.0"
+        "zendframework/zend-mvc": "^3.0 || ^3.0.0-dev"
     },
     "autoload": {
         "psr-4": {
@@ -28,7 +29,7 @@
             },
             {
                 "name": "zendframework/zend-mvc-console",
-                "constraint": "^1.1.3",
+                "constraint": "^1.1.8",
                 "prompt": "Would you like to install MVC-based console support?",
                 "module": true
             },
@@ -74,7 +75,7 @@
             },
             {
                 "name": "zendframework/zend-test",
-                "constraint": "^2.6.1",
+                "constraint": "^3.0 || ^3.0.0-dev@dev",
                 "prompt": "Would you like to install MVC testing support?",
                 "dev": true
             },
