@@ -30,7 +30,7 @@
             {
                 "name": "zendframework/zend-mvc-console",
                 "constraint": "^1.1.8",
-                "prompt": "Would you like to install MVC-based console support?",
+                "prompt": "Would you like to install MVC-based console support? (We recommend migrating to zf-console, symfony/console, or Aura.CLI)",
                 "module": true
             },
             {
