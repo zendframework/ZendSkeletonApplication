@@ -10,12 +10,105 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "zendframework/zend-component-installer": "^0.1.0",
+        "zendframework/zend-skeleton-installer": "^0.1.0",
         "zendframework/zend-mvc": "^3.0.0@dev"
     },
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/"
         }
+    },
+    "extra": {
+        "zend-skeleton-installer": [
+            {
+                "name": "zendframework/zend-cache",
+                "constraint": "^2.7.1",
+                "prompt": "Would you like to install caching support?",
+                "module": true
+            },
+            {
+                "name": "zendframework/zend-mvc-console",
+                "constraint": "^1.1.2",
+                "prompt": "Would you like to install MVC-based console support?",
+                "module": true
+            },
+            {
+                "name": "zendframework/zend-db",
+                "constraint": "^2.8.1",
+                "prompt": "Would you like to install database support (installs zend-db)?",
+                "module": true
+            },
+            {
+                "name": "zendframework/zend-form",
+                "constraint": "^2.8.3",
+                "prompt": "Would you like to install forms support?",
+                "module": true
+            },
+            {
+                "name": "zendframework/zend-json",
+                "constraint": "^3.0",
+                "prompt": "Would you like to install JSON de/serialization support?"
+            },
+            {
+                "name": "zendframework/zend-mvc-i18n",
+                "constraint": "^0.1",
+                "prompt": "Would you like to install i18n support?",
+                "module": true
+            },
+            {
+                "name": "zendframework/zend-log",
+                "constraint": "^2.8.2",
+                "prompt": "Would you like to install logging support?",
+                "module": true
+            },
+            {
+                "name": "zendframework/zend-psr7bridge",
+                "constraint": "^0.2.2",
+                "prompt": "Would you like to use the PSR-7 middleware dispatcher?"
+            },
+            {
+                "name": "zendframework/zend-session",
+                "constraint": "^2.7.1",
+                "prompt": "Would you like to install sessions support?",
+                "module": true
+            },
+            {
+                "name": "zendframework/zend-test",
+                "constraint": "^2.6.1",
+                "prompt": "Would you like to install MVC testing support?",
+                "dev": true
+            },
+            {
+                "name": "zendframework/zend-mvc-plugin-fileprg",
+                "constraint": "^0.1",
+                "prompt": "Would you like to install the Post/Redirect/Get MVC plugin for handling file uploads?",
+                "module": true
+            },
+            {
+                "name": "zendframework/zend-mvc-plugin-flashmessenger",
+                "constraint": "^0.1",
+                "prompt": "Would you like to install the flash messages MVC plugin?",
+                "module": true
+            },
+            {
+                "name": "zendframework/zend-mvc-plugin-identity",
+                "constraint": "^0.1",
+                "prompt": "Would you like to install the MVC plugin for accessing the authenticated identity?",
+                "module": true
+            },
+            {
+                "name": "zendframework/zend-mvc-plugin-prg",
+                "constraint": "^0.1",
+                "prompt": "Would you like to install the MVC plugin for implementing Post/Redirect/Get?",
+                "module": true
+            },
+            {
+                "name": "zendframework/zend-servicemanager-di",
+                "constraint": "^1.0",
+                "prompt": "Would you like to install the zend-di integration for zend-servicemanager?",
+                "module": true
+            }
+        ]
     },
     "scripts": {
         "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php"

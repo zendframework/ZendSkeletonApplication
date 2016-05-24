@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6be9284be052b988271dc40c0874ee34",
-    "content-hash": "33955f43da0e869c46a4fc3ed7f2ec0d",
+    "hash": "a751105779ad47b033b643237d183c3a",
+    "content-hash": "137d85066772d8f9a497e649f01ada6a",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -559,6 +559,50 @@
                 "zf"
             ],
             "time": "2016-02-02 14:13:42"
+        },
+        {
+            "name": "zendframework/zend-skeleton-installer",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-skeleton-installer.git",
+                "reference": "e38595f59ac49835f05fc4fb93946461eb69cadc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-skeleton-installer/zipball/e38595f59ac49835f05fc4fb93946461eb69cadc",
+                "reference": "e38595f59ac49835f05fc4fb93946461eb69cadc",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "php": "^5.6 || ^7.0",
+                "zendframework/zend-component-installer": "^0.1"
+            },
+            "require-dev": {
+                "composer/composer": "^1.0",
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "^4.8",
+                "squizlabs/php_codesniffer": "^2.3.1"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Zend\\SkeletonInstaller\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\SkeletonInstaller\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Installer plugin for Zend Framework skeleton application",
+            "time": "2016-05-23 22:28:28"
         },
         {
             "name": "zendframework/zend-stdlib",
