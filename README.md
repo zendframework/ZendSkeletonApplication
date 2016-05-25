@@ -54,36 +54,6 @@ $ vagrant ssh -c 'cd /var/www && composer update'
 While running, Vagrant maps your host port 8080 to port 80 on the virtual
 machine; you can visit the site at http://localhost:8080/
 
-## Using Docker
-
-This skeleton provides a `Dockerfile` for use with Docker. Build the image
-using:
-
-```bash
-$ docker build -t <name> .
-```
-
-Where `<name>` is a unique name for the image on your machine (this will usually
-be your project name). Once built, you can run it. To do so, you should map a
-port on your host machine to the image's port 80, and map the current directory
-to `/var/www` on the image:
-
-```bash
-$ docker run -d -p 8080:80 -v $(pwd):/var/www <name>
-```
-
-At this point, you can visit http://localhost:8080 to see the site running.
-
-You can also run composer from the image. You will need to map your current
-directory to `/var/www` on the image when doing so:
-
-```bash
-$ docker run -v $(pwd):/var/www <name> composer install
-```
-
-Remembering to map the volume and port when running vanilla Docker can become
-tedious; consider using docker-compose to automate this.
-
 ## Using docker-compose
 
 This skeleton provides a `docker-compose.yml` for use with `docker-compose`; it
