@@ -42,13 +42,13 @@ Once built, you can also run composer within the box. For example, the following
 will install dependencies:
 
 ```bash
-$ vagrant ssh -c 'cd /var/www ; composer install'
+$ vagrant ssh -c 'cd /var/www && composer install'
 ```
 
 While this will update them:
 
 ```bash
-$ vagrant ssh -c 'cd /var/www ; composer update'
+$ vagrant ssh -c 'cd /var/www && composer update'
 ```
 
 While running, Vagrant maps your host port 8080 to port 80 on the virtual
