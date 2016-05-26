@@ -10,7 +10,3 @@ RUN apt-get update \
   | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /var/www
-
-VOLUME /var/www
-
-EXPOSE 80
