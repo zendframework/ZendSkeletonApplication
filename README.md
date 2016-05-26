@@ -56,7 +56,8 @@ machine; you can visit the site at http://localhost:8080/
 
 ## Using docker-compose
 
-This skeleton provides a `docker-compose.yml` for use with `docker-compose`; it
+This skeleton provides a `docker-compose.yml` for use with
+[docker-compose](https://docs.docker.com/compose/); it
 uses the `Dockerfile` provided as its base. Build and start the image using:
 
 ```bash
