@@ -57,16 +57,10 @@ machine; you can visit the site at http://localhost:8080/
 ## Using docker-compose
 
 This skeleton provides a `docker-compose.yml` for use with `docker-compose`; it
-uses the `Dockerfile` provided as its base. Build the image using:
+uses the `Dockerfile` provided as its base. Build and start the image using:
 
 ```bash
-$ docker-compose build
-```
-
-Once built, you can run it:
-
-```bash
-$ docker-compose up -d
+$ docker-compose up -d --build
 ```
 
 At this point, you can visit http://localhost:8080 to see the site running.
