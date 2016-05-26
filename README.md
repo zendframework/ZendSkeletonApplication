@@ -67,10 +67,10 @@ $ docker-compose up -d --build
 At this point, you can visit http://localhost:8080 to see the site running.
 
 You can also run composer from the image. The container environment is named
-"dev", so you will pass that value to `docker-compose run`:
+"zf", so you will pass that value to `docker-compose run`:
 
 ```bash
-$ docker-compose run dev composer install
+$ docker-compose run zf composer install
 ```
 
 ## Web server setup

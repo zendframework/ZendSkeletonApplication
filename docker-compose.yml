@@ -1,4 +1,4 @@
-dev:
+zf:
   build: .
   dockerfile: Dockerfile
   ports:
