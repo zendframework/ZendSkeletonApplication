@@ -80,27 +80,9 @@
                 "dev": true
             },
             {
-                "name": "zendframework/zend-mvc-plugin-fileprg",
+                "name": "zendframework/zend-mvc-plugins",
                 "constraint": "^1.0",
-                "prompt": "Would you like to install the Post/Redirect/Get MVC plugin for handling file uploads?",
-                "module": true
-            },
-            {
-                "name": "zendframework/zend-mvc-plugin-flashmessenger",
-                "constraint": "^1.0",
-                "prompt": "Would you like to install the flash messages MVC plugin?",
-                "module": true
-            },
-            {
-                "name": "zendframework/zend-mvc-plugin-identity",
-                "constraint": "^1.0",
-                "prompt": "Would you like to install the MVC plugin for accessing the authenticated identity?",
-                "module": true
-            },
-            {
-                "name": "zendframework/zend-mvc-plugin-prg",
-                "constraint": "^1.0",
-                "prompt": "Would you like to install the MVC plugin for implementing Post/Redirect/Get?",
+                "prompt": "Would you like to install the official MVC plugins, including PRG support, identity, and flash messages?",
                 "module": true
             },
             {
