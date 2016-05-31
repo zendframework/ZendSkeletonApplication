@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e4f8894ee057c02ebec952a1290e8fc1",
-    "content-hash": "7a766b773040f3c957a867ddb6ea02cc",
+    "hash": "dd25e84504d7b0c6de5abe94c2eddb36",
+    "content-hash": "eb69a34e8e821da868c270e7b621146d",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -387,16 +387,16 @@
         },
         {
             "name": "zendframework/zend-mvc",
-            "version": "dev-develop",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-mvc.git",
-                "reference": "05318fdc4c221aadf90dc843bf99a2de8c705e5a"
+                "reference": "af8c5bf21a7f5f61e997797b514a7c31c5a00b9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-mvc/zipball/05318fdc4c221aadf90dc843bf99a2de8c705e5a",
-                "reference": "05318fdc4c221aadf90dc843bf99a2de8c705e5a",
+                "url": "https://api.github.com/repos/zendframework/zend-mvc/zipball/af8c5bf21a7f5f61e997797b514a7c31c5a00b9a",
+                "reference": "af8c5bf21a7f5f61e997797b514a7c31c5a00b9a",
                 "shasum": ""
             },
             "require": {
@@ -430,8 +430,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev",
-                    "dev-develop": "3.0-dev"
+                    "dev-master": "3.0-dev",
+                    "dev-develop": "3.1-dev"
                 }
             },
             "autoload": {
@@ -448,20 +448,20 @@
                 "mvc",
                 "zf2"
             ],
-            "time": "2016-04-18 20:36:21"
+            "time": "2016-05-31 19:27:09"
         },
         {
             "name": "zendframework/zend-router",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-router.git",
-                "reference": "5a4666ced887d2a9e920e8aaa604b3cc39648b1a"
+                "reference": "03763610632a9022aff22a0e8f340852e68392a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-router/zipball/5a4666ced887d2a9e920e8aaa604b3cc39648b1a",
-                "reference": "5a4666ced887d2a9e920e8aaa604b3cc39648b1a",
+                "url": "https://api.github.com/repos/zendframework/zend-router/zipball/03763610632a9022aff22a0e8f340852e68392a1",
+                "reference": "03763610632a9022aff22a0e8f340852e68392a1",
                 "shasum": ""
             },
             "require": {
@@ -470,6 +470,9 @@
                 "zendframework/zend-http": "^2.5",
                 "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3",
                 "zendframework/zend-stdlib": "^2.7.5 || ^3.0"
+            },
+            "conflict": {
+                "zendframework/zend-mvc": "<3.0.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.5",
@@ -506,7 +509,7 @@
                 "routing",
                 "zf2"
             ],
-            "time": "2016-04-18 17:04:31"
+            "time": "2016-05-31 20:47:48"
         },
         {
             "name": "zendframework/zend-servicemanager",
@@ -559,50 +562,6 @@
                 "zf"
             ],
             "time": "2016-02-02 14:13:42"
-        },
-        {
-            "name": "zendframework/zend-skeleton-installer",
-            "version": "0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/zend-skeleton-installer.git",
-                "reference": "e38595f59ac49835f05fc4fb93946461eb69cadc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-skeleton-installer/zipball/e38595f59ac49835f05fc4fb93946461eb69cadc",
-                "reference": "e38595f59ac49835f05fc4fb93946461eb69cadc",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.0",
-                "php": "^5.6 || ^7.0",
-                "zendframework/zend-component-installer": "^0.1"
-            },
-            "require-dev": {
-                "composer/composer": "^1.0",
-                "mikey179/vfsstream": "^1.6",
-                "phpunit/phpunit": "^4.8",
-                "squizlabs/php_codesniffer": "^2.3.1"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Zend\\SkeletonInstaller\\Plugin",
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Zend\\SkeletonInstaller\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Installer plugin for Zend Framework skeleton application",
-            "time": "2016-05-23 22:28:28"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -854,11 +813,9 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {
-        "zendframework/zend-mvc": 20
-    },
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^5.6 || ^7.0"

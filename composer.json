@@ -12,7 +12,7 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "zendframework/zend-component-installer": "^0.1.0",
-        "zendframework/zend-mvc": "^3.0 || ^3.0.0-dev"
+        "zendframework/zend-mvc": "^3.0"
     },
     "autoload": {
         "psr-4": {
@@ -29,7 +29,7 @@
             },
             {
                 "name": "zendframework/zend-mvc-console",
-                "constraint": "^1.1.8",
+                "constraint": "^1.1.10",
                 "prompt": "Would you like to install MVC-based console support? (We recommend migrating to zf-console, symfony/console, or Aura.CLI)",
                 "module": true
             },
@@ -52,7 +52,7 @@
             },
             {
                 "name": "zendframework/zend-mvc-i18n",
-                "constraint": "^0.1",
+                "constraint": "^1.0",
                 "prompt": "Would you like to install i18n support?",
                 "module": true
             },
@@ -75,31 +75,31 @@
             },
             {
                 "name": "zendframework/zend-test",
-                "constraint": "^3.0 || ^3.0.0-dev@dev",
+                "constraint": "^3.0",
                 "prompt": "Would you like to install MVC testing support?",
                 "dev": true
             },
             {
                 "name": "zendframework/zend-mvc-plugin-fileprg",
-                "constraint": "^0.1",
+                "constraint": "^1.0",
                 "prompt": "Would you like to install the Post/Redirect/Get MVC plugin for handling file uploads?",
                 "module": true
             },
             {
                 "name": "zendframework/zend-mvc-plugin-flashmessenger",
-                "constraint": "^0.1",
+                "constraint": "^1.0",
                 "prompt": "Would you like to install the flash messages MVC plugin?",
                 "module": true
             },
             {
                 "name": "zendframework/zend-mvc-plugin-identity",
-                "constraint": "^0.1",
+                "constraint": "^1.0",
                 "prompt": "Would you like to install the MVC plugin for accessing the authenticated identity?",
                 "module": true
             },
             {
                 "name": "zendframework/zend-mvc-plugin-prg",
-                "constraint": "^0.1",
+                "constraint": "^1.0",
                 "prompt": "Would you like to install the MVC plugin for implementing Post/Redirect/Get?",
                 "module": true
             },
