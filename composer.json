@@ -1,9 +1,10 @@
 {
     "name": "zendframework/skeleton-application",
-    "description": "Skeleton Application for Zend Framework",
+    "description": "Skeleton Application for Zend Framework zend-mvc applications",
     "license": "BSD-3-Clause",
     "keywords": [
         "framework",
+        "mvc",
         "zf2"
     ],
     "homepage": "http://framework.zend.com/",
