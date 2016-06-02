@@ -11,8 +11,8 @@
     "prefer-stable": true,
     "require": {
         "php": "^5.6 || ^7.0",
-        "zendframework/zend-component-installer": "^0.1.0",
-        "zendframework/zend-skeleton-installer": "^0.1.0",
+        "zendframework/zend-component-installer": "^1.0 || ^0.2 || ^1.0.0-dev@dev",
+        "zendframework/zend-skeleton-installer": "^1.0 || ^0.1.2 || ^1.0.0-dev@dev",
         "zendframework/zend-mvc": "^3.0"
     },
     "autoload": {
@@ -26,12 +26,6 @@
                 "name": "zendframework/zend-cache",
                 "constraint": "^2.7.1",
                 "prompt": "Would you like to install caching support?",
-                "module": true
-            },
-            {
-                "name": "zendframework/zend-mvc-console",
-                "constraint": "^1.1.10",
-                "prompt": "Would you like to install MVC-based console support? (We recommend migrating to zf-console, symfony/console, or Aura.CLI)",
                 "module": true
             },
             {
@@ -52,15 +46,27 @@
                 "prompt": "Would you like to install JSON de/serialization support?"
             },
             {
+                "name": "zendframework/zend-log",
+                "constraint": "^2.8.2",
+                "prompt": "Would you like to install logging support?",
+                "module": true
+            },
+            {
+                "name": "zendframework/zend-mvc-console",
+                "constraint": "^1.1.10",
+                "prompt": "Would you like to install MVC-based console support? (We recommend migrating to zf-console, symfony/console, or Aura.CLI)",
+                "module": true
+            },
+            {
                 "name": "zendframework/zend-mvc-i18n",
                 "constraint": "^1.0",
                 "prompt": "Would you like to install i18n support?",
                 "module": true
             },
             {
-                "name": "zendframework/zend-log",
-                "constraint": "^2.8.2",
-                "prompt": "Would you like to install logging support?",
+                "name": "zendframework/zend-mvc-plugins",
+                "constraint": "^1.0",
+                "prompt": "Would you like to install the official MVC plugins, including PRG support, identity, and flash messages?",
                 "module": true
             },
             {
@@ -79,12 +85,6 @@
                 "constraint": "^3.0",
                 "prompt": "Would you like to install MVC testing support?",
                 "dev": true
-            },
-            {
-                "name": "zendframework/zend-mvc-plugins",
-                "constraint": "^1.0",
-                "prompt": "Would you like to install the official MVC plugins, including PRG support, identity, and flash messages?",
-                "module": true
             },
             {
                 "name": "zendframework/zend-servicemanager-di",
