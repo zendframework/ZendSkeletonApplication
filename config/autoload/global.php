@@ -11,6 +11,6 @@
  * file.
  */
 
-return array(
+return [
     // ...
-);
+];
