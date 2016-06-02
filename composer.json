@@ -65,7 +65,7 @@
             },
             {
                 "name": "zendframework/zend-mvc-plugins",
-                "constraint": "^1.0",
+                "constraint": "^1.0.1",
                 "prompt": "Would you like to install the official MVC plugins, including PRG support, identity, and flash messages?",
                 "module": true
             },
