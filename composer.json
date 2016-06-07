@@ -37,8 +37,8 @@
                 "module": true
             },
             {
-                "name": "zendframework/zend-form",
-                "constraint": "^2.8.3",
+                "name": "zendframework/zend-mvc-form",
+                "constraint": "^1.0",
                 "prompt": "Would you like to install forms support?",
                 "module": true
             },
