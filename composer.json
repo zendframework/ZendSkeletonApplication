@@ -22,6 +22,11 @@
             "Application\\": "module/Application/src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "ApplicationTest\\": "module/Application/test/"
+        }
+    },
     "extra": {
         "zend-skeleton-installer": [
             {
