@@ -42,7 +42,7 @@ $ composer require --dev zendframework/zend-test
 Once installed, you can run the tests using:
 
 ```bash
-$ vendor/phpunit/phpunit/phpunit
+$ ./vendor/bin/phpunit
 ```
 
 If you need to make local modifications to phpunit xml configuration file,
