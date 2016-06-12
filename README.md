@@ -47,7 +47,7 @@ $ ./vendor/bin/phpunit
 
 If you need to make local modifications to phpunit xml configuration file,
 copy `phpunit.xml.dist` to `phpunit.xml`, which will take precedence by the test runner
- and is ignored by the repository 
+ and is ignored by the repository.
 
 
 ## Using Vagrant

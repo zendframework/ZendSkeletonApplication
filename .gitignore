@@ -9,4 +9,4 @@ nbproject
 .settings
 vendor
 composer.phar
-phpunit.xml.dist
+phpunit.xml
