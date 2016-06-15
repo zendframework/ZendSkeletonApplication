@@ -29,6 +29,27 @@ interfaces.
 
 **Note:** The built-in CLI server is *for development only*.
 
+## Running Unit Tests
+
+To run the supplied skeleton unit tests, need to either choose to install
+MVC testing support during project creation, or to add [zend-test](https://zendframework.github.io/zend-test/)
+as a development dependency with
+
+```bash
+$ composer require --dev zendframework/zend-test
+```
+
+Once installed, you can run the tests using:
+
+```bash
+$ ./vendor/bin/phpunit
+```
+
+If you need to make local modifications to phpunit xml configuration file,
+copy `phpunit.xml.dist` to `phpunit.xml`, which will take precedence by the test runner
+ and is ignored by the repository.
+
+
 ## Using Vagrant
 
 This skeleton includes a `Vagrantfile` based on ubuntu 14.04, and using the
