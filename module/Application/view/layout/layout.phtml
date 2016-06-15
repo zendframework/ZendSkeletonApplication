@@ -20,7 +20,7 @@
         <!-- Scripts -->
         <?= $this->headScript()
             ->prependFile($this->basePath('js/bootstrap.min.js'))
-            ->prependFile($this->basePath('js/jquery-3.0.0.min.js'))
+            ->prependFile($this->basePath('js/jquery-2.2.4.min.js'))
         ?>
     </head>
     <body>
@@ -32,13 +32,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?= $this->url('home') ?>"><img src="<?= $this->basePath('img/zf-logo.png') ?>" alt="Zend Framework <?= \Application\Module::VERSION ?>"/>&nbsp;Skeleton Application</a>
+                    <a class="navbar-brand" href="<?php echo $this->url('home') ?>">
+                        <img src="<?= $this->basePath('img/zf-logo.png') ?>" alt="Zend Framework <?= \Application\Module::VERSION ?>"/>&nbsp;Skeleton Application
+                    </a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="<?= $this->url('home') ?>">Home</a></li>
                     </ul>
-                </div><!--/.nav-collapse -->
+                </div>
             </div>
         </nav>
         <div class="container">
@@ -47,7 +49,7 @@
             <footer>
                 <p>&copy; 2005 - <?= date('Y') ?> by Zend Technologies Ltd. All rights reserved.</p>
             </footer>
-        </div> <!-- /container -->
+        </div>
         <?= $this->inlineScript() ?>
     </body>
 </html>
