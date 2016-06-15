@@ -89,7 +89,7 @@
             },
             {
                 "name": "zendframework/zend-test",
-                "constraint": "^3.0",
+                "constraint": "^3.0.1",
                 "prompt": "Would you like to install MVC testing support?",
                 "dev": true
             },
