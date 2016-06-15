@@ -17,6 +17,11 @@
                         ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
         ?>
 
+        <!-- Scripts -->
+        <?php echo $this->headScript()
+            ->prependFile($this->basePath('js/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery-3.0.0.min.js'))
+        ?>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
