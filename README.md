@@ -122,9 +122,9 @@ project and you should be ready to go! It should look something like below:
 
 ```apache
 <VirtualHost *:80>
-    ServerName zf2-app.localhost
-    DocumentRoot /path/to/zf2-app/public
-    <Directory /path/to/zf2-app/public>
+    ServerName zfapp.localhost
+    DocumentRoot /path/to/zfapp/public
+    <Directory /path/to/zfapp/public>
         DirectoryIndex index.php
         AllowOverride All
         Order allow,deny
@@ -150,14 +150,14 @@ http {
 ```
 
 
-Create a virtual host configuration file for your project under `/path/to/nginx/sites-enabled/zf2-app.localhost.conf`
+Create a virtual host configuration file for your project under `/path/to/nginx/sites-enabled/zfapp.localhost.conf`
 it should look something like below:
 
 ```nginx
 server {
     listen       80;
-    server_name  zf2-app.localhost;
-    root         /path/to/zf2-app/public;
+    server_name  zfapp.localhost;
+    root         /path/to/zfapp/public;
 
     location / {
         index index.php;
@@ -167,7 +167,7 @@ server {
     location @php {
         # Pass the PHP requests to FastCGI server (php-fpm) on 127.0.0.1:9000
         fastcgi_pass   127.0.0.1:9000;
-        fastcgi_param  SCRIPT_FILENAME /path/to/zf2-app/public/index.php;
+        fastcgi_param  SCRIPT_FILENAME /path/to/zfapp/public/index.php;
         include fastcgi_params;
     }
 }
