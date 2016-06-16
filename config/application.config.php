@@ -53,7 +53,7 @@ return [
     ],
 
     // Used to create an own service manager. May contain one or more child arrays.
-    //'service_listener_options' => [
+    // 'service_listener_options' => [
     //     [
     //         'service_manager' => $stringServiceManagerName,
     //         'config_key'      => $stringConfigKey,
@@ -62,7 +62,7 @@ return [
     //     ],
     // ],
 
-   // Initial configuration with which to seed the ServiceManager.
-   // Should be compatible with Zend\ServiceManager\Config.
-   // 'service_manager' => [],
+    // Initial configuration with which to seed the ServiceManager.
+    // Should be compatible with Zend\ServiceManager\Config.
+    // 'service_manager' => [],
 ];
