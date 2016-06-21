@@ -73,7 +73,7 @@ function disable()
 {
     if (! file_exists('config/development.config.php')) {
         // nothing to do
-        echo "Development mode was already disabled.", PHP_EOL;
+        echo 'Development mode was already disabled.', PHP_EOL;
         return 0;
     }
 
@@ -86,7 +86,7 @@ function disable()
 
     removeConfigCacheFile(getConfigCacheFile());
 
-    echo "Development mode is now disabled.", PHP_EOL;
+    echo 'Development mode is now disabled.', PHP_EOL;
     return 0;
 }
 
@@ -99,14 +99,14 @@ function enable()
 {
     if (file_exists('config/development.config.php')) {
         // nothing to do
-        echo "Already in development mode!", PHP_EOL;
+        echo 'Already in development mode!', PHP_EOL;
         return 0;
     }
 
     if (! file_exists('config/development.config.php.dist')) {
         fwrite(
             STDERR,
-            "MISSING \"config/development.config.php.dist\". Could not switch to development mode!" . PHP_EOL
+            'MISSING "config/development.config.php.dist". Could not switch to development mode!' . PHP_EOL
         );
         return 1;
     }
