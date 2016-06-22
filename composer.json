@@ -54,7 +54,7 @@
             },
             {
                 "name": "zendframework/zend-log",
-                "constraint": "^2.8.2",
+                "constraint": "^2.9",
                 "prompt": "Would you like to install logging support?",
                 "module": true
             },
