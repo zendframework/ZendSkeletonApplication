@@ -6,10 +6,10 @@
  */
 
 return [
-    // Development time modules
+    // Additional modules to include when in development mode
     'modules' => [
     ],
-    // development time configuration globbing
+    // Configuration overrides during development mode
     'module_listener_options' => [
         'config_glob_paths' => ['config/autoload/{,*.}{global,local}-development.php'],
         'config_cache_enabled' => false,

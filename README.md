@@ -29,6 +29,23 @@ interfaces.
 
 **Note:** The built-in CLI server is *for development only*.
 
+## Development mode
+
+The skeleton ships with [zf-development-mode](https://github.com/zfcampus/zf-development-mode)
+by default, and provides three aliases for consuming the script it ships with:
+
+```bash
+$ composer development-enable  # enable development mode
+$ composer development-disable # enable development mode
+$ composer development-status  # whether or not development mode is enabled
+```
+
+You may provide development-only modules and bootstrap-level configuration in
+`config/development.config.php.dist`, and development-only application
+configuration in `config/autoload/development.local.php.dist`. Enabling
+development mode will copy these files to versions removing the `.dist` suffix,
+while disabling development mode will remove those copies.
+
 ## Running Unit Tests
 
 To run the supplied skeleton unit tests, you need to do one of the following:
