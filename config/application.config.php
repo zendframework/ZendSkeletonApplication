@@ -6,12 +6,8 @@
  * @see http://framework.zend.com/manual/current/en/tutorials/config.advanced.html#environment-specific-application-configuration
  */
 return [
-    // This should be an array of module namespaces used in the application.
-    'modules' => [
-        'Zend\Router',
-        'Zend\Validator',
-        'Application',
-    ],
+    // Retrieve list of modules used in this application.
+    'modules' => require __DIR__ . '/modules.config.php',
 
     // These are various options for the listeners attached to the ModuleManager
     'module_listener_options' => [

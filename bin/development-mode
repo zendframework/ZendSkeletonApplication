@@ -1,0 +1,220 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
+ * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd New BSD License
+ */
+class DevelopmentMode
+{
+    const CONFIG_CACHE_BASE = 'module-config-cache';
+
+    const APP_CONFIG_FILE = 'config/application.config.php';
+
+    private $config;
+
+    private $help = <<< EOH
+Enable/Disable development mode.
+
+Usage:
+
+development-mode [-h|--help] disable|enable
+
+--help|-h                    Print this usage message.
+disable                      Disable development mode.
+enable                       Enable development mode
+                             (do not use in production).
+
+To enable development mode, the following file MUST exist:
+
+- config/development.config.php.dist; this file will be copied to
+  config/development.config.php
+
+Optionally:
+
+- config/autoload/development.local.php.dist; this file will be copied to
+  config/autoload/development.local.php
+
+When disabling development mode:
+
+- config/development.config.php will be removed if it exists
+- config/autoload/development.local.php will be removed if it exists
+
+Additionally, both when disabling and enabling development mode, the
+script will remove the file cache/module-config-cache.php (or the file
+specified by the combination of the module_listener_options.cache_dir
+and module_listener_options.config_cache_key options).
+EOH;
+
+    public function __construct($argc, array $argv)
+    {
+        // Called without arguments
+        if ($argc < 2) {
+            $this->response(1, 'No arguments provided.' . PHP_EOL . PHP_EOL . $this->help);
+        }
+
+        // Requested help
+        if (in_array($argv[1], ['-h', '--help'], true)) {
+            $this->response(0, $this->help);
+        }
+
+        if (!in_array($argv[1], ['disable', 'enable'], true)) {
+            $this->response(1, 'Unrecognized argument.' . PHP_EOL . PHP_EOL . $this->help);
+        }
+
+        $action = $argv[1];
+        $this->$action();
+    }
+
+    protected function response($code, $text = null)
+    {
+        if ($text) {
+            if ($code != 0) {
+                fwrite(STDERR, $text . PHP_EOL);
+            } else {
+                echo $text . PHP_EOL;
+            }
+        }
+
+        exit($code);
+    }
+
+    /**
+     * Disable development mode
+     */
+    protected function disable()
+    {
+        if (!file_exists('config/development.config.php')) {
+            // nothing to do
+            $this->response(0, 'Development mode was already disabled.');
+        }
+
+        if (file_exists('config/autoload/development.local.php')) {
+            // optional application config override
+            unlink('config/autoload/development.local.php');
+        }
+
+        unlink('config/development.config.php');
+
+        $this->removeConfigCacheFile();
+
+        $this->response(0, 'Development mode is now disabled.');
+    }
+
+    /**
+     * Enable development mode
+     */
+    protected function enable()
+    {
+        if (file_exists('config/development.config.php')) {
+            // nothing to do
+            $this->response(0, 'Already in development mode!');
+        }
+
+        if (!file_exists('config/development.config.php.dist')) {
+            $this->response(1, 'MISSING "config/development.config.php.dist". Could not switch to development mode!');
+        }
+
+        copy('config/development.config.php.dist', 'config/development.config.php');
+
+        if (file_exists('config/autoload/development.local.php.dist')) {
+            // optional application config override
+            copy('config/autoload/development.local.php.dist', 'config/autoload/development.local.php');
+        }
+
+        $this->removeConfigCacheFile();
+
+        $this->response(0, 'You are now in development mode.');
+    }
+
+    /**
+     * Removes the application configuration cache file, if present.
+     */
+    protected function removeConfigCacheFile()
+    {
+        $configCacheFile = $this->getConfigCacheFile();
+
+        if ($configCacheFile && file_exists($configCacheFile)) {
+            unlink($configCacheFile);
+        }
+    }
+
+    /**
+     * Retrieve the config cache file, if any.
+     *
+     * @return false|string
+     */
+    protected function getConfigCacheFile()
+    {
+        if (!$configCacheDir = $this->getConfigCacheDir()) {
+            return false;
+        }
+
+        $path = sprintf('%s/%s.', $configCacheDir, self::CONFIG_CACHE_BASE);
+
+        if ($configCacheKey = $this->getConfigCacheKey()) {
+            $path .= $configCacheKey . '.';
+        }
+
+        return $path . 'php';
+    }
+
+    /**
+     * Return the configured configuration cache directory, if any.
+     *
+     * @return null|string
+     */
+    protected function getConfigCacheDir()
+    {
+        $config = $this->getApplicationConfig();
+        if (!empty($config['module_listener_options']['cache_dir'])) {
+            return $config['module_listener_options']['cache_dir'];
+        }
+
+        return null;
+    }
+
+    /**
+     * Return the configured configuration cache key, if any.
+     *
+     * @return null|string
+     */
+    protected function getConfigCacheKey()
+    {
+        $config = $this->getApplicationConfig();
+        if (!empty($config['module_listener_options']['config_cache_key'])) {
+            return $config['module_listener_options']['config_cache_key'];
+        }
+
+        return null;
+    }
+
+    /**
+     * Return the application configuration.
+     *
+     * Memorizes the discovered configuration so subsequent calls can re-use the value.
+     *
+     * Exits with status code 1 if unable to find the configuration.
+     *
+     * @return array
+     */
+    protected function getApplicationConfig()
+    {
+        if (!$this->config) {
+            if (!file_exists(self::APP_CONFIG_FILE)) {
+                $this->response(
+                    1,
+                    'Cannot locate ' . self::APP_CONFIG_FILE . '; are you in the' . PHP_EOL
+                    . 'application root, and is this a ZendFramework application?'
+                );
+            }
+
+            $this->config = include self::APP_CONFIG_FILE;
+        }
+
+        return $this->config;
+    }
+}
+
+new DevelopmentMode($argc, $argv);
