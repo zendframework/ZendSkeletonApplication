@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "60cce4eab67f50f97ffb881225402af2",
-    "content-hash": "b54dc57df8c36223af5e033b1a7bb14c",
+    "hash": "9a63c9429f7cd5043cb00de938cf4272",
+    "content-hash": "c891b4668696c36daa3beed6ab0e95b1",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -387,16 +387,16 @@
         },
         {
             "name": "zendframework/zend-mvc",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-mvc.git",
-                "reference": "af8c5bf21a7f5f61e997797b514a7c31c5a00b9a"
+                "reference": "dc9926ae85798c6765ae4124a19ec24a2e50f6cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-mvc/zipball/af8c5bf21a7f5f61e997797b514a7c31c5a00b9a",
-                "reference": "af8c5bf21a7f5f61e997797b514a7c31c5a00b9a",
+                "url": "https://api.github.com/repos/zendframework/zend-mvc/zipball/dc9926ae85798c6765ae4124a19ec24a2e50f6cb",
+                "reference": "dc9926ae85798c6765ae4124a19ec24a2e50f6cb",
                 "shasum": ""
             },
             "require": {
@@ -448,7 +448,7 @@
                 "mvc",
                 "zf2"
             ],
-            "time": "2016-05-31 19:27:09"
+            "time": "2016-06-23 20:39:38"
         },
         {
             "name": "zendframework/zend-router",
@@ -704,16 +704,16 @@
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.8.0",
+            "version": "2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
-                "reference": "f956581bc5fa4cf3f2933fe24e77deded8d1937b"
+                "reference": "8ec9f57a717dd37340308aa632f148a2c2be1cfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/f956581bc5fa4cf3f2933fe24e77deded8d1937b",
-                "reference": "f956581bc5fa4cf3f2933fe24e77deded8d1937b",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/8ec9f57a717dd37340308aa632f148a2c2be1cfc",
+                "reference": "8ec9f57a717dd37340308aa632f148a2c2be1cfc",
                 "shasum": ""
             },
             "require": {
@@ -771,7 +771,7 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2016-05-16 13:39:40"
+            "time": "2016-06-23 13:44:31"
         },
         {
             "name": "zendframework/zend-view",
