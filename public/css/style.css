@@ -23,11 +23,7 @@ body {
 .btn-success.active,
 .btn-success.disabled,
 .btn-success[disabled] {
-  background-color: #57a900;
-}
-
-.btn-success:active, .btn-success.active {
-  background-color: #57a900;
+    background-color: #57a900;
 }
 
 div.container a.navbar-brand > img {
