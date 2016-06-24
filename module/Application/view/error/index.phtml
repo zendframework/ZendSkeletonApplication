@@ -1,8 +1,8 @@
 <h1>An error occurred</h1>
 <h2><?= $this->message ?></h2>
 
-<?php if (isset($this->display_exceptions) && $this->display_exceptions): ?>
-    <?php if (isset($this->exception) && ($this->exception instanceof \Exception || $this->exception instanceof \Error)): ?>
+<?php if (isset($this->display_exceptions) && $this->display_exceptions) : ?>
+    <?php if (isset($this->exception) && ($this->exception instanceof \Exception || $this->exception instanceof \Error)) : ?>
         <hr/>
 
         <h2>Additional information:</h2>
@@ -22,13 +22,13 @@
             </dd>
         </dl>
 
-        <?php if ($ex = $this->exception->getPrevious()): ?>
+        <?php if ($ex = $this->exception->getPrevious()) : ?>
             <hr/>
 
             <h2>Previous exceptions:</h2>
             <ul class="list-unstyled">
                 <?php $icount = 0; ?>
-                <?php while ($ex): ?>
+                <?php while ($ex) : ?>
                     <li>
                         <h3><?= get_class($ex) ?></h3>
                         <dl>

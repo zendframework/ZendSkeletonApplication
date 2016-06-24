@@ -1,7 +1,7 @@
 <h1>A 404 error occurred</h1>
 <h2><?= $this->message ?></h2>
 
-<?php if (!empty($this->reason)): ?>
+<?php if (!empty($this->reason)) : ?>
     <?php
     switch ($this->reason) {
         case \Zend\Mvc\Application::ERROR_CONTROLLER_CANNOT_DISPATCH:
@@ -27,7 +27,7 @@
     <p><?= $reasonMessage ?></p>
 <?php endif ?>
 
-<?php if (isset($this->controller) && $this->controller): ?>
+<?php if (isset($this->controller) && $this->controller) : ?>
     <dl>
         <dt>Controller:</dt>
         <dd>
@@ -44,8 +44,8 @@
     </dl>
 <?php endif ?>
 
-<?php if (isset($this->display_exceptions) && $this->display_exceptions): ?>
-    <?php if (isset($this->exception) && ($this->exception instanceof \Exception || $this->exception instanceof \Error)): ?>
+<?php if (isset($this->display_exceptions) && $this->display_exceptions) : ?>
+    <?php if (isset($this->exception) && ($this->exception instanceof \Exception || $this->exception instanceof \Error)) : ?>
         <hr/>
 
         <h2>Additional information:</h2>
@@ -65,13 +65,13 @@
             </dd>
         </dl>
 
-        <?php if ($ex = $this->exception->getPrevious()): ?>
+        <?php if ($ex = $this->exception->getPrevious()) : ?>
             <hr/>
 
             <h2>Previous exceptions:</h2>
             <ul class="list-unstyled">
                 <?php $icount = 0; ?>
-                <?php while ($ex): ?>
+                <?php while ($ex) : ?>
                     <li>
                         <h3><?= get_class($ex) ?></h3>
                         <dl>
