@@ -29,4 +29,5 @@ body {
 div.container a.navbar-brand > img {
     display: inline;
     margin-right: 4px;
+    margin-top: -2px;
 }
