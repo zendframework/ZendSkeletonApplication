@@ -31,6 +31,13 @@
     "extra": {
         "zend-skeleton-installer": [
             {
+                "name": "zendframework/zend-developer-tools",
+                "constraint": "^1.1.0",
+                "prompt": "Would you like to install the developer toolbar?",
+                "module": true,
+                "dev": true
+            },
+            {
                 "name": "zendframework/zend-cache",
                 "constraint": "^2.7.1",
                 "prompt": "Would you like to install caching support?",
