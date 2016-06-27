@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9a63c9429f7cd5043cb00de938cf4272",
-    "content-hash": "c891b4668696c36daa3beed6ab0e95b1",
+    "hash": "68b34965034959dd0cc938584e52fc9d",
+    "content-hash": "bbc4cf51d583edd647a090e9419d33ef",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -36,21 +36,21 @@
         },
         {
             "name": "zendframework/zend-component-installer",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-component-installer.git",
-                "reference": "a8364d76ccadf5096b81b27740a618eae7f78a01"
+                "reference": "63149eb094b67a142e014a793853125165870fbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-component-installer/zipball/a8364d76ccadf5096b81b27740a618eae7f78a01",
-                "reference": "a8364d76ccadf5096b81b27740a618eae7f78a01",
+                "url": "https://api.github.com/repos/zendframework/zend-component-installer/zipball/63149eb094b67a142e014a793853125165870fbf",
+                "reference": "63149eb094b67a142e014a793853125165870fbf",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.0",
-                "php": "^5.5 || ^7.0"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
                 "composer/composer": ">=1.0.0-alpha10",
@@ -76,7 +76,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Composer plugin for automating component registration in zend-mvc and Expressive applications",
-            "time": "2016-06-02 17:44:01"
+            "time": "2016-06-27 21:18:08"
         },
         {
             "name": "zendframework/zend-config",
@@ -568,22 +568,22 @@
         },
         {
             "name": "zendframework/zend-skeleton-installer",
-            "version": "0.1.2",
+            "version": "0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-skeleton-installer.git",
-                "reference": "9922d88ced064898fa58cad947301fd1599f2ae4"
+                "reference": "450b7455de0793fe4329a7f71406cd5cf846b96b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-skeleton-installer/zipball/9922d88ced064898fa58cad947301fd1599f2ae4",
-                "reference": "9922d88ced064898fa58cad947301fd1599f2ae4",
+                "url": "https://api.github.com/repos/zendframework/zend-skeleton-installer/zipball/450b7455de0793fe4329a7f71406cd5cf846b96b",
+                "reference": "450b7455de0793fe4329a7f71406cd5cf846b96b",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.0",
                 "php": "^5.6 || ^7.0",
-                "zendframework/zend-component-installer": "^1.0 || ^0.2 || ^1.0.0-dev@dev"
+                "zendframework/zend-component-installer": "^1.0 || ^0.3 || ^1.0.0-dev@dev"
             },
             "require-dev": {
                 "composer/composer": "^1.0",
@@ -608,7 +608,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Installer plugin for Zend Framework skeleton application",
-            "time": "2016-06-02 18:33:57"
+            "time": "2016-06-27 21:44:58"
         },
         {
             "name": "zendframework/zend-stdlib",
