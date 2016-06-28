@@ -7,5 +7,7 @@ nbproject
 .idea
 .project
 .settings
-vendor
+vendor/
 composer.phar
+config/development.config.php
+phpunit.xml

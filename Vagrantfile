@@ -4,36 +4,25 @@
 VAGRANTFILE_API_VERSION = '2'
 
 @script = <<SCRIPT
-DOCUMENT_ROOT_ZEND="/var/www/zf/public"
+add-apt-repository ppa:ondrej/php
 apt-get update
-apt-get install -y apache2 git curl php5-cli php5 php5-intl libapache2-mod-php5
-echo "
-<VirtualHost *:80>
-    ServerName skeleton-zf.local
-    DocumentRoot $DOCUMENT_ROOT_ZEND
-    <Directory $DOCUMENT_ROOT_ZEND>
-        DirectoryIndex index.php
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-    </Directory>
-</VirtualHost>
-" > /etc/apache2/sites-available/skeleton-zf.conf
+apt-get install -y apache2 git curl php7.0 php7.0-bcmath php7.0-bz2 php7.0-cli php7.0-curl php7.0-intl php7.0-json php7.0-mbstring php7.0-opcache php7.0-soap php7.0-sqlite3 php7.0-xml php7.0-xsl php7.0-zip libapache2-mod-php7.0
+sed -i 's!/var/www/html!/var/www/public!g' /etc/apache2/sites-available/000-default.conf
 a2enmod rewrite
-a2dissite 000-default
-a2ensite skeleton-zf
 service apache2 restart
-cd /var/www/zf
-curl -Ss https://getcomposer.org/installer | php
-php composer.phar install --no-progress
-echo "** [ZEND] Visit http://localhost:8085 in your browser for to view the application **"
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+if ! grep "cd /var/www" /home/vagrant/.profile > /dev/null; then
+    echo "cd /var/www" >> /home/vagrant/.profile
+fi
+echo "** [ZF] Run the following command to install dependencies, if you have not already:"
+echo "    vagrant ssh -c 'composer install'"
+echo "** [ZF] Visit http://localhost:8080 in your browser for to view the application **"
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = 'bento/ubuntu-14.04'
-  config.vm.network "forwarded_port", guest: 80, host: 8085
-  config.vm.hostname = "skeleton-zf.local"
-  config.vm.synced_folder '.', '/var/www/zf'
+  config.vm.box = 'ubuntu/trusty64'
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.synced_folder '.', '/var/www'
   config.vm.provision 'shell', inline: @script
 
   config.vm.provider "virtualbox" do |vb|
