@@ -7,7 +7,7 @@
 
 namespace Application;
 
-class Module
+class Module implements ConfigProviderInterface
 {
     const VERSION = '3.0.0dev';
 
