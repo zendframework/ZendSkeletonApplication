@@ -7,6 +7,8 @@
 
 namespace Application;
 
+use Zend\ModuleManager\Feature\ConfigProviderInterface;
+
 class Module implements ConfigProviderInterface
 {
     const VERSION = '3.0.0dev';
