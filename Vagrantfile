@@ -11,8 +11,8 @@ sed -i 's!/var/www/html!/var/www/public!g' /etc/apache2/sites-available/000-defa
 a2enmod rewrite
 service apache2 restart
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-if ! grep "cd /var/www" /home/vagrant/.profile > /dev/null; then
-    echo "cd /var/www" >> /home/vagrant/.profile
+if ! grep "cd /var/www" /home/ubuntu/.profile > /dev/null; then
+    echo "cd /var/www" >> /home/ubuntu/.profile
 fi
 echo "** [ZF] Run the following command to install dependencies, if you have not already:"
 echo "    vagrant ssh -c 'composer install'"
@@ -20,7 +20,7 @@ echo "** [ZF] Visit http://localhost:8080 in your browser for to view the applic
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = 'ubuntu/trusty64'
+  config.vm.box = 'ubuntu/xenial64'
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.synced_folder '.', '/var/www'
   config.vm.provision 'shell', inline: @script
@@ -28,5 +28,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
-
 end

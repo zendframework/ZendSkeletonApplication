@@ -71,7 +71,7 @@ control. (If you want to make the modifications permanent, edit the
 
 ## Using Vagrant
 
-This skeleton includes a `Vagrantfile` based on ubuntu 14.04, and using the
+This skeleton includes a `Vagrantfile` based on ubuntu 16.04, and using the
 ondrej/php PPA to provide PHP 7.0. Start it up using:
 
 ```bash
