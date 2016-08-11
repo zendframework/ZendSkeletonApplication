@@ -94,6 +94,16 @@ $ vagrant ssh -c 'composer update'
 While running, Vagrant maps your host port 8080 to port 80 on the virtual
 machine; you can visit the site at http://localhost:8080/
 
+> ### Vagrant and VirtualBox
+>
+> The vagrant image is based on ubuntu/xenial64. If you are using VirtualBox as
+> a provider, you will need:
+>
+> - Vagrant 1.8.5 or later
+> - VirtualBox 5.0.26 or later
+
+For vagrant documentation, please refer to [vagrantup.com](https://www.vagrantup.com/)
+
 ## Using docker-compose
 
 This skeleton provides a `docker-compose.yml` for use with
