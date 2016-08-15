@@ -71,7 +71,7 @@ control. (If you want to make the modifications permanent, edit the
 
 ## Using Vagrant
 
-This skeleton includes a `Vagrantfile` based on ubuntu 14.04, and using the
+This skeleton includes a `Vagrantfile` based on ubuntu 16.04, and using the
 ondrej/php PPA to provide PHP 7.0. Start it up using:
 
 ```bash
@@ -93,6 +93,16 @@ $ vagrant ssh -c 'composer update'
 
 While running, Vagrant maps your host port 8080 to port 80 on the virtual
 machine; you can visit the site at http://localhost:8080/
+
+> ### Vagrant and VirtualBox
+>
+> The vagrant image is based on ubuntu/xenial64. If you are using VirtualBox as
+> a provider, you will need:
+>
+> - Vagrant 1.8.5 or later
+> - VirtualBox 5.0.26 or later
+
+For vagrant documentation, please refer to [vagrantup.com](https://www.vagrantup.com/)
 
 ## Using docker-compose
 
