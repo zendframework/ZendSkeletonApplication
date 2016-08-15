@@ -6,7 +6,7 @@
     "keywords": [
         "framework",
         "mvc",
-        "zf3"
+        "zf"
     ],
     "homepage": "http://framework.zend.com/",
     "minimum-stability": "dev",
