@@ -42,7 +42,8 @@
 <?php endif ?>
 
 <?php if (! empty($this->display_exceptions)) : ?>
-    <?php if (isset($this->exception) && ($this->exception instanceof \Exception || $this->exception instanceof \Error)) : ?>
+    <?php if (isset($this->exception)
+        && ($this->exception instanceof \Exception || $this->exception instanceof \Error)) : ?>
 <hr/>
 
 <h2>Additional information:</h2>
