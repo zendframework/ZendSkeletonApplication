@@ -184,3 +184,31 @@ server {
 ```
 
 Restart the nginx, now you should be ready to go!
+
+## QA Tools
+
+The skeleton does not come with any QA tooling by default, but does ship with
+configuration for each of:
+
+- [phpcs](https://github.com/squizlabs/php_codesniffer)
+- [phpunit](https://phpunit.de)
+
+Additionally, it comes with some basic tests for the shipped
+`Application\Controller\IndexController`.
+
+If you want to add these QA tools, execute the following:
+
+```bash
+$ composer require --dev phpunit/phpunit squizlabs/php_codesniffer zendframework/zend-test
+```
+
+We provide aliases for each of these tools in the Composer configuration:
+
+```bash
+# Run CS checks:
+$ composer cs-check
+# Fix CS errors:
+$ composer cs-fix
+# Run PHPUnit tests:
+$ composer test
+```
