@@ -21,11 +21,15 @@ $ composer create-project -sdev zendframework/skeleton-application path/to/insta
 Once installed, you can test it out immediately using PHP's built-in web server:
 
 ```bash
+$ cd path/to/install
 $ php -S 0.0.0.0:8080 -t public/ public/index.php
+# OR use the composer alias:
+$ composer serve
 ```
 
 This will start the cli-server on port 8080, and bind it to all network
-interfaces.
+interfaces. You can then visit the site at http://localhost:8080/
+- which will bring up Zend Framework welcome page.
 
 **Note:** The built-in CLI server is *for development only*.
 
@@ -184,3 +188,31 @@ server {
 ```
 
 Restart the nginx, now you should be ready to go!
+
+## QA Tools
+
+The skeleton does not come with any QA tooling by default, but does ship with
+configuration for each of:
+
+- [phpcs](https://github.com/squizlabs/php_codesniffer)
+- [phpunit](https://phpunit.de)
+
+Additionally, it comes with some basic tests for the shipped
+`Application\Controller\IndexController`.
+
+If you want to add these QA tools, execute the following:
+
+```bash
+$ composer require --dev phpunit/phpunit squizlabs/php_codesniffer zendframework/zend-test
+```
+
+We provide aliases for each of these tools in the Composer configuration:
+
+```bash
+# Run CS checks:
+$ composer cs-check
+# Fix CS errors:
+$ composer cs-fix
+# Run PHPUnit tests:
+$ composer test
+```
