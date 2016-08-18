@@ -9,6 +9,14 @@
         building your application on ZF.
     </p>
 
+    <p>Here are the list of ZF components installed</p>
+    <?php $zendframeworkComponents = array_slice(scandir('./vendor/zendframework'), 2); ?>
+    <ul>
+        <?php foreach ($zendframeworkComponents as $component) { ?>
+            <li><?php echo 'zendframework/' . $component . ':' . \PackageVersions\Versions::getVersion('zendframework/'.$component) ?></li>
+        <?php } ?>
+    </ul>
+
     <p><a class="btn btn-success btn-lg" href="https://github.com/zendframework/zendframework" target="_blank">Fork Zend Framework on GitHub &raquo;</a></p>
 </div>
 
