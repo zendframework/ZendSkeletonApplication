@@ -13,5 +13,8 @@
     "zf",
     "ZF3"
   ],
-  "license": "BSD-3-Clause"
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
 }
