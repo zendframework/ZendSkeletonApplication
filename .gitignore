@@ -7,4 +7,6 @@ nbproject
 .project
 .settings
 composer.lock
-vendor/bin
+vendor/
+!vendor/README.md
+!vendor/ZF2/
