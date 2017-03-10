@@ -1,7 +1,18 @@
-zf:
-  build: .
-  dockerfile: Dockerfile
-  ports:
-   - "8080:80"
-  volumes:
-   - .:/var/www
+version: '2'
+
+volumes:
+  cache:
+    driver: local
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
+      o: uid=33
+
+services:
+  zf:
+    build: .
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www
+      - cache:/var/www/data/cache
