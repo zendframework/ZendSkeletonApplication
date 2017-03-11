@@ -1,0 +1,20 @@
+{
+  "name": "ZendSkeletonApplication",
+  "homepage": "https://github.com/zendframework/ZendSkeletonApplication",
+  "authors": [
+    "Eli Alejandro <iscelialejandro@gmail.com>"
+  ],
+  "description": "Skeleton Application for Zend Framework zend-mvc applications",
+  "main": "",
+  "keywords": [
+    "framework",
+    "zend",
+    "mvc",
+    "zf",
+    "ZF3"
+  ],
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
