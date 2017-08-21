@@ -14,7 +14,6 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "zendframework/zend-component-installer": "^1.0 || ^0.7 || ^1.0.0-dev@dev",
-        "zendframework/zend-skeleton-installer": "^1.0 || ^0.1.3 || ^1.0.0-dev@dev",
         "zendframework/zend-mvc": "^3.0.1",
         "zfcampus/zf-development-mode": "^3.0"
     },
@@ -28,94 +27,16 @@
             "ApplicationTest\\": "module/Application/test/"
         }
     },
-    "extra": {
-        "zend-skeleton-installer": [
-            {
-                "name": "zendframework/zend-developer-tools",
-                "constraint": "^1.1.0",
-                "prompt": "Would you like to install the developer toolbar?",
-                "module": true,
-                "dev": true
-            },
-            {
-                "name": "zendframework/zend-cache",
-                "constraint": "^2.7.1",
-                "prompt": "Would you like to install caching support?",
-                "module": true
-            },
-            {
-                "name": "zendframework/zend-db",
-                "constraint": "^2.8.1",
-                "prompt": "Would you like to install database support (installs zend-db)?",
-                "module": true
-            },
-            {
-                "name": "zendframework/zend-mvc-form",
-                "constraint": "^1.0",
-                "prompt": "Would you like to install forms support?",
-                "module": true
-            },
-            {
-                "name": "zendframework/zend-json",
-                "constraint": "^3.0",
-                "prompt": "Would you like to install JSON de/serialization support?"
-            },
-            {
-                "name": "zendframework/zend-log",
-                "constraint": "^2.9",
-                "prompt": "Would you like to install logging support?",
-                "module": true
-            },
-            {
-                "name": "zendframework/zend-mvc-console",
-                "constraint": "^1.1.10",
-                "prompt": "Would you like to install MVC-based console support? (We recommend migrating to zf-console, symfony/console, or Aura.CLI)",
-                "module": true
-            },
-            {
-                "name": "zendframework/zend-mvc-i18n",
-                "constraint": "^1.0",
-                "prompt": "Would you like to install i18n support?",
-                "module": true
-            },
-            {
-                "name": "zendframework/zend-mvc-plugins",
-                "constraint": "^1.0.1",
-                "prompt": "Would you like to install the official MVC plugins, including PRG support, identity, and flash messages?",
-                "module": true
-            },
-            {
-                "name": "zendframework/zend-psr7bridge",
-                "constraint": "^0.2.2",
-                "prompt": "Would you like to use the PSR-7 middleware dispatcher?"
-            },
-            {
-                "name": "zendframework/zend-session",
-                "constraint": "^2.7.1",
-                "prompt": "Would you like to install sessions support?",
-                "module": true
-            },
-            {
-                "name": "zendframework/zend-test",
-                "constraint": "^3.0.1",
-                "prompt": "Would you like to install MVC testing support?",
-                "dev": true
-            },
-            {
-                "name": "zendframework/zend-servicemanager-di",
-                "constraint": "^1.0",
-                "prompt": "Would you like to install the zend-di integration for zend-servicemanager?",
-                "module": true
-            }
-        ]
-    },
+    "extra": [],
     "scripts": {
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
         "development-disable": "zf-development-mode disable",
         "development-enable": "zf-development-mode enable",
         "development-status": "zf-development-mode status",
-        "post-create-project-cmd": ["@development-enable"],
+        "post-create-project-cmd": [
+            "@development-enable"
+        ],
         "serve": "php -S 0.0.0.0:8080 -t public public/index.php",
         "test": "phpunit"
     }
