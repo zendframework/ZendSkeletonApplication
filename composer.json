@@ -19,12 +19,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Application\\": "module/Application/src/"
+            "Application\\": "module/Application/src/",
+            "ZendSkeletonModule\\": "module/ZendSkeletonModule/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ApplicationTest\\": "module/Application/test/"
+            "ApplicationTest\\": "module/Application/test/",
+            "ZendSkeletonModule\\": "module/ZendSkeletonModule/src/"
         }
     },
     "extra": [],

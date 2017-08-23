@@ -17,7 +17,7 @@ return [
             'home' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/',
+                    'route'    => '/app',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
