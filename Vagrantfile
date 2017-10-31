@@ -9,7 +9,7 @@ apt-get update
 apt-get install -y apache2 git curl php7.0 php7.0-bcmath php7.0-bz2 php7.0-cli php7.0-curl php7.0-intl php7.0-json php7.0-mbstring php7.0-opcache php7.0-soap php7.0-sqlite3 php7.0-xml php7.0-xsl php7.0-zip libapache2-mod-php7.0
 
 # Configure Apache
-echo "<VirtualHost *:80>
+echo '<VirtualHost *:80>
 	DocumentRoot /var/www/public
 	AllowEncodedSlashes On
 
@@ -23,7 +23,7 @@ echo "<VirtualHost *:80>
 
 	ErrorLog ${APACHE_LOG_DIR}/error.log
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>" > /etc/apache2/sites-available/000-default.conf
+</VirtualHost>' > /etc/apache2/sites-available/000-default.conf
 a2enmod rewrite
 service apache2 restart
 
