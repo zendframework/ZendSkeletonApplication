@@ -1,55 +1,70 @@
-<?= $this->doctype() ?>
-
+<?php echo $this->doctype() ?>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <?= $this->headTitle('ZF Skeleton Application')->setSeparator(' - ')->setAutoEscape(false) ?>
+  <head>
+      <meta charset="utf-8">
+      <?php echo $this->headTitle('ZF Skeleton Application')->setSeparator(' - ')->setAutoEscape(false) ?>
 
-        <?= $this->headMeta()
-            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
-            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
-        ?>
 
-        <!-- Le styles -->
-        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
-            ->prependStylesheet($this->basePath('css/style.css'))
-            ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
-            ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
-        ?>
+      <?php echo $this->headMeta()
+          ->appendName('viewport', 'width=device-width, initial-scale=1, shrink-to-fit=no')
+      ?>
 
-        <!-- Scripts -->
-        <?= $this->headScript()
-            ->prependFile($this->basePath('js/bootstrap.min.js'))
-            ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
-        ?>
-    </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="<?= $this->url('home') ?>">
-                        <img src="<?= $this->basePath('img/zf-logo-mark.svg') ?>" height="28" alt="Zend Framework <?= \Application\Module::VERSION ?>"/>&nbsp;Skeleton Application
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="<?= $this->url('home') ?>">Home</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="container">
-            <?= $this->content ?>
-            <hr>
-            <footer>
-                <p>&copy; 2005 - <?= date('Y') ?> by Zend Technologies Ltd. All rights reserved.</p>
-            </footer>
-        </div>
-        <?= $this->inlineScript() ?>
-    </body>
+      <!-- Le styles -->
+      <?php echo $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+          ->prependStylesheet('css/style.css')
+          ->prependStylesheet('css/bootstrap.min.css')
+          ->prependStylesheet('css/font-awesome.min.css');
+      ?>
+
+      <!-- Scripts -->
+      <?php echo $this->inlineScript()
+          ->prependFile('js/bootstrap.min.js')
+          ->prependFile('js/jquery-3.3.1.min.js')
+          ->prependFile('js/font-awesome.min.js');
+      ?>
+  </head>
+  <body class="app">
+      <header class="app-header">
+          <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" role="navigation">
+              <div class="container">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="#navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <!-- Brand -->
+                      <a class="navbar-brand" href="<?php echo $this->url('home')?>">
+                        <img src="<?php echo $this->basePath('img/zf-logo-mark.svg') ?>" height="28" alt="Zend Framework <?php echo \Application\Module::VERSION ?>"/>&nbsp;Skeleton Application
+                      </a>
+                  </div>
+                  <!-- Links -->
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                      <ul class="navbar-nav mr-auto">
+                          <li class="nav-item">
+                              <a href="<?php echo $this->url('application')?>" class="nav-link">
+                                  Application
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+      </header>
+
+      <div class="app-content">
+          <main class="container">
+              <?php echo $this->content?>
+          </main>
+      </div>
+
+      <footer class="app-footer">
+          <div class="container">
+              <hr />
+              <p>
+                  &copy; 2005 - <?php echo date('Y')?> by Zend Technologies Ltd. All rights reserved.
+              </p>
+          </div>
+      </footer>
+
+      <?php echo $this->inlineScript()?>
+  </body>
 </html>
