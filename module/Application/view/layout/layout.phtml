@@ -1,7 +1,6 @@
 <?= $this->doctype() ?>
 <?php
     $this->headLink()
-        ->prependStylesheet('css/style.css')
         ->prependStylesheet('https://use.fontawesome.com/releases/v5.0.6/css/all.css')
         ->prependStylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
     $this->inlineScript()
@@ -18,6 +17,12 @@
     <?=$this->headTitle('ZF Skeleton Application')->setSeparator(' - ')->setAutoEscape(false)?>
     <?=$this->headMeta()?>
     <?=$this->headLink()?>
+    <style type="text/css">
+        body { padding-top: 70px; }
+        .app { min-height: 100vh; }
+        .app-footer { padding-bottom: 1em; }
+        .zf-green, h2 a { color: #68b604; }
+    </style>
 </head>
 <body class="app">
     <header class="app-header">
