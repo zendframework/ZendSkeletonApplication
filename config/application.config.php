@@ -11,6 +11,10 @@ return [
 
     // These are various options for the listeners attached to the ModuleManager
     'module_listener_options' => [
+        
+         // use composer autoloader instead of zend-loader
+        'use_zend_loader' => false,
+        
         // This should be an array of paths in which modules reside.
         // If a string key is provided, the listener will consider that a module
         // namespace, the value of that key the specific path to that module's
