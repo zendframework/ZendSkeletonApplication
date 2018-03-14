@@ -19,7 +19,8 @@
         "zendframework/zend-mvc-form": "^1.0",
         "symfony/var-dumper": "^3.4",
         "doctrine/doctrine-orm-module": "^1.1",
-        "ghislainf/zf2-whoops": "dev-master"
+        "ghislainf/zf2-whoops": "dev-master",
+        "oxcom/zend-twig": "^0.1.7"
     },
     "autoload": {
         "psr-4": {
