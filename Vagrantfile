@@ -38,13 +38,17 @@ if ! grep -q "cd /var/www" /home/vagrant/.profile; then
     echo "cd /var/www" >> /home/vagrant/.profile
 fi
 
+export DEBIAN_FRONTEND=noninteractive
+sudo -E apt-get -q -y install mysql-server
+apt-get -y install mysql-client
+
 echo "** [ZF] Run the following command to install dependencies, if you have not already:"
 echo "    vagrant ssh -c 'composer install'"
 echo "** [ZF] Visit http://localhost:8080 in your browser for to view the application **"
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = 'bento/ubuntu-16.04'
+  config.vm.box = 'ubuntu/xenial64'
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.synced_folder '.', '/var/www'
   config.vm.provision 'shell', inline: @script
