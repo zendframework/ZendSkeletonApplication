@@ -38,7 +38,7 @@ return [
     ],
     'view_manager' => [
         'template_map' => [
-            'application/index/index' => __DIR__ . '/../view/material/material/index.phtml',
+            'material/material/index' => __DIR__ . '/../view/material/material/index.phtml',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
