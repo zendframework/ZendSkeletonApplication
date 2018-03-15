@@ -17,5 +17,6 @@ return [
     'DoctrineORMModule',
     'Application',
     'Material',
-    'ZendTwig'
+    'ZendTwig',
+    'Standard'
 ];

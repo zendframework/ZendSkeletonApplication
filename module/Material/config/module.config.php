@@ -13,13 +13,45 @@ use Zend\Router\Http\Segment;
 return [
     'router' => [
         'routes' => [
-            'material' => [
+            'materials' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/material[/:action]',
+                    'route'    => '/materials',
                     'defaults' => [
                         'controller' => MaterialController::class,
                         'action'     => 'index',
+                    ],
+                ],
+                'child_routes' => [
+                    'add_material' => [
+                        'options' => [
+                            'route'    => '/add',
+                            'defaults' => [
+                                'action'     => 'add',
+                            ],
+                        ],
+                    ],
+                    'edit_material' => [
+                        'options' => [
+                            'route'    => '/edit/:id',
+                            'constraints' => [
+                                'id'  => '[0-9]+',
+                            ],
+                            'defaults' => [
+                                'action'     => 'add',
+                            ],
+                        ],
+                    ],
+                    'remove_material' => [
+                        'options' => [
+                            'route'    => '/remove/:id',
+                            'constraints' => [
+                                'id'  => '[0-9]+',
+                            ],
+                            'defaults' => [
+                                'action'     => 'add',
+                            ],
+                        ],
                     ],
                 ],
             ],
@@ -38,7 +70,9 @@ return [
     ],
     'view_manager' => [
         'template_map' => [
-            'material/material/index' => __DIR__ . '/../view/material/material/index.twig',
+            'material/material/index'   => __DIR__ . '/../view/material/material/index.twig',
+            'material/material/add'     => __DIR__ . '/../view/material/material/form.twig',
+            'material/material/edit'    => __DIR__ . '/../view/material/material/form.twig',
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',

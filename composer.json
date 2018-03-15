@@ -25,7 +25,8 @@
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
-            "Material\\": "module/Material/src/"
+            "Material\\": "module/Material/src/",
+            "Standard\\": "module/Standard/src/"
         }
     },
     "autoload-dev": {
