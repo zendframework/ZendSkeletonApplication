@@ -18,9 +18,10 @@ class MaterialRepositoryFactory implements FactoryInterface
      * @return MaterialService|object
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null) {
+        $entityManager = $container->get('doctrine.entitymanager.orm_default');
 
-        dump($container);exit;
-
-        return new MaterialRepository();
+        return new MaterialRepository(
+            $entityManager
+        );
     }
 }

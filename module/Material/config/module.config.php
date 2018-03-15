@@ -44,4 +44,19 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+    'doctrine'        => [
+        'driver'        => [
+            'material_entities' => [
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => [__DIR__ . '/../src/Entity'],
+            ],
+            'orm_default'    => [
+                'drivers' => [
+                    'Material\Entity' => 'material_entities',
+                ],
+
+            ],
+        ],
+    ],
 ];

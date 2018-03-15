@@ -3,9 +3,15 @@
 namespace Material\Factory;
 
 use Interop\Container\ContainerInterface;
+use Material\Repository\MaterialRepository;
 use Material\Service\MaterialService;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
+/**
+ * Class MaterialServiceFactory
+ *
+ * @package Material\Factory
+ */
 class MaterialServiceFactory implements FactoryInterface
 {
 
@@ -15,8 +21,13 @@ class MaterialServiceFactory implements FactoryInterface
      * @param array|null $options
      *
      * @return MaterialService|object
+     *
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null) {
-        return new MaterialService();
+        $materialRepository = $container->get(MaterialRepository::class);
+
+        return new MaterialService($materialRepository);
     }
 }
