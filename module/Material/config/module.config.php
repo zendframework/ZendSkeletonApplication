@@ -16,7 +16,7 @@ return [
             'materials' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/materials',
+                    'route'    => '/materials[/page/:page/limit/:limit]',
                     'defaults' => [
                         'controller' => MaterialController::class,
                         'action'     => 'index',

@@ -4,6 +4,7 @@ namespace Material\Controller;
 
 use Material\Form\MaterialForm;
 use Material\Service\MaterialService;
+use Standard\Pagination\Enum\PaginationEnum;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Paginator\Paginator;
 
@@ -26,11 +27,10 @@ class MaterialController extends AbstractActionController
      */
     public function indexAction()
     {
+        $page = $this->params('page', 1);
+        $page = $this->params('limit', PaginationEnum::DEFAULT_LIMIT);
 
-
-        return [
-            'form' => $form
-        ];
+        $pagiantion = $this->materialService->getPagination();
     }
 
     /**

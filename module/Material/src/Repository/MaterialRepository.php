@@ -6,8 +6,10 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Material\Entity\Material;
+use Standard\Interfaces\PaginationInterface;
+use Standard\Repository\AbstractRepository;
 
-class MaterialRepository
+class MaterialRepository extends AbstractRepository implements PaginationInterface
 {
 
     /**
@@ -26,6 +28,9 @@ class MaterialRepository
         $this->entityManager = $entityManager;
     }
 
+    /**
+     * @return EntityRepository
+     */
     private function getRepository() : EntityRepository
     {
         return $this->entityManager->getRepository(Material::class);
@@ -34,10 +39,18 @@ class MaterialRepository
     /**
      * @return QueryBuilder
      */
-    private function getQueryBuilder() : QueryBuilder
+    protected function getQueryBuilder() : QueryBuilder
     {
         return $this->getRepository()
             ->createQueryBuilder('material');
+    }
+
+    /**
+     * @return String
+     */
+    protected function getBaseTable(): String
+    {
+        return 'material';
     }
 
     /**
@@ -70,6 +83,26 @@ class MaterialRepository
     {
         $this->entityManager->remove($material);
         $this->entityManager->flush();
+    }
+
+    /**
+     * @param int $first
+     * @param int $limit
+     *
+     * @return array
+     */
+    public function getPaginationResults(
+        int $first,
+        int $limit
+    ): array
+    {
+        $qb = $this->getQueryBuilder()
+            ->setFirstResult($first)
+            ->setMaxResults($limit);
+
+        return $qb
+            ->getQuery()
+            ->getResult();
     }
 
 }
