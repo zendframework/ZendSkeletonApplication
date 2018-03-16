@@ -30,6 +30,10 @@ class UnitForm extends Form
         $name->setLabel('Name')
             ->setAttribute('class', 'form-control');
 
+        $shortName = new Text('short_name');
+        $shortName->setLabel('Short Name')
+            ->setAttribute('class', 'form-control');
+
         $csrf = new Csrf('csrf');
         $csrf->setOptions([
             'csrf_options' => [
@@ -42,6 +46,7 @@ class UnitForm extends Form
             ->setAttribute('class', 'btn btn-success');
 
         $this->add($name);
+        $this->add($shortName);
         $this->add($csrf);
         $this->add($submit);
     }

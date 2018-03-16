@@ -40,6 +40,14 @@ class Material
     protected $materialGroup;
 
     /**
+     * @var \Unit\Entity\Unit
+     *
+     * @ORM\ManyToOne(targetEntity="Unit\Entity\Unit", inversedBy="materials", cascade={"persist"})
+     * @ORM\JoinColumn(name="unit_id", referencedColumnName="id")
+     */
+    protected $unit;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -77,6 +85,22 @@ class Material
     public function setMaterialGroup(MaterialGroup $materialGroup): void
     {
         $this->materialGroup = $materialGroup;
+    }
+
+    /**
+     * @return \Unit\Entity\Unit
+     */
+    public function getUnit(): \Unit\Entity\Unit
+    {
+        return $this->unit;
+    }
+
+    /**
+     * @param \Unit\Entity\Unit $unit
+     */
+    public function setUnit(\Unit\Entity\Unit $unit): void
+    {
+        $this->unit = $unit;
     }
 
 }

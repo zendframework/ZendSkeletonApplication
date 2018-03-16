@@ -5,6 +5,7 @@ namespace Material\Form;
 use Material\Model\MaterialModel;
 use Material\Repository\MaterialGroupRepository;
 use Material\Repository\MaterialRepository;
+use Unit\Repository\UnitRepository;
 use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Hidden;
 use Zend\Form\Element\Select;
@@ -21,17 +22,25 @@ class MaterialForm extends Form
     private $materialGroupRepository;
 
     /**
-     * MaterialGroupForm constructor.
+     * @var UnitRepository
+     */
+    private $unitRepository;
+
+    /**
+     * MaterialForm constructor.
      *
      * @param MaterialGroupRepository $materialGroupRepository
+     * @param UnitRepository $unitRepository
      */
     public function __construct(
-        MaterialGroupRepository $materialGroupRepository
+        MaterialGroupRepository $materialGroupRepository,
+        UnitRepository $unitRepository
     )
     {
         parent::__construct('material_form');
 
         $this->materialGroupRepository = $materialGroupRepository;
+        $this->unitRepository          = $unitRepository;
 
         $inputFilter = new MaterialModel();
         $this->setInputFilter($inputFilter->getInputFilter());
@@ -60,6 +69,17 @@ class MaterialForm extends Form
                 )
             )
             ->setLabel('Material Group')
+            ->setAttribute('class', 'form-control')
+            ->setAttribute('required', true);
+
+        $unit = new Select('unit');
+        $unit
+            ->setValueOptions(
+                $this->getObjectsAsSelect(
+                    $this->unitRepository->getAll()
+                )
+            )
+            ->setLabel('Unit')
             ->setAttribute('class', 'form-control')
             ->setAttribute('required', true);
 

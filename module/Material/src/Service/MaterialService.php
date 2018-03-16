@@ -6,6 +6,7 @@ use Material\Entity\Material;
 use Material\Repository\MaterialGroupRepository;
 use Material\Repository\MaterialRepository;
 use Standard\Service\PaginationService;
+use Unit\Repository\UnitRepository;
 use Zend\View\Helper\Url;
 
 class MaterialService
@@ -22,23 +23,32 @@ class MaterialService
     public $materialGroupRepository;
 
     /**
+     * @var UnitRepository
+     */
+    public $unitRepository;
+
+    /**
      * @var Url
      */
     private $url;
 
     /**
      * MaterialService constructor.
+     *
      * @param MaterialRepository $materialRepository
      * @param MaterialGroupRepository $materialGroupRepository
+     * @param UnitRepository $unitRepository
      * @param Url $url
      */
     public function __construct(
         MaterialRepository $materialRepository,
         MaterialGroupRepository $materialGroupRepository,
+        UnitRepository $unitRepository,
         Url $url
     ) {
         $this->materialRepository      = $materialRepository;
         $this->materialGroupRepository = $materialGroupRepository;
+        $this->unitRepository          = $unitRepository;
         $this->url                     = $url;
     }
 
@@ -76,6 +86,9 @@ class MaterialService
 
         $material->setMaterialGroup(
             $this->materialGroupRepository->get($data['material_group'])
+        );
+        $material->setUnit(
+            $data['unit'] ? $this->unitRepository->get($data['unit']) : null
         );
 
         $this->materialRepository->persist($material);

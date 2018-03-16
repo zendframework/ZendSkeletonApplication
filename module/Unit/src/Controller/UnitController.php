@@ -76,6 +76,8 @@ class UnitController extends AbstractController
 
     /**
      * @return array
+     *
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function editAction()
     {
@@ -92,7 +94,7 @@ class UnitController extends AbstractController
             if($form->isValid())
             {
                 $this->unitService->fillEntityWithData($unit, $form->getData(), true);
-                $this->redirect()->toRoute('materials');
+                $this->redirect()->toRoute('units');
             }
         } else {
             $hydrator = new \Zend\Hydrator\ClassMethods(false);

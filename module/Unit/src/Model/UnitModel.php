@@ -64,6 +64,28 @@ class UnitModel implements InputFilterAwareInterface
                     ]
                 )
             );
+            $inputFilter->add(
+                $factory->createInput(
+                    [
+                        'name'       => 'short_name',
+                        'required'   => true,
+                        'filters'    => [
+                            [
+                                'name' => 'StringTrim'
+                            ],
+                        ],
+                        'validators' => [
+                            [
+                                'name'    => 'StringLength',
+                                'options' => [
+                                    'min'  => 3,
+                                    'max'  => 64,
+                                ],
+                            ],
+                        ],
+                    ]
+                )
+            );
 
             $this->inputFilter = $inputFilter;
         }

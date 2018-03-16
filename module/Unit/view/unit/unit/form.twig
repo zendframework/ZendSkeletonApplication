@@ -10,6 +10,10 @@
                 {{ formInput(form.get('name'))|raw }}
                 {{ formElementErrors(form.get('name'), {'class': 'form-error'})|raw }}
 
+                {{ formlabel(form.get('short_name'))|raw }}
+                {{ formInput(form.get('short_name'))|raw }}
+                {{ formElementErrors(form.get('short_name'), {'class': 'form-error'})|raw }}
+
                 {{ formInput(form.get('csrf'))|raw }}
                 {{ formElementErrors(form.get('csrf'), {'class': 'form-error'})|raw }}
 

@@ -3,6 +3,7 @@
 namespace Material\Entity;
 
 use Application\Entity\EntityTimeTrait;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -52,6 +53,15 @@ class MaterialGroup
      * @ORM\OneToMany(targetEntity="Material\Entity\Material", mappedBy="materialGroup", cascade={"persist", "remove"})
      */
     protected $materials;
+
+    /**
+     * MaterialGroup constructor.
+     */
+    public function __construct()
+    {
+        $this->children  = new ArrayCollection();
+        $this->materials = new ArrayCollection();
+    }
 
     /**
      * @return int

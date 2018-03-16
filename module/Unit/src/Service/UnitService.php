@@ -66,6 +66,7 @@ class UnitService
     public function fillEntityWithData(Unit $unit, array $data, bool $save) : void
     {
         $unit->setName($data['name']);
+        $unit->setName($data['short_name']);
 
         $this->unitRepository->persist($unit);
 
@@ -87,6 +88,7 @@ class UnitService
     /**
      * @param Unit $unit
      *
+     * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function remove(Unit $unit) : void

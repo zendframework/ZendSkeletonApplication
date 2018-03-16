@@ -55,7 +55,8 @@ class MaterialController extends AbstractController
     public function addAction()
     {
         $form = new MaterialForm(
-            $this->materialService->materialGroupRepository
+            $this->materialService->materialGroupRepository,
+            $this->materialService->unitRepository
         );
 
         if($this->getRequest()->isPost()) {
@@ -71,18 +72,21 @@ class MaterialController extends AbstractController
         }
 
         return [
-            'form'           => $form
+            'form' => $form
         ];
     }
 
 
     /**
      * @return array
+     *
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function editAction()
     {
         $form = new MaterialForm(
-            $this->materialService->materialGroupRepository
+            $this->materialService->materialGroupRepository,
+            $this->materialService->unitRepository
         );
 
         $material = $this->materialService->get(
@@ -106,7 +110,7 @@ class MaterialController extends AbstractController
         }
 
         return [
-            'form'           => $form
+            'form' => $form
         ];
     }
 
