@@ -10,9 +10,17 @@
                 {{ formInput(form.get('name'))|raw }}
                 {{ formElementErrors(form.get('name'), {'class': 'form-error'})|raw }}
 
+                {{ formlabel(form.get('code'))|raw }}
+                {{ formInput(form.get('code'))|raw }}
+                {{ formElementErrors(form.get('code'), {'class': 'form-error'})|raw }}
+
                 {{ formlabel(form.get('material_group'))|raw }}
                 {{ formSelect(form.get('material_group'))|raw }}
                 {{ formElementErrors(form.get('material_group'), {'class': 'form-error'})|raw }}
+
+                {{ formlabel(form.get('unit'))|raw }}
+                {{ formSelect(form.get('unit'))|raw }}
+                {{ formElementErrors(form.get('unit'), {'class': 'form-error'})|raw }}
 
                 {{ formInput(form.get('csrf'))|raw }}
                 {{ formElementErrors(form.get('csrf'), {'class': 'form-error'})|raw }}

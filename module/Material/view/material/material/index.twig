@@ -20,6 +20,7 @@
                         <th>Modified</th>
                         <th>Name</th>
                         <th>Material Group</th>
+                        <th>Unit</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -31,6 +32,7 @@
                             <td>{{ material.getModified().format('Y-m-d H:i:d') }}</td>
                             <td>{{ material.getName() }}</td>
                             <td>{{ material.getMaterialGroup().getName() }}</td>
+                            <td>{{ material.getUnit().getName() }}</td>
                             <td>
                                 <a href="{{ url('materials/edit_material', {'id': material.getId()}) }}">
                                     Edit

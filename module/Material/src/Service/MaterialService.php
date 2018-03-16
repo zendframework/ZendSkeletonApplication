@@ -83,6 +83,7 @@ class MaterialService
     public function fillEntityWithData(Material $material, array $data, bool $save) : void
     {
         $material->setName($data['name']);
+        $material->setCode($data['code']);
 
         $material->setMaterialGroup(
             $this->materialGroupRepository->get($data['material_group'])

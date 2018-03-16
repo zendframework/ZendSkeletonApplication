@@ -66,7 +66,7 @@ class UnitService
     public function fillEntityWithData(Unit $unit, array $data, bool $save) : void
     {
         $unit->setName($data['name']);
-        $unit->setName($data['short_name']);
+        $unit->setShortName($data['short_name']);
 
         $this->unitRepository->persist($unit);
 

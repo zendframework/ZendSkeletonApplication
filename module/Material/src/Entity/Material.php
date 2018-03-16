@@ -32,6 +32,13 @@ class Material
     protected $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=64, nullable=TRUE)
+     */
+    protected $code;
+
+    /**
      * @var \Material\Entity\MaterialGroup
      *
      * @ORM\ManyToOne(targetEntity="Material\Entity\MaterialGroup", inversedBy="materials", cascade={"persist"})
@@ -69,6 +76,22 @@ class Material
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode(): string
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode(string $code): void
+    {
+        $this->code = $code;
     }
 
     /**

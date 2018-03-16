@@ -64,6 +64,28 @@ class MaterialModel implements InputFilterAwareInterface
                     ]
                 )
             );
+            $inputFilter->add(
+                $factory->createInput(
+                    [
+                        'name'       => 'code',
+                        'required'   => true,
+                        'filters'    => [
+                            [
+                                'name' => 'StringTrim'
+                            ],
+                        ],
+                        'validators' => [
+                            [
+                                'name'    => 'StringLength',
+                                'options' => [
+                                    'min'  => 3,
+                                    'max'  => 64,
+                                ],
+                            ],
+                        ],
+                    ]
+                )
+            );
 
             $this->inputFilter = $inputFilter;
         }

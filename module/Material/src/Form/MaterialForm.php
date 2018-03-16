@@ -54,6 +54,10 @@ class MaterialForm extends Form
         $name->setLabel('Name')
             ->setAttribute('class', 'form-control');
 
+        $code = new Text('code');
+        $code->setLabel('Code')
+            ->setAttribute('class', 'form-control');
+
         $csrf = new Csrf('csrf');
         $csrf->setOptions([
             'csrf_options' => [
@@ -88,7 +92,9 @@ class MaterialForm extends Form
             ->setAttribute('class', 'btn btn-success');
 
         $this->add($name);
+        $this->add($code);
         $this->add($materialGroup);
+        $this->add($unit);
         $this->add($csrf);
         $this->add($submit);
     }
