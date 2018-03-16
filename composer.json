@@ -28,6 +28,7 @@
         "psr-4": {
             "Application\\": "module/Application/src/",
             "Material\\": "module/Material/src/",
+            "Unit\\": "module/Unit/src/",
             "Standard\\": "module/Standard/src/"
         }
     },

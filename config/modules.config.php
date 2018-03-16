@@ -18,5 +18,6 @@ return [
     'Application',
     'Material',
     'ZendTwig',
-    'Standard'
+    'Standard',
+    'Unit'
 ];

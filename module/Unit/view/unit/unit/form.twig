@@ -1,0 +1,23 @@
+{% extends 'layout/layout' %}
+
+{% block page %}
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+            {{ form().openTag(form.setAttribute('class', 'zf2')) |raw }}
+
+                {{ formlabel(form.get('name'))|raw }}
+                {{ formInput(form.get('name'))|raw }}
+                {{ formElementErrors(form.get('name'), {'class': 'form-error'})|raw }}
+
+                {{ formInput(form.get('csrf'))|raw }}
+                {{ formElementErrors(form.get('csrf'), {'class': 'form-error'})|raw }}
+
+                {{ formRow(form.get('save'))|raw }}
+
+            {{ form().closeTag(form)|raw }}
+        </div>
+
+    </div>
+
+{% endblock %}

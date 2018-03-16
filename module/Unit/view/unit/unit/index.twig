@@ -3,7 +3,7 @@
 
 {% block page %}
 
-    <a href="{{ url('materials/groups/add_material_group') }}">
+    <a href="{{ url('units/add_unit') }}">
         <button class="btn btn-success">
             Add
         </button>
@@ -19,23 +19,21 @@
                         <th>Created</th>
                         <th>Modified</th>
                         <th>Name</th>
-                        <th>Parent Group</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for materialGroup in pagination.getResult() %}
+                    {% for unit in pagination.getResult() %}
                         <tr>
-                            <td>{{ materialGroup.getId() }}</td>
-                            <td>{{ materialGroup.getCreated().format('Y-m-d H:i:d') }}</td>
-                            <td>{{ materialGroup.getModified().format('Y-m-d H:i:d') }}</td>
-                            <td>{{ materialGroup.getName() }}</td>
-                            <td>{{ materialGroup.getParent().getName() }}</td>
+                            <td>{{ unit.getId() }}</td>
+                            <td>{{ unit.getCreated().format('Y-m-d H:i:d') }}</td>
+                            <td>{{ unit.getModified().format('Y-m-d H:i:d') }}</td>
+                            <td>{{ unit.getName() }}</td>
                             <td>
-                                <a href="{{ url('materials/groups/edit_material_group', {'id': materialGroup.getId()}) }}">
+                                <a href="{{ url('units/edit_unit', {'id': unit.getId()}) }}">
                                     Edit
                                 </a>
-                                <a href="{{ url('materials/groups/remove_material_group', {'id': materialGroup.getId()}) }}">
+                                <a href="{{ url('units/remove_unit', {'id': unit.getId()}) }}">
                                     Remove
                                 </a>
                             </td>
