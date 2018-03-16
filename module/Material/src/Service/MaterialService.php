@@ -72,4 +72,23 @@ class MaterialService
         }
     }
 
+    /**
+     * @param int $id
+     * @return Material|null
+     */
+    public function get(int $id) : ?Material
+    {
+        return $this->materialRepository->get($id);
+    }
+
+    /**
+     * @param Material $material
+     *
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function remove(Material $material) : void
+    {
+        $this->materialRepository->remove($material);
+    }
+
 }

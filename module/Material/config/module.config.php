@@ -55,7 +55,7 @@ return [
                                 'id'  => '[0-9]+',
                             ],
                             'defaults' => [
-                                'action'     => 'add',
+                                'action'     => 'edit',
                             ],
                         ],
                         'may_terminate' => true,
@@ -68,7 +68,7 @@ return [
                                 'id'  => '[0-9]+',
                             ],
                             'defaults' => [
-                                'action'     => 'add',
+                                'action'     => 'remove',
                             ],
                         ],
                         'may_terminate' => true,

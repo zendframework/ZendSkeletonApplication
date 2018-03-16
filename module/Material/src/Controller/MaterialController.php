@@ -74,4 +74,57 @@ class MaterialController extends AbstractController
         ];
     }
 
+
+    /**
+     * @return array
+     */
+    public function editAction()
+    {
+        $form = new MaterialForm(
+            $this->materialService->materialRepository
+        );
+
+        $material = $this->materialService->get(
+            $this->params()->fromRoute('id', null)
+        );
+
+        if($this->getRequest()->isPost()) {
+            $data = $this->params()->fromPost();
+            $form->setData($data);
+
+            if($form->isValid())
+            {
+                $this->materialService->fillEntityWithData($material, $form->getData(), true);
+                $message = 'Successfully Saved Material';
+            }
+        } else {
+            $hydrator = new \Zend\Hydrator\ClassMethods(false);
+            $form->setData(
+                $hydrator->extract($material)
+            );
+        }
+
+        return [
+            'successMessage' => isset($message) ? $message : null,
+            'form'           => $form
+        ];
+    }
+
+    /**
+     * @return \Zend\Http\Response
+     *
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function removeAction()
+    {
+        $material = $this->materialService->get(
+            $this->params('id', null)
+        );
+
+        if(!is_null($material))
+            $this->materialService->remove($material);
+
+        return $this->redirect()->toRoute('materials');
+    }
+
 }

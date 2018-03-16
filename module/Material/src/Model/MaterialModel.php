@@ -76,18 +76,6 @@ class MaterialModel implements InputFilterAwareInterface
                                     'max'  => 64,
                                 ],
                             ],
-                            [
-                                'name'    => UniqueObject::class,
-                                'options' => [
-                                    'object_manager'    => $this->materialRepository->getEntityManager(),
-                                    'object_repository' => $this->materialRepository->getRepository(),
-                                    'fields'            => ['name'],
-                                    'use_context'       => true,
-                                    'messages'          => [
-                                        UniqueObject::ERROR_OBJECT_NOT_UNIQUE => "Name '%value%' is already in use",
-                                    ]
-                                ]
-                            ]
                         ],
                     ]
                 )

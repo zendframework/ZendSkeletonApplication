@@ -30,7 +30,12 @@
                             <td>{{ material.getModified().format('Y-m-d H:i:d') }}</td>
                             <td>{{ material.getName() }}</td>
                             <td>
-                                {# todo implement actions #}
+                                <a href="{{ url('materials/edit_material', {'id': material.getId()}) }}">
+                                    Edit
+                                </a>
+                                <a href="{{ url('materials/remove_material', {'id': material.getId()}) }}">
+                                    remove
+                                </a>
                             </td>
                         </tr>
                     {% endfor %}
