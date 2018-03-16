@@ -3,14 +3,16 @@
 namespace Standard\Repository;
 
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
+use Standard\Interfaces\PaginationInterface;
 
 /**
  * Class AbstractRepository
  *
  * @package Standard\Repository
  */
-abstract class AbstractRepository
+abstract class AbstractRepository implements PaginationInterface
 {
 
     /**
@@ -19,9 +21,18 @@ abstract class AbstractRepository
     protected $entityManager;
 
     /**
+     * @return EntityRepository
+     */
+    abstract protected function getRepository() : EntityRepository;
+
+    /**
      * @return QueryBuilder
      */
-    abstract protected function getQueryBuilder() : QueryBuilder;
+    protected function getQueryBuilder() : QueryBuilder
+    {
+        return $this->getRepository()
+            ->createQueryBuilder($this->getBaseTable());
+    }
 
     /**
      * @return String
@@ -49,6 +60,9 @@ abstract class AbstractRepository
         $this->entityManager->persist($entity);
     }
 
+    /**
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
     public function flush() : void
     {
         $this->entityManager->flush();
@@ -60,6 +74,34 @@ abstract class AbstractRepository
     public function getEntityManager() : EntityManager
     {
         return $this->entityManager;
+    }
+
+    /**
+     * @param int $first
+     * @param int $limit
+     *
+     * @return array
+     */
+    public function getPaginationResults(
+        int $first,
+        int $limit
+    ): array
+    {
+        $qb = $this->getQueryBuilder()
+            ->setFirstResult($first)
+            ->setMaxResults($limit);
+
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return array
+     */
+    public function getAll() : array
+    {
+        return $this->getRepository()->findAll();
     }
 
 }

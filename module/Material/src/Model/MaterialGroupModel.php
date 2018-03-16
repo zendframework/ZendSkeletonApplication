@@ -11,11 +11,11 @@ use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
 
 /**
- * Class MaterialModel
+ * Class MaterialGroupModel
  *
  * @package Material\Model
  */
-class MaterialModel implements InputFilterAwareInterface
+class MaterialGroupModel implements InputFilterAwareInterface
 {
 
     /**
@@ -61,6 +61,15 @@ class MaterialModel implements InputFilterAwareInterface
                                 ],
                             ],
                         ],
+                    ]
+                )
+            );
+
+            $inputFilter->add(
+                $factory->createInput(
+                    [
+                        'name'       => 'parent',
+                        'required'   => false,
                     ]
                 )
             );

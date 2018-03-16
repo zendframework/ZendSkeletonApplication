@@ -2,19 +2,13 @@
 
 namespace Material\Service;
 
-use Material\Entity\Material;
+use Material\Entity\MaterialGroup;
 use Material\Repository\MaterialGroupRepository;
-use Material\Repository\MaterialRepository;
 use Standard\Service\PaginationService;
 use Zend\View\Helper\Url;
 
-class MaterialService
+class MaterialGroupService
 {
-
-    /**
-     * @var MaterialRepository
-     */
-    public $materialRepository;
 
     /**
      * @var MaterialGroupRepository
@@ -27,17 +21,15 @@ class MaterialService
     private $url;
 
     /**
-     * MaterialService constructor.
-     * @param MaterialRepository $materialRepository
+     * MaterialGroupService constructor.
+     *
      * @param MaterialGroupRepository $materialGroupRepository
      * @param Url $url
      */
     public function __construct(
-        MaterialRepository $materialRepository,
         MaterialGroupRepository $materialGroupRepository,
         Url $url
     ) {
-        $this->materialRepository      = $materialRepository;
         $this->materialGroupRepository = $materialGroupRepository;
         $this->url                     = $url;
     }
@@ -51,8 +43,8 @@ class MaterialService
     public function getPagination(int $page, int $limit) : PaginationService
     {
         $pagination = new PaginationService(
-            $this->materialRepository,
-            'materials/list',
+            $this->materialGroupRepository,
+            'materials/groups/list',
             $this->url
         );
         $pagination->setPage($page);
@@ -64,45 +56,45 @@ class MaterialService
     }
 
     /**
-     * @param Material $material
+     * @param MaterialGroup $materialGroup
      * @param array $data
      * @param bool $save
      *
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function fillEntityWithData(Material $material, array $data, bool $save) : void
+    public function fillEntityWithData(MaterialGroup $materialGroup, array $data, bool $save) : void
     {
-        $material->setName($data['name']);
+        $materialGroup->setName($data['name']);
 
-        $material->setMaterialGroup(
-            $this->materialGroupRepository->get($data['material_group'])
+        $materialGroup->setParent(
+            $data['parent'] ? $this->get($data['parent']) : null
         );
 
-        $this->materialRepository->persist($material);
+        $this->materialGroupRepository->persist($materialGroup);
 
         if($save)
         {
-            $this->materialRepository->flush();
+            $this->materialGroupRepository->flush();
         }
     }
 
     /**
      * @param int $id
-     * @return Material|null
+     * @return MaterialGroup|null
      */
-    public function get(int $id) : ?Material
+    public function get(int $id) : ?MaterialGroup
     {
-        return $this->materialRepository->get($id);
+        return $this->materialGroupRepository->get($id);
     }
 
     /**
-     * @param Material $material
+     * @param MaterialGroup $materialGroup
      *
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function remove(Material $material) : void
+    public function remove(MaterialGroup $materialGroup) : void
     {
-        $this->materialRepository->remove($material);
+        $this->materialGroupRepository->remove($materialGroup);
     }
 
 }

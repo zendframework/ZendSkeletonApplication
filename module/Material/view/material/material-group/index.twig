@@ -3,7 +3,7 @@
 
 {% block page %}
 
-    <a href="{{ url('materials/add_material') }}">
+    <a href="{{ url('materials/groups/add_material_group') }}">
         <button class="btn btn-success">
             Add
         </button>
@@ -19,23 +19,23 @@
                         <th>Created</th>
                         <th>Modified</th>
                         <th>Name</th>
-                        <th>Material Group</th>
+                        <th>Parent Group</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for material in pagination.getResult() %}
+                    {% for materialGroup in pagination.getResult() %}
                         <tr>
-                            <td>{{ material.getId() }}</td>
-                            <td>{{ material.getCreated().format('Y-m-d H:i:d') }}</td>
-                            <td>{{ material.getModified().format('Y-m-d H:i:d') }}</td>
-                            <td>{{ material.getName() }}</td>
-                            <td>{{ material.getMaterialGroup().getName() }}</td>
+                            <td>{{ materialGroup.getId() }}</td>
+                            <td>{{ materialGroup.getCreated().format('Y-m-d H:i:d') }}</td>
+                            <td>{{ materialGroup.getModified().format('Y-m-d H:i:d') }}</td>
+                            <td>{{ materialGroup.getName() }}</td>
+                            <td>{{ materialGroup.getParent().getName() }}</td>
                             <td>
-                                <a href="{{ url('materials/edit_material', {'id': material.getId()}) }}">
+                                <a href="{{ url('materials/groups/edit_material_group', {'id': materialGroup.getId()}) }}">
                                     Edit
                                 </a>
-                                <a href="{{ url('materials/remove_material', {'id': material.getId()}) }}">
+                                <a href="{{ url('materials/groups/remove_material_group', {'id': materialGroup.getId()}) }}">
                                     remove
                                 </a>
                             </td>

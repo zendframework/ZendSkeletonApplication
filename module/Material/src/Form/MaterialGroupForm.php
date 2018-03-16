@@ -2,9 +2,9 @@
 
 namespace Material\Form;
 
+use Material\Model\MaterialGroupModel;
 use Material\Model\MaterialModel;
 use Material\Repository\MaterialGroupRepository;
-use Material\Repository\MaterialRepository;
 use Zend\Form\Element\Csrf;
 use Zend\Form\Element\Hidden;
 use Zend\Form\Element\Select;
@@ -12,7 +12,7 @@ use Zend\Form\Element\Submit;
 use Zend\Form\Element\Text;
 use Zend\Form\Form;
 
-class MaterialForm extends Form
+class MaterialGroupForm extends Form
 {
 
     /**
@@ -33,7 +33,7 @@ class MaterialForm extends Form
 
         $this->materialGroupRepository = $materialGroupRepository;
 
-        $inputFilter = new MaterialModel();
+        $inputFilter = new MaterialGroupModel();
         $this->setInputFilter($inputFilter->getInputFilter());
 
         $this->addFormElements();
@@ -45,6 +45,17 @@ class MaterialForm extends Form
         $name->setLabel('Name')
             ->setAttribute('class', 'form-control');
 
+        $parent = new Select('parent');
+        $parent
+            ->setValueOptions(
+                $this->getObjectsAsSelect(
+                    $this->materialGroupRepository->getAll()
+                )
+            )
+            ->setLabel('Parent Group')
+            ->setAttribute('class', 'form-control')
+            ->setAttribute('required', false);
+
         $csrf = new Csrf('csrf');
         $csrf->setOptions([
             'csrf_options' => [
@@ -52,27 +63,15 @@ class MaterialForm extends Form
             ],
         ]);
 
-        $materialGroup = new Select('material_group');
-        $materialGroup
-            ->setValueOptions(
-                $this->getObjectsAsSelect(
-                    $this->materialGroupRepository->getAll()
-                )
-            )
-            ->setLabel('Material Group')
-            ->setAttribute('class', 'form-control')
-            ->setAttribute('required', true);
-
         $submit = new Submit('save');
         $submit->setValue('Save')
             ->setAttribute('class', 'btn btn-success');
 
         $this->add($name);
-        $this->add($materialGroup);
+        $this->add($parent);
         $this->add($csrf);
         $this->add($submit);
     }
-
 
 
     /**

@@ -3,33 +3,36 @@
 namespace Material\Controller;
 
 use Material\Entity\Material;
+use Material\Entity\MaterialGroup;
 use Material\Form\MaterialForm;
+use Material\Form\MaterialGroupForm;
+use Material\Service\MaterialGroupService;
 use Material\Service\MaterialService;
 use Standard\Controller\AbstractController;
 use Standard\Enum\PaginationEnum;
 
 /**
- * Class MaterialController
+ * Class MaterialGroupController
  *
  * @package Material\Controller
  */
-class MaterialController extends AbstractController
+class MaterialGroupController extends AbstractController
 {
 
     /**
-     * @var MaterialService
+     * @var MaterialGroupService
      */
-    private $materialService;
+    private $materialGroupService;
 
     /**
      * MaterialController constructor.
      *
-     * @param MaterialService $materialService
+     * @param MaterialGroupService $materialGroupService
      */
     public function __construct(
-        MaterialService $materialService
+        MaterialGroupService $materialGroupService
     ) {
-        $this->materialService = $materialService;
+        $this->materialGroupService = $materialGroupService;
     }
 
     /**
@@ -40,7 +43,7 @@ class MaterialController extends AbstractController
         $page  = $this->params('page', 1);
         $limit = $this->params('limit', PaginationEnum::DEFAULT_LIMIT);
 
-        $pagination = $this->materialService->getPagination($page, $limit);
+        $pagination = $this->materialGroupService->getPagination($page, $limit);
 
         return [
             'pagination' => $pagination,
@@ -54,8 +57,8 @@ class MaterialController extends AbstractController
      */
     public function addAction()
     {
-        $form = new MaterialForm(
-            $this->materialService->materialGroupRepository
+        $form = new MaterialGroupForm(
+            $this->materialGroupService->materialGroupRepository
         );
 
         if($this->getRequest()->isPost()) {
@@ -64,9 +67,9 @@ class MaterialController extends AbstractController
 
             if($form->isValid())
             {
-                $material = new Material();
-                $this->materialService->fillEntityWithData($material, $form->getData(), true);
-                $this->redirect()->toRoute('materials');
+                $materialGroup = new MaterialGroup();
+                $this->materialGroupService->fillEntityWithData($materialGroup, $form->getData(), true);
+                $this->redirect()->toRoute('materials/groups');
             }
         }
 
@@ -78,14 +81,16 @@ class MaterialController extends AbstractController
 
     /**
      * @return array
+     *
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function editAction()
     {
-        $form = new MaterialForm(
-            $this->materialService->materialGroupRepository
+        $form = new MaterialGroupForm(
+            $this->materialGroupService->materialGroupRepository
         );
 
-        $material = $this->materialService->get(
+        $materialGroup = $this->materialGroupService->get(
             $this->params()->fromRoute('id', null)
         );
 
@@ -95,17 +100,18 @@ class MaterialController extends AbstractController
 
             if($form->isValid())
             {
-                $this->materialService->fillEntityWithData($material, $form->getData(), true);
-                $this->redirect()->toRoute('materials');
+                $this->materialGroupService->fillEntityWithData($materialGroup, $form->getData(), true);
+                $this->redirect()->toRoute('materials/groups');
             }
         } else {
             $hydrator = new \Zend\Hydrator\ClassMethods(false);
             $form->setData(
-                $hydrator->extract($material)
+                $hydrator->extract($materialGroup)
             );
         }
 
         return [
+            'successMessage' => isset($message) ? $message : null,
             'form'           => $form
         ];
     }
@@ -117,14 +123,14 @@ class MaterialController extends AbstractController
      */
     public function removeAction()
     {
-        $material = $this->materialService->get(
+        $materialGroup = $this->materialGroupService->get(
             $this->params('id', null)
         );
 
-        if(!is_null($material))
-            $this->materialService->remove($material);
+        if(!is_null($materialGroup))
+            $this->materialGroupService->remove($materialGroup);
 
-        return $this->redirect()->toRoute('materials');
+        return $this->redirect()->toRoute('materials/groups');
     }
 
 }

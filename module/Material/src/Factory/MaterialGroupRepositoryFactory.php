@@ -7,14 +7,8 @@ use Material\Repository\MaterialGroupRepository;
 use Material\Repository\MaterialRepository;
 use Material\Service\MaterialService;
 use Zend\ServiceManager\Factory\FactoryInterface;
-use Zend\View\Helper\Url;
 
-/**
- * Class MaterialServiceFactory
- *
- * @package Material\Factory
- */
-class MaterialServiceFactory implements FactoryInterface
+class MaterialGroupRepositoryFactory implements FactoryInterface
 {
 
     /**
@@ -22,16 +16,16 @@ class MaterialServiceFactory implements FactoryInterface
      * @param string $requestedName
      * @param array|null $options
      *
-     * @return MaterialService|object
+     * @return MaterialGroupRepository|object
      *
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null) {
-        $materialRepository      = $container->get(MaterialRepository::class);
-        $materialGroupRepository = $container->get(MaterialGroupRepository::class);
-        $url                     = $container->get('ViewHelperManager')->get(Url::class);
+        $entityManager = $container->get('doctrine.entitymanager.orm_default');
 
-        return new MaterialService($materialRepository, $materialGroupRepository, $url);
+        return new MaterialGroupRepository(
+            $entityManager
+        );
     }
 }

@@ -8,11 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
- * @ORM\Table(name="material",
- *      uniqueConstraints={
- *          @ORM\UniqueConstraint(name="name", columns={"name"})
- *      }
- * )
+ * @ORM\Table(name="materials")
  */
 class Material
 {
@@ -31,9 +27,17 @@ class Material
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=32, nullable=TRUE)
+     * @ORM\Column(type="string", length=64, nullable=TRUE)
      */
     protected $name;
+
+    /**
+     * @var \Material\Entity\MaterialGroup
+     *
+     * @ORM\ManyToOne(targetEntity="Material\Entity\MaterialGroup", inversedBy="materials", cascade={"persist"})
+     * @ORM\JoinColumn(name="material_group_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    protected $materialGroup;
 
     /**
      * @return int
@@ -57,6 +61,22 @@ class Material
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return MaterialGroup
+     */
+    public function getMaterialGroup(): MaterialGroup
+    {
+        return $this->materialGroup;
+    }
+
+    /**
+     * @param MaterialGroup $materialGroup
+     */
+    public function setMaterialGroup(MaterialGroup $materialGroup): void
+    {
+        $this->materialGroup = $materialGroup;
     }
 
 }

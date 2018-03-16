@@ -6,10 +6,11 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Material\Entity\Material;
+use Material\Entity\MaterialGroup;
 use Standard\Interfaces\PaginationInterface;
 use Standard\Repository\AbstractRepository;
 
-class MaterialRepository extends AbstractRepository
+class MaterialGroupRepository extends AbstractRepository implements PaginationInterface
 {
 
     /**
@@ -28,16 +29,7 @@ class MaterialRepository extends AbstractRepository
      */
     public function getRepository() : EntityRepository
     {
-        return $this->getEntityManager()->getRepository(Material::class);
-    }
-
-    /**
-     * @return QueryBuilder
-     */
-    protected function getQueryBuilder() : QueryBuilder
-    {
-        return $this->getRepository()
-            ->createQueryBuilder('material');
+        return $this->getEntityManager()->getRepository(MaterialGroup::class);
     }
 
     /**
@@ -45,38 +37,38 @@ class MaterialRepository extends AbstractRepository
      */
     protected function getBaseTable(): String
     {
-        return 'material';
+        return 'materialGroup';
     }
 
     /**
      * @param int $id
      *
-     * @return Material|null
+     * @return MaterialGroup|null
      */
-    public function get(int $id) : ?Material
+    public function get(int $id) : ?MaterialGroup
     {
         return $this->getRepository()->find($id);
     }
 
     /**
-     * @param Material $material
+     * @param MaterialGroup $materialGroup
      *
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function save(Material $material) : void
+    public function save(MaterialGroup $materialGroup) : void
     {
-        $this->getEntityManager()->persist($material);
+        $this->getEntityManager()->persist($materialGroup);
         $this->getEntityManager()->flush();
     }
 
     /**
-     * @param Material $material
+     * @param MaterialGroup $materialGroup
      *
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function remove(Material $material) : void
+    public function remove(MaterialGroup $materialGroup) : void
     {
-        $this->getEntityManager()->remove($material);
+        $this->getEntityManager()->remove($materialGroup);
         $this->getEntityManager()->flush();
     }
 
