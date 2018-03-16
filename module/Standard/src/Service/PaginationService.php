@@ -4,12 +4,13 @@ namespace Standard\Service;
 
 use Standard\Exception\PaginationException;
 use Standard\Interfaces\PaginationInterface;
-use Standard\Pagination\Enum\PaginationEnum;
+use Standard\Enum\PaginationEnum;
+use Zend\View\Helper\Url;
 
 class PaginationService {
 
     /**
-     * @var PaginationInterface\
+     * @var PaginationInterface
      */
     protected $service;
 
@@ -44,13 +45,30 @@ class PaginationService {
     protected $result;
 
     /**
+     * @var String
+     */
+    private $routeName;
+
+    /**
+     * @var Url
+     */
+    private $url;
+
+    /**
      * PaginationService constructor.
      *
      * @param PaginationInterface $service
+     * @param String $routeName
+     * @param Url $url
      */
-    public function __construct(PaginationInterface $service)
-    {
-        $this->service    = $service;
+    public function __construct(
+        PaginationInterface $service,
+        String $routeName,
+        Url $url
+    ) {
+        $this->service      = $service;
+        $this->routeName    = $routeName;
+        $this->url          = $url;
     }
 
     /**
@@ -243,13 +261,15 @@ class PaginationService {
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getNextPage() : int
+    public function getNextPage() : ?int
     {
         if($this->isNextPage()) {
             return ($this->getPage()+1);
         }
+
+        return null;
     }
 
     /**
@@ -260,6 +280,31 @@ class PaginationService {
         if($this->getTotalPages()!=1)
             return false;
         return true;
+    }
+
+    /**
+     * @return null|String
+     */
+    private function getRouteName() : ?String
+    {
+        return $this->routeName;
+    }
+
+    /**
+     * @param int $page
+     *
+     * @return String
+     */
+    public function getPageUrl($page) : String
+    {
+        $url = $this->url;
+
+        return $url(
+            $this->getRouteName(),
+            [
+                'page' => $page, 'limit' => $this->getLimit()
+            ]
+        );
     }
 
 }

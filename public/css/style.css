@@ -31,3 +31,11 @@ div.container a.navbar-brand > img {
     margin-right: 4px;
     margin-top: -2px;
 }
+
+
+.form-error {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color:red;
+}

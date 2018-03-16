@@ -27,11 +27,16 @@
                         <li class="active"><a href="{{ url('home') }}">Home</a></li>
                     </ul>
                     <ul class="nav navbar-nav">
-                        <li class=""><a href="{{ url('material') }}">Materials</a></li>
+                        <li class=""><a href="{{ url('materials') }}">Materials</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+        {% if successMessage %}
+            <div class="alert alert-success fade in">
+                {{ successMessage }}
+            </div>
+        {% endif %}
         <div class="container">
             {% block page %}{% endblock %}
             <hr>

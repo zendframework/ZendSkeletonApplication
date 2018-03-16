@@ -13,11 +13,6 @@ class MaterialRepository extends AbstractRepository implements PaginationInterfa
 {
 
     /**
-     * @var EntityManager
-     */
-    private $entityManager;
-
-    /**
      * MaterialRepository constructor.
      *
      * @param EntityManager $entityManager
@@ -31,9 +26,9 @@ class MaterialRepository extends AbstractRepository implements PaginationInterfa
     /**
      * @return EntityRepository
      */
-    private function getRepository() : EntityRepository
+    public function getRepository() : EntityRepository
     {
-        return $this->entityManager->getRepository(Material::class);
+        return $this->getEntityManager()->getRepository(Material::class);
     }
 
     /**
@@ -70,8 +65,8 @@ class MaterialRepository extends AbstractRepository implements PaginationInterfa
      */
     public function save(Material $material) : void
     {
-        $this->entityManager->persist($material);
-        $this->entityManager->flush();
+        $this->getEntityManager()->persist($material);
+        $this->getEntityManager()->flush();
     }
 
     /**
@@ -81,8 +76,8 @@ class MaterialRepository extends AbstractRepository implements PaginationInterfa
      */
     public function remove(Material $material) : void
     {
-        $this->entityManager->remove($material);
-        $this->entityManager->flush();
+        $this->getEntityManager()->remove($material);
+        $this->getEntityManager()->flush();
     }
 
     /**

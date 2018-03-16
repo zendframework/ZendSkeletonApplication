@@ -20,7 +20,9 @@
         "symfony/var-dumper": "^3.4",
         "doctrine/doctrine-orm-module": "^1.1",
         "ghislainf/zf2-whoops": "dev-master",
-        "oxcom/zend-twig": "^0.1.7"
+        "oxcom/zend-twig": "^0.1.7",
+        "zendframework/zend-math": "^3.0",
+        "zendframework/zend-mvc-plugin-flashmessenger": "^1.0"
     },
     "autoload": {
         "psr-4": {

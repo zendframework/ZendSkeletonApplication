@@ -6,6 +6,7 @@ use Interop\Container\ContainerInterface;
 use Material\Repository\MaterialRepository;
 use Material\Service\MaterialService;
 use Zend\ServiceManager\Factory\FactoryInterface;
+use Zend\View\Helper\Url;
 
 /**
  * Class MaterialServiceFactory
@@ -27,7 +28,8 @@ class MaterialServiceFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null) {
         $materialRepository = $container->get(MaterialRepository::class);
+        $url                = $container->get('ViewHelperManager')->get(Url::class);
 
-        return new MaterialService($materialRepository);
+        return new MaterialService($materialRepository, $url);
     }
 }

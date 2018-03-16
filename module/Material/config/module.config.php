@@ -16,22 +16,39 @@ return [
             'materials' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/materials[/page/:page/limit/:limit]',
+                    'route'    => '/materials',
                     'defaults' => [
                         'controller' => MaterialController::class,
                         'action'     => 'index',
                     ],
                 ],
+                'may_terminate' => true,
                 'child_routes' => [
+                    'list' => [
+                        'type'    => Segment::class,
+                        'options' => [
+                            'route'    => '/page/:page/limit/:limit',
+                            'constraints' => [
+                                'page'   => '[0-9]+',
+                                'limit'  => '[0-9]+',
+                            ],
+                            'defaults' => [
+                                'action'     => 'index',
+                            ],
+                        ],
+                    ],
                     'add_material' => [
+                        'type'    => Segment::class,
                         'options' => [
                             'route'    => '/add',
                             'defaults' => [
                                 'action'     => 'add',
                             ],
                         ],
+                        'may_terminate' => true,
                     ],
                     'edit_material' => [
+                        'type'    => Segment::class,
                         'options' => [
                             'route'    => '/edit/:id',
                             'constraints' => [
@@ -41,8 +58,10 @@ return [
                                 'action'     => 'add',
                             ],
                         ],
+                        'may_terminate' => true,
                     ],
                     'remove_material' => [
+                        'type'    => Segment::class,
                         'options' => [
                             'route'    => '/remove/:id',
                             'constraints' => [
@@ -52,6 +71,7 @@ return [
                                 'action'     => 'add',
                             ],
                         ],
+                        'may_terminate' => true,
                     ],
                 ],
             ],

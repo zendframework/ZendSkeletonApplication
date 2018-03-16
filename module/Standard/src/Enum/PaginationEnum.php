@@ -1,6 +1,6 @@
 <?php
 
-namespace Standard\Pagination\Enum;
+namespace Standard\Enum;
 
 /**
  * Class PaginationEnum

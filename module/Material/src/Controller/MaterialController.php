@@ -2,13 +2,18 @@
 
 namespace Material\Controller;
 
+use Material\Entity\Material;
 use Material\Form\MaterialForm;
 use Material\Service\MaterialService;
-use Standard\Pagination\Enum\PaginationEnum;
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\Paginator\Paginator;
+use Standard\Controller\AbstractController;
+use Standard\Enum\PaginationEnum;
 
-class MaterialController extends AbstractActionController
+/**
+ * Class MaterialController
+ *
+ * @package Material\Controller
+ */
+class MaterialController extends AbstractController
 {
 
     /**
@@ -16,6 +21,11 @@ class MaterialController extends AbstractActionController
      */
     private $materialService;
 
+    /**
+     * MaterialController constructor.
+     *
+     * @param MaterialService $materialService
+     */
     public function __construct(
         MaterialService $materialService
     ) {
@@ -23,14 +33,18 @@ class MaterialController extends AbstractActionController
     }
 
     /**
-     * @return array
+     * @return array|\Zend\View\Model\ViewModel
      */
     public function indexAction()
     {
-        $page = $this->params('page', 1);
-        $page = $this->params('limit', PaginationEnum::DEFAULT_LIMIT);
+        $page  = $this->params('page', 1);
+        $limit = $this->params('limit', PaginationEnum::DEFAULT_LIMIT);
 
-        $pagiantion = $this->materialService->getPagination();
+        $pagination = $this->materialService->getPagination($page, $limit);
+
+        return [
+            'pagination' => $pagination,
+        ];
     }
 
     /**
@@ -38,10 +52,25 @@ class MaterialController extends AbstractActionController
      */
     public function addAction()
     {
-        $form = new MaterialForm();
+        $form = new MaterialForm(
+            $this->materialService->materialRepository
+        );
+
+        if($this->getRequest()->isPost()) {
+            $data = $this->params()->fromPost();
+            $form->setData($data);
+
+            if($form->isValid())
+            {
+                $material = new Material();
+                $this->materialService->fillEntityWithData($material, $form->getData(), true);
+                $message = 'Successfully Saved Material';
+            }
+        }
 
         return [
-            'form' => $form
+            'successMessage' => isset($message) ? $message : null,
+            'form'           => $form
         ];
     }
 

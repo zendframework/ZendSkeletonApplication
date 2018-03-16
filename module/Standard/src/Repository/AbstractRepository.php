@@ -2,6 +2,7 @@
 
 namespace Standard\Repository;
 
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\QueryBuilder;
 
 /**
@@ -11,6 +12,11 @@ use Doctrine\ORM\QueryBuilder;
  */
 abstract class AbstractRepository
 {
+
+    /**
+     * @var EntityManager
+     */
+    protected $entityManager;
 
     /**
      * @return QueryBuilder
@@ -36,6 +42,24 @@ abstract class AbstractRepository
         return $qb
             ->getQuery()
             ->getSingleScalarResult();
+    }
+
+    public function persist($entity) : void
+    {
+        $this->entityManager->persist($entity);
+    }
+
+    public function flush() : void
+    {
+        $this->entityManager->flush();
+    }
+
+    /**
+     * @return EntityManager
+     */
+    public function getEntityManager() : EntityManager
+    {
+        return $this->entityManager;
     }
 
 }
