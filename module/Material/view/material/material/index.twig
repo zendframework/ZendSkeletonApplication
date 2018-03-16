@@ -1,0 +1,53 @@
+{% import "macro" as macro %}
+{% extends 'layout/layout' %}
+
+{% block page %}
+
+    <a href="{{ url('materials/add_material') }}">
+        <button class="btn btn-success">
+            Add
+        </button>
+    </a>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Created</th>
+                        <th>Modified</th>
+                        <th>Name</th>
+                        <th>Material Group</th>
+                        <th>Unit</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for material in pagination.getResult() %}
+                        <tr>
+                            <td>{{ material.getId() }}</td>
+                            <td>{{ material.getCreated().format('Y-m-d H:i:d') }}</td>
+                            <td>{{ material.getModified().format('Y-m-d H:i:d') }}</td>
+                            <td>{{ material.getName() }}</td>
+                            <td>{{ material.getMaterialGroup().getName() }}</td>
+                            <td>{{ material.getUnit().getName() }}</td>
+                            <td>
+                                <a href="{{ url('materials/edit_material', {'id': material.getId()}) }}">
+                                    Edit
+                                </a>
+                                <a href="{{ url('materials/remove_material', {'id': material.getId()}) }}">
+                                    Remove
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {{ macro.getPagination(pagination) }}
+        </div>
+    </div>
+
+{% endblock %}

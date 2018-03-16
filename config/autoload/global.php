@@ -12,5 +12,18 @@
  */
 
 return [
-    // ...
+    'doctrine' => [
+        'connection' => [
+            'orm_default' => [
+                'driverClass' => \Doctrine\DBAL\Driver\PDOMySql\Driver::class,
+                'params' => [
+                    'host'     => 'localhost',
+                    'port'     => '3306',
+                    'user'     => 'vagrant',
+                    'password' => 'vagrant',
+                    'dbname'   => 'material_manager',
+                ],
+            ],
+        ],
+    ],
 ];

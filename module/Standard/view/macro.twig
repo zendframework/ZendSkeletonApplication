@@ -1,0 +1,39 @@
+{% macro getPagination(paginationService, url) %}
+    {% if not paginationService.itIsTheOnlyPage() and paginationService.getTotalResults() != 0 %}
+        <nav>
+            <ul class="pagination">
+                {% if paginationService.isPreviousPage() %}
+                    <li class="page-item">
+                        <a href="{{ paginationService.getPageUrl(1) }}">First</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="{{ paginationService.getPageUrl(paginationService.getPreviousPage()) }}">Previous</a>
+                    </li>
+                    {% for page in paginationService.getPreviousPages() %}
+                        <li class="page-item">
+                            <a href="{{ paginationService.getPageUrl(page) }}">{{ page }}</a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+                <li class="page-item active">
+                    <a href="{{ paginationService.getPageUrl(paginationService.getPage()) }}">
+                        {{ paginationService.getPage() }}
+                    </a>
+                </li>
+                {% if paginationService.isNextPage() %}
+                    {% for page in paginationService.getNextPages() %}
+                        <li class="page-item">
+                            <a href="{{ paginationService.getPageUrl(page) }}">{{ page }}</a>
+                        </li>
+                    {% endfor %}
+                    <li class="page-item">
+                        <a href="{{ paginationService.getPageUrl(paginationService.getNextPage()) }}">Next</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="{{ paginationService.getPageUrl(paginationService.getTotalPages()) }}">Last</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+{% endmacro %}
