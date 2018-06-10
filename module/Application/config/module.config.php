@@ -15,7 +15,7 @@ return [
     'router' => [
         'routes' => [
             'home' => [
-                'type' => Literal::class,
+                'type'    => Literal::class,
                 'options' => [
                     'route'    => '/',
                     'defaults' => [
