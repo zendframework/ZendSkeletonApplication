@@ -96,9 +96,15 @@
                 "module": true
             },
             {
+                "name": "phpunit/phpunit",
+                "constraint": "^7.5.12 || ^6.5.14 || ^5.7.14",
+                "prompt": "Would you like to install testing support?",
+                "dev": true
+            },
+            {
                 "name": "zendframework/zend-test",
                 "constraint": "^3.0.1",
-                "prompt": "Would you like to install MVC testing support?",
+                "prompt": "Would you like to install MVC testing tools for testing support?",
                 "dev": true
             },
             {
