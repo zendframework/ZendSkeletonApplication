@@ -24,7 +24,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-## 3.1.1 - TBD
+## 3.1.1 - 2019-11-15
 
 ### Added
 
@@ -44,7 +44,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#449](https://github.com/zendframework/ZendSkeletonApplication/pull/449) fixes a syntax error in the post-create-project-cmd hook.
 
 ## 3.1.0 - 2019-11-15
 
