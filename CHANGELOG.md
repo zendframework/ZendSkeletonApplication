@@ -34,4 +34,4 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#430](https://github.com/zendframework/ZendSkeletonApplication/pull/430) updates the `serve` command to work cross-platform, and across all supported PHP versions.
