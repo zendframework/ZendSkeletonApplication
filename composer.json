@@ -123,7 +123,7 @@
             "@development-enable",
             "php -r '$file = file_get_contents(\".gitignore\"); $file = str_replace(\"composer.lock\", \"\", $file); file_put_contents(\".gitignore\", $file);"
         ],
-        "serve": "php -S 0.0.0.0:8080 -t public public/index.php",
+        "serve": "php -S 0.0.0.0:8080 -t public",
         "test": "phpunit"
     }
 }
