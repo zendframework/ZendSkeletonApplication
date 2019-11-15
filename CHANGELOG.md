@@ -10,6 +10,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Changed
 
+- [#428](https://github.com/zendframework/ZendSkeletonApplication/pull/428) changes the default `module_listener_options` in the `config/application.config.php` file to remove the `module_paths` and set `use_zend_loader` to false.
+
 - [#448](https://github.com/zendframework/ZendSkeletonApplication/pull/448) removes the `composer.lock` to ensure users creating a new project receive the latest versions of all dependencies as supported by their current PHP version.  Additionally, it adds an entry to the `post-create-project-cmd` Composer hook to remove the `composer.lock` entry from the `.gitignore` file, to promote checking in a `composer.lock` in user projects.
 
 - [#448](https://github.com/zendframework/ZendSkeletonApplication/pull/448) bumps the version constraints of all optional packages to the latest versions supported by all PHP versions the skeleton supports.
