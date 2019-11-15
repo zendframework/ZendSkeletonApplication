@@ -9,14 +9,12 @@
         "zf"
     ],
     "homepage": "http://framework.zend.com/",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "php": "^5.6 || ^7.0",
         "zendframework/zend-component-installer": "^1.0 || ^2.1",
-        "zendframework/zend-skeleton-installer": "^1.0 || ^0.1.7 || ^1.0.0-dev@dev",
-        "zendframework/zend-mvc": "^3.0.1",
-        "zfcampus/zf-development-mode": "^3.0"
+        "zendframework/zend-skeleton-installer": "^0.1.7 || ^1.0",
+        "zendframework/zend-mvc": "^3.1.1",
+        "zfcampus/zf-development-mode": "^3.2"
     },
     "autoload": {
         "psr-4": {
