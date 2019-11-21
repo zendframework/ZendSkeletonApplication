@@ -24,7 +24,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-## 3.1.2 - TBD
+## 3.1.2 - 2019-11-21
 
 ### Added
 
@@ -44,7 +44,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#451](https://github.com/zendframework/ZendSkeletonApplication/pull/451) provides compatibility on Windows for the script re-instating the composer.lock in the created project.
 
 ## 3.1.1 - 2019-11-15
 
