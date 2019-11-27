@@ -44,7 +44,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- Nothing.
+- [#452](https://github.com/zendframework/ZendSkeletonApplication/pull/452) provides a truly cross-platform approach to removing the `composer.lock` entry from the `.gitignore` file. The skeleton now provides a script for doing so that it invokes as part of its post-create-project-cmd event; the script removes itself on completion.
 
 ## 3.1.2 - 2019-11-21
 
