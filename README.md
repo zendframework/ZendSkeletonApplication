@@ -1,5 +1,9 @@
 # ZendSkeletonApplication
 
+> ## Repository abandoned 2019-12-31
+>
+> This repository has moved to laminas/laminas-skeleton-installer.
+
 ## Introduction
 
 This is a skeleton application using the Zend Framework MVC layer and module
